@@ -91,7 +91,7 @@ export default function NotesPage() {
 
           // Procesar las materias y sus notas
           Object.entries(subjectsData).forEach(([subjectId, subject]) => {
-            if (subject.createdBy === user.id) {
+            if (subject.createdBy === user.id) {  // Only process subjects created by current user
               userSubjects.push({
                 id: subjectId,
                 name: subject.name
@@ -99,11 +99,14 @@ export default function NotesPage() {
 
               if (subject.notes) {
                 Object.entries(subject.notes).forEach(([noteId, note]) => {
-                  userNotesList.push({
-                    ...note,
-                    subject: subject.name,
-                    subjectId
-                  });
+                  if (note.createdBy === user.id) {  // Only include notes created by current user
+                    userNotesList.push({
+                      id: noteId,
+                      ...note,
+                      subject: subject.name,
+                      subjectId
+                    });
+                  }
                 });
               }
             }
@@ -261,12 +264,14 @@ export default function NotesPage() {
       ? chapter.content 
       : Object.values(chapter.content || {});
     
-    return content.map((item, itemIndex) => ({
-      ...item,
-      id: `${selectedCourse.id}-${chapterIndex}-${itemIndex}`,
-      chapterName: chapter.name || '',
-      chapterNumber: chapter.chapterId || chapterIndex,
-    })).filter(item => item && item.title); // Solo incluir items válidos con título
+    return content
+      .map((item, itemIndex) => ({
+        ...item,
+        id: `${selectedCourse.id}-${chapterIndex}-${itemIndex}`,
+        chapterName: chapter.name || '',
+        chapterNumber: chapter.chapterId || chapterIndex,
+      }))
+      .filter(item => item && item.title);
   }) || [];
 
   const filteredNotes = userNotes.filter((note) => {
