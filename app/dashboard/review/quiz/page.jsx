@@ -46,15 +46,21 @@ const QuizPage = () => {
         const notesList = [];
 
         Object.entries(subjectsData).forEach(([id, data]) => {
-          subjectsList.push({ id, ...data });
-          if (data.notes) {
-            Object.entries(data.notes).forEach(([noteId, noteData]) => {
-              notesList.push({
-                id: noteId,
-                subjectId: id,
-                ...noteData
+          // Solo incluir materias creadas por el usuario actual
+          if (data.createdBy === user?.id) {
+            subjectsList.push({ id, ...data });
+            if (data.notes) {
+              Object.entries(data.notes).forEach(([noteId, noteData]) => {
+                // Solo incluir apuntes creados por el usuario actual
+                if (noteData.createdBy === user?.id) {
+                  notesList.push({
+                    id: noteId,
+                    subjectId: id,
+                    ...noteData
+                  });
+                }
               });
-            });
+            }
           }
         });
 

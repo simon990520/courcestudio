@@ -65,15 +65,20 @@ export default function NotesPage() {
         setLoading(true);
 
         // Fetch courses
+        const userEmail = user.primaryEmailAddress.emailAddress;
+        console.log('=== DEBUG INFO ===');
+        console.log('User object:', user);
+        console.log('User Email:', userEmail);
         const coursesRef = ref(realtimeDb, "courses");
         const coursesSnapshot = await get(coursesRef);
         if (coursesSnapshot.exists()) {
           const coursesData = coursesSnapshot.val();
-          const coursesArray = Object.entries(coursesData).map(([id, data]) => ({
-            id,
-            ...data,
-            chapters: Array.isArray(data.chapters) ? data.chapters : Object.values(data.chapters || {}),
-          }));
+          const coursesArray = Object.entries(coursesData)
+            .map(([id, data]) => ({
+              id,
+              ...data,
+              chapters: Array.isArray(data.chapters) ? data.chapters : Object.values(data.chapters || {}),
+            }));
           setCourses(coursesArray);
           if (coursesArray.length > 0) {
             setSelectedCourse(coursesArray[0]);
@@ -127,8 +132,6 @@ export default function NotesPage() {
   }, [user]);
 
   const handleSaveNote = async (formData) => {
-    console.log('DEBUG - Saving note:', formData);
-    console.log('DEBUG - Current editing note before:', editingNote);
     try {
       const now = new Date().toISOString();
       const subject = subjects.find(s => s.id === formData.subjectId);
@@ -148,7 +151,6 @@ export default function NotesPage() {
         createdBy: user?.id,
       };
 
-      console.log('DEBUG - Prepared note data:', noteData);
 
       if (editingNote) {
         // Actualizar nota existente
@@ -165,12 +167,10 @@ export default function NotesPage() {
         toast.success("Nota creada exitosamente");
       }
 
-      console.log('DEBUG - Before closing modal after save');
       // Primero limpiamos el estado de edición
       setEditingNote(null);
       // Luego cerramos el modal
       setIsNoteModalOpen(false);
-      console.log('DEBUG - After closing modal after save');
       loadSubjectsAndNotes(); // Cargar notas actualizadas
     } catch (error) {
       console.error("NotesPage - Error saving note:", error);
@@ -264,7 +264,18 @@ export default function NotesPage() {
       ? chapter.content 
       : Object.values(chapter.content || {});
     
+    console.log('Chapter content:', content); // Debug log
+    
     return content
+      .filter(item => {
+        const userEmail = user.primaryEmailAddress.emailAddress;
+        console.log('Checking item:', item); // Debug log
+        console.log('User email:', userEmail); // Debug log
+        console.log('Course creator:', selectedCourse?.createdBy); // Debug log
+        
+        // Verificar si el curso fue creado por el usuario actual
+        return selectedCourse?.createdBy === userEmail;
+      })
       .map((item, itemIndex) => ({
         ...item,
         id: `${selectedCourse.id}-${chapterIndex}-${itemIndex}`,

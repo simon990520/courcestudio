@@ -8,6 +8,7 @@ import CourseCard from './CourseCard'
 import { UserCourseListContext } from '@/app/_context/UserCourseListContext'
 import { ref, get, set, update, push } from "firebase/database"; // Importa las funciones necesarias
 import { realtimeDb } from "@/configs/firebaseConfig";
+import { Button } from "@/components/ui/button"
 
 const UserCourseList = () => {
   const [courseList,setCourseList] =  useState([]);
@@ -38,23 +39,23 @@ const UserCourseList = () => {
       
       // Obtener todos los cursos
       const snapshot = await get(coursesRef);
-  
+
       if (snapshot.exists()) {
         const allCourses = snapshot.val();
-  
+
         // Filtrar los cursos creados por el usuario
         const userCourses = Object.values(allCourses).filter(
           (course) => course.createdBy === user.primaryEmailAddress.emailAddress
         );
-  
+
         // Implementar la paginación
         const startIndex = pageIndex * 6;
         const paginatedCourses = userCourses.slice(startIndex, startIndex + 6);
-  
+
         // Actualizar los estados
         setCourseList(paginatedCourses); // Cursos para mostrar
         setUserCourseList(userCourses); // Todos los cursos del usuario
-  
+
         console.log("Cursos del usuario:", userCourses);
       } else {
         console.error("No se encontraron cursos en la base de datos.");

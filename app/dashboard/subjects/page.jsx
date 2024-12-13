@@ -64,6 +64,8 @@ const SubjectsPage = () => {
               notes
             };
           })
+          // Filtrar solo las materias creadas por el usuario actual
+          .filter(subject => subject.createdBy === user?.id)
           .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
         setSubjects(subjectsList);
       } else {
