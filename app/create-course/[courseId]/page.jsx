@@ -1,5 +1,5 @@
 "use client";
-import { ref, get, set, update } from "firebase/database";
+import { ref, get, set, update, push } from "firebase/database"; // Importa las funciones necesarias
 import { useUser } from "@clerk/nextjs";
 import React, { useEffect, useState } from "react";
 import CourseBasicInfo from "./_components/CourseBasicInfo";
@@ -14,29 +14,32 @@ import { useRouter } from "next/navigation";
 import { realtimeDb } from "@/configs/firebaseConfig";
 
 const courseLayout = ({ params }) => {
-  const { user, isLoaded } = useUser();
+  const { user } = useUser();
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isCourseValid, setIsCourseValid] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    if (!isLoaded) return; // Esperar a que Clerk cargue
-    
-    if (params?.courseId && user?.primaryEmailAddress?.emailAddress) {
+    if (params?.courseId) {
       getCourseData();
-    } else if (isLoaded && !user) {
-      // Si Clerk terminó de cargar y no hay usuario, redirigir al login
-      router.push('/sign-in');
+    } else {
+      setIsCourseValid(false);
     }
-  }, [params, user, isLoaded]);
+  }, [params, user]);
 
   // Función para obtener datos del curso desde Firebase
   const getCourseData = async () => {
+    if (!params?.courseId || !user?.primaryEmailAddress?.emailAddress) {
+      console.error("Falta el ID del curso o el correo electrónico del usuario.");
+      setIsCourseValid(false);
+      return;
+    }
     if (!realtimeDb) {
       console.error("Firebase Realtime Database no está inicializado correctamente.");
       return;
     }
+    
 
     try {
       const courseRef = ref(realtimeDb, `courses/${params.courseId}`);
@@ -44,26 +47,15 @@ const courseLayout = ({ params }) => {
 
       if (snapshot.exists()) {
         const courseData = snapshot.val();
-        // Verificar que el curso pertenece al usuario actual
-        if (courseData.createdBy === user?.primaryEmailAddress?.emailAddress) {
-          setCourse(courseData);
-          setIsCourseValid(true);
-        } else {
-          console.error("No tienes permiso para acceder a este curso.");
-          setIsCourseValid(false);
-          toast.error("No tienes permiso para acceder a este curso");
-          router.push('/dashboard');
-        }
+        setCourse(courseData);
+        setIsCourseValid(true);
       } else {
         console.error("No se encontró el curso en la base de datos.");
         setIsCourseValid(false);
-        toast.error("No se encontró el curso");
-        router.push('/dashboard');
       }
     } catch (error) {
       console.error("Error obteniendo datos del curso:", error);
       setIsCourseValid(false);
-      toast.error("Error al cargar el curso");
     }
   };
 
@@ -75,87 +67,54 @@ const courseLayout = ({ params }) => {
     }
 
     setLoading(true);
+
     const chapters = course?.courseOutput?.course?.chapters;
 
-    try {
-      for (const [index, chapter] of chapters.entries()) {
-        const prompt = `
-          Explica el concepto en detalle sobre el tema: ${course?.name}, 
-          Capítulo: ${chapter?.name}, 
-          Genera un objeto JSON con la siguiente estructura exacta, sin incluir comillas triples ni la palabra json:
-          {
-            "sections": [
-              {
-                "title": "Título de la sección",
-                "description": "Descripción detallada",
-                "code": "<precode>código de ejemplo</precode>" (opcional)
-              }
-            ]
-          }
-        `;
+    for (const [index, chapter] of chapters.entries()) {
+      const prompt = `
+        Explica el concepto en detalle sobre el tema: ${course?.name}, 
+        Capítulo: ${chapter?.name}, 
+        En formato JSON con una lista de arreglos con los campos como título, descripción en detalle, ejemplo de código (campo de código en formato <precode> si corresponde).
+      `;
 
-        try {
-          let videoId = "";
-          // Genera el video URL
-          const videoResponse = await service.getVideos(`${course?.name}:${chapter?.name}`);
-          if (videoResponse?.length > 0) {
-            videoId = videoResponse[0]?.id?.videoId || "";
-          }
-
-          // Genera el contenido del capítulo
-          const result = await GenerateChapterContent_AI.sendMessage(prompt);
-          const rawText = await result.response.text();
-          
-          // Limpia el texto de la respuesta
-          let cleanJson = rawText;
-          // Elimina los backticks y la palabra json si están presentes
-          if (rawText.includes('```')) {
-            cleanJson = rawText.replace(/```json\n|\n```|```/g, '').trim();
-          }
-
-          try {
-            const content = JSON.parse(cleanJson);
-
-            // Guarda el contenido del capítulo en Firebase
-            const chapterRef = ref(realtimeDb, `courses/${course.courseId}/chapters/${index}`);
-            await set(chapterRef, {
-              chapterId: index,
-              name: chapter?.name,
-              content: content,
-              videoId: videoId,
-            });
-          } catch (jsonError) {
-            console.error("Error parseando JSON:", jsonError);
-            console.log("JSON inválido:", cleanJson);
-            toast.error(`Error en el formato JSON del capítulo ${index + 1}: ${chapter?.name}`);
-          }
-        } catch (error) {
-          console.error("Error generando contenido del capítulo:", error);
-          toast.error(`Error en capítulo ${index + 1}: ${chapter?.name}`);
+      try {
+        let videoId = "";
+        // Genera el video URL
+        const videoResponse = await service.getVideos(`${course?.name}:${chapter?.name}`);
+        if (videoResponse?.length > 0) {
+          videoId = videoResponse[0]?.id?.videoId || "";
         }
+
+        // Genera el contenido del capítulo
+        const result = await GenerateChapterContent_AI.sendMessage(prompt);
+        const content = JSON.parse(result?.response?.text());
+
+        // Guarda el contenido del capítulo en Firebase
+        const chapterRef = ref(realtimeDb, `courses/${course.courseId}/chapters/${index}`);
+        await set(chapterRef, {
+          chapterId: index,
+          name: chapter?.name,
+          content: content,
+          videoId: videoId,
+        });
+      } catch (error) {
+        console.error("Error generando contenido del capítulo:", error);
       }
-
-      // Actualiza el estado del curso como "publicado"
-      const courseRef = ref(realtimeDb, `courses/${course.courseId}`);
-      await update(courseRef, { publish: true });
-      
-      toast.success("¡Contenido generado exitosamente!");
-      router.replace(`/create-course/${course?.courseId}/finish`);
-    } catch (error) {
-      console.error("Error en el proceso de generación:", error);
-      toast.error("Error al generar el contenido del curso");
-    } finally {
-      setLoading(false);
     }
-  };
 
-  if (!isLoaded || loading) {
-    return <Loading loading={true} />;
-  }
+    // Actualiza el estado del curso como "publicado"
+    const courseRef = ref(realtimeDb, `courses/${course.courseId}`);
+    await update(courseRef, { publish: true });
+
+    setLoading(false);
+    router.replace(`/create-course/${course?.courseId}/finish`);
+  };
 
   return (
     <div className="h-screen w-full mt-10 px-7 md:px-20 lg:px-44">
       <h2 className="font-bold text-center text-2xl">Diseño del curso</h2>
+
+      <Loading loading={loading} />
 
       {/* Información básica del curso */}
       <CourseBasicInfo course={course} refreshData={getCourseData} />
@@ -166,12 +125,8 @@ const courseLayout = ({ params }) => {
       {/* Lista de capítulos */}
       <ChapterList course={course} refreshData={getCourseData} />
 
-      <Button 
-        disabled={!isCourseValid} 
-        onClick={generateChapterContent} 
-        className="w-full my-10 bg-orange-500 hover:bg-orange-600 disabled:bg-gray-300"
-      >
-        {loading ? "Generando contenido..." : "Generar contenido del curso"}
+      <Button disabled={!isCourseValid} onClick={generateChapterContent} className="my-10">
+        Generar contenido del curso
       </Button>
       <Toaster />
     </div>

@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState } from 'react'
 import {
     Dialog,
@@ -9,105 +7,79 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-    DialogClose,
-} from "@/components/ui/dialog";
-import { HiPencilSquare } from "react-icons/hi2";
+  } from "@/components/ui/dialog";
+  import { HiPencilSquare } from "react-icons/hi2";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { DialogClose } from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
+import { db } from "@/configs/db";
+import { CourseList } from "@/configs/Schema";
 import { realtimeDb } from "@/configs/firebaseConfig";
-import { ref, update } from "firebase/database";
-import toast from "react-hot-toast";
-
+import { ref, get, set, update, push } from "firebase/database";
+import { eq } from "drizzle-orm";
 const EditChapter = ({course, index, refreshData}) => {
-    const [open, setOpen] = useState(false);
-    const [name, setName] = useState("");
-    const [about, setAbout] = useState("");
-    const chapters = course?.courseOutput?.course?.chapters;
 
-    useEffect(() => {
-        if (chapters && chapters[index]) {
-            setName(chapters[index].name || "");
-            setAbout(chapters[index].about || "");
-        }
-    }, [chapters, index]);
+    const[name, setName] = useState();
+    const[about,setAbout] = useState();
+    const chapters =  course?.courseOutput?.course?.chapters;
 
+    useEffect(()=>{
+           setName(chapters[index].name);
+           setAbout(chapters[index].about);
+    },[course])
     const onUpdateHandler = async () => {
-        if (!course?.courseId || !chapters?.[index]) {
-            toast.error("Datos del curso o capítulo inválidos");
-            return;
-        }
-
-        try {
-            const chapterRef = ref(realtimeDb, `courses/${course.courseId}/courseOutput/course/chapters/${index}`);
-            await update(chapterRef, {
-                name: name,
-                about: about,
-            });
-
-            toast.success("Capítulo actualizado exitosamente");
-            refreshData(true);
-            setOpen(false);
-        } catch (error) {
-            console.error("Error al actualizar el capítulo:", error);
-            toast.error("Error al actualizar el capítulo");
-        }
+      if (!course || !course.courseId || !course.courseOutput?.course?.chapters?.[index]) {
+        console.error("Datos del curso o capítulo inválidos. No se puede actualizar.");
+        return;
+      }
+    
+      try {
+        // Referencia específica al capítulo en Firebase
+        const chapterRef = ref(realtimeDb, `courses/${course.courseId}/courseOutput/course/chapters/${index}`);
+    
+        // Actualiza los datos del capítulo
+        await update(chapterRef, {
+          name: name,
+          about: about,
+        });
+    
+        console.log("Capítulo actualizado exitosamente en Firebase");
+        refreshData(true); // Refresca los datos si es necesario
+      } catch (error) {
+        console.error("Error al actualizar el capítulo en Firebase:", error);
+      }
     };
     
-    return (
-        <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-8 w-8">
-                    <HiPencilSquare className="h-5 w-5" />
-                    <span className="sr-only">Editar capítulo</span>
-                </Button>
-            </DialogTrigger>
-            <DialogContent>
-                <DialogHeader>
-                    <DialogTitle>Editar capítulo del curso</DialogTitle>
-                    <DialogDescription>
-                        Modifica los detalles del capítulo según sea necesario.
-                    </DialogDescription>
-                </DialogHeader>
-                
-                <div className="space-y-4 py-4">
-                    <div className="space-y-2">
-                        <label htmlFor="chapter-name" className="text-sm font-medium">
-                            Título del capítulo
-                        </label>
-                        <Input
-                            id="chapter-name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            placeholder="Ingrese el título del capítulo"
-                        />
-                    </div>
-                    
-                    <div className="space-y-2">
-                        <label htmlFor="chapter-description" className="text-sm font-medium">
-                            Descripción del capítulo
-                        </label>
-                        <Textarea
-                            id="chapter-description"
-                            value={about}
-                            onChange={(e) => setAbout(e.target.value)}
-                            placeholder="Ingrese la descripción del capítulo"
-                            className="h-40"
-                        />
-                    </div>
-                </div>
+  return (
+    <Dialog>
+        <DialogTrigger>
+            <HiPencilSquare />
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Editar capítulos del curso</DialogTitle>
+            <DialogDescription>
+             <div className="mt-3">
+              <label htmlFor="">Título del curso</label>
+              <Input defaultValue={chapters[index].name} onChange={(e)=>setName(e?.target.value)} />
+             </div>
+             <div  className='mt-3'>
+              <label  htmlFor="">Descripción del curso</label>
+              <Textarea className="h-40" defaultValue={chapters[index].about} onChange ={(e)=>setAbout(e?.target.value)} />
+             </div>
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <DialogClose>
+              <Button onClick={onUpdateHandler}>
+                Actualizar
+              </Button>
+            </DialogClose>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+  )
+}
 
-                <DialogFooter>
-                    <DialogClose asChild>
-                        <Button variant="outline">Cancelar</Button>
-                    </DialogClose>
-                    <Button onClick={onUpdateHandler}>
-                        Actualizar
-                    </Button>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog>
-    );
-};
-
-export default EditChapter;
+export default EditChapter

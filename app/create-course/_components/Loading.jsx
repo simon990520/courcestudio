@@ -1,43 +1,37 @@
 import React from 'react'
 import {
     AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
     AlertDialogContent,
     AlertDialogDescription,
+    AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
+    AlertDialogTrigger,
+  } from "@/components/ui/alert-dialog"
 import Image from 'next/image'
-
+import { WidthIcon } from '@radix-ui/react-icons'
+  
 const Loading = ({loading}) => {
   return (
-    <AlertDialog open={loading}>
-      <AlertDialogContent>
-        <AlertDialogHeader className="space-y-2">
-          <VisuallyHidden asChild>
-            <AlertDialogTitle>
-              Estado de generación del curso
-            </AlertDialogTitle>
-          </VisuallyHidden>
-          <div className="text-center text-xl font-semibold">
-            Generando tu curso personalizado
-          </div>
-          <AlertDialogDescription className="text-center">
-            Por favor espera mientras la IA trabaja en tu curso...
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <div className="flex flex-col items-center py-6">
-          <Image 
-            src="/LoadingCourse.gif"
-            width={100}
-            height={100}
-            alt="Animación de carga mientras se genera el curso"
-            priority
-            className="mb-4"
-          />
+
+<AlertDialog open={loading}>
+ 
+  <AlertDialogContent>
+    <AlertDialogHeader>
+    
+      <AlertDialogDescription>
+        <div className='flex items-center flex-col py-12'>
+            <Image src={'/LoadingCourse.gif'} width={100} height={100} />
+            <h2>Por favor espera... La IA está trabajando en tu curso.</h2>
         </div>
-      </AlertDialogContent>
-    </AlertDialog>
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    
+  </AlertDialogContent>
+</AlertDialog>
+
   )
 }
 
