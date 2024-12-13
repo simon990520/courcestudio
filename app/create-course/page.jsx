@@ -172,7 +172,7 @@ const CreateCourse = () => {
         <h2 className="text-4xl text-primary font-medium">Crear curso</h2>
         <div className="flex  mt-10">
           {StepperOptions.map((item, index) => (
-            <div className="flex items-center">
+            <div className="flex items-center" key={item.id}>
               <div className="flex flex-col items-center w-[50px] md:w-[100px]">
                 <div
                   className={`bg-gray-300 p-3 rounded-full text-white ${
