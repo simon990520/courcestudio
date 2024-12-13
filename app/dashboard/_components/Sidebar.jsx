@@ -43,11 +43,17 @@ const Sidebar = () => {
       return activeItem === 'account';
     }
     
+    // Special case for dashboard home
     if (itemPath === '/dashboard' && path === '/dashboard') {
-      return itemId === 1;
+      return true;
     }
     
-    return path.startsWith(itemPath);
+    // For other routes, check if the current path matches the menu item path
+    if (itemPath !== '/dashboard') {
+      return path === itemPath;
+    }
+    
+    return false;
   };
 
   const menu = [
@@ -150,13 +156,13 @@ const Sidebar = () => {
         ))}
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 p-4">
+      {/* <div className="absolute bottom-0 left-0 right-0 p-4">
         <div className="flex flex-col gap-2">
           <h2 className="text-gray-500">Storage</h2>
           <Progress value={33} className="h-2" />
           <h2 className="text-orange-500">2.5GB Used of 5GB</h2>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
