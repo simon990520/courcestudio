@@ -115,7 +115,7 @@ const AboutUs = () => {
               className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl"
             >
               <Image
-                src="/banner.png"
+                src="/cap.png"
                 alt="Educación personalizada con Kunno AI - Plataforma de cursos con IA"
                 fill
                 className="object-cover"
