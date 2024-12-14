@@ -9,16 +9,16 @@ export default function AnimatedHero() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="text-center mb-16"
+      className="text-center mb-8 md:mb-16"
     >
-      <h1 className="text-6xl font-bold mb-4">
+      <h1 className="text-4xl md:text-6xl font-bold mb-4">
         Aprende y refuerza
         <span className="block text-gray-400 mt-2">tu conocimiento</span>
       </h1>
-      <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+      <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-6 md:mb-8 px-4">
         Plataforma interactiva con cursos, quizzes y flashcards para potenciar tu aprendizaje
       </p>
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4">
         <Link href="/explore-course">
           <motion.button
             whileHover={{ scale: 1.05 }}

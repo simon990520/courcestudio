@@ -8,22 +8,22 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#f8f9fa] relative overflow-hidden">
       {/* Header */}
-      <nav className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+      <nav className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
         <div className="flex items-center gap-2">
         <Image src={"/logo.png"} width={44} height={44} alt="Kunno App Logo" />
         </div>
-        <div className="flex items-center gap-8">
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
           <Link href="/about" className="text-gray-600 hover:text-gray-900">Quiénes Somos</Link>
           <Link href="/contact" className="text-gray-600 hover:text-gray-900">Contáctanos</Link>
           <Link href="/terms" className="text-gray-600 hover:text-gray-900">Términos y Condiciones</Link>
-          <Link href="/dashboard" className="px-8 py-2 bg-gradient-to-r from-orange-500 to-yellow-400 text-white rounded-lg hover:opacity-90 transition-colors">
+          <Link href="/dashboard" className="w-full md:w-auto text-center px-8 py-2 bg-gradient-to-r from-orange-500 to-yellow-400 text-white rounded-lg hover:opacity-90 transition-colors">
             ¡Empieza ahora!
           </Link>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 pt-20 pb-32">
+      <div className="max-w-7xl mx-auto px-4 pt-10 md:pt-20 pb-16 md:pb-32">
         <AnimatedHero />
         <AnimatedFeatures />
       </div>
