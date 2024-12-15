@@ -66,7 +66,7 @@ const ReviewPage = () => {
               <Button 
                 className="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:opacity-90"
               >
-                Practicar con Flashcards
+                Flashcards
                 <HiOutlineChevronRight className="ml-2" />
               </Button>
             </Link>

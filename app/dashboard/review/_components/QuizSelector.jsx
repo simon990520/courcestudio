@@ -156,22 +156,23 @@ const QuizSelector = ({ subjects, notes, onStart }) => {
         </motion.div>
       )}
 
-      <div className="flex justify-between mt-8">
+      <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
         {step === 'notes' && (
           <Button
             variant="outline"
             onClick={() => setStep('subjects')}
+            className="w-full sm:w-auto"
           >
             <HiOutlineChevronLeft className="mr-2 h-4 w-4" />
             Volver a Materias
           </Button>
         )}
-        <div className="ml-auto">
+        <div className={`${step === 'notes' ? '' : 'w-full flex justify-center'}`}>
           {step === 'subjects' ? (
             <Button
               onClick={() => setStep('notes')}
               disabled={!canProceed}
-              className="bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white"
+              className="w-full sm:w-auto bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white"
             >
               Seleccionar Apuntes
               <HiOutlineChevronRight className="ml-2 h-4 w-4" />
@@ -180,7 +181,7 @@ const QuizSelector = ({ subjects, notes, onStart }) => {
             <Button
               onClick={() => onStart(selectedSubjects, selectedNotes)}
               disabled={!canProceed}
-              className="bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white"
+              className="w-full sm:w-auto bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white"
             >
               Comenzar Quiz
               <HiOutlineLightBulb className="ml-2 h-4 w-4" />

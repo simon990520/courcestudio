@@ -177,47 +177,46 @@ const FlashcardSelector = ({ subjects, notes, onStart }) => {
         </motion.div>
       )}
 
-      <div className="flex justify-between mt-8">
+      <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
         {step === 'notes' && (
           <Button
             variant="outline"
             onClick={() => setStep('subjects')}
             disabled={isGenerating}
+            className="w-full sm:w-auto"
           >
             <HiOutlineChevronLeft className="mr-2 h-4 w-4" />
             Volver a Materias
           </Button>
         )}
-        <div className="ml-auto">
+        <div className={`${step === 'notes' ? '' : 'w-full flex justify-center'}`}>
           {step === 'subjects' ? (
             <Button
               onClick={() => setStep('notes')}
               disabled={!canProceed || isGenerating}
-              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white"
+              className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-600 text-white"
             >
               Seleccionar Apuntes
               <HiOutlineChevronRight className="ml-2 h-4 w-4" />
             </Button>
           ) : (
-            <div className="flex gap-2">
-              <Button
-                onClick={handleStartSession}
-                disabled={!canProceed || isGenerating}
-                className="bg-gradient-to-r from-blue-500 to-blue-600 text-white"
-              >
-                {isGenerating ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Generando Flashcards...
-                  </>
-                ) : (
-                  <>
-                    Crear Flashcards
-                    <HiOutlineLightBulb className="ml-2 h-4 w-4" />
-                  </>
-                )}
-              </Button>
-            </div>
+            <Button
+              onClick={handleStartSession}
+              disabled={!canProceed || isGenerating}
+              className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-600 text-white"
+            >
+              {isGenerating ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Generando...
+                </>
+              ) : (
+                <>
+                  Comenzar
+                  <HiOutlineLightBulb className="ml-2 h-4 w-4" />
+                </>
+              )}
+            </Button>
           )}
         </div>
       </div>
