@@ -103,7 +103,7 @@ const AddCourse = () => {
   );
 
   return (
-    <div className="mb-8 space-y-6">
+    <div className="mt-0">
       {/* Tarjeta de bienvenida */}
       <div className="relative overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-6 sm:p-8 text-white">
         <div className="absolute top-0 right-0 w-64 h-64 transform translate-x-1/3 -translate-y-1/3">

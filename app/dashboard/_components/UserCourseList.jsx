@@ -6,9 +6,10 @@ import { eq } from 'drizzle-orm'
 import React, { useContext, useEffect, useState } from 'react'
 import CourseCard from './CourseCard'
 import { UserCourseListContext } from '@/app/_context/UserCourseListContext'
-import { ref, get, set, update, push } from "firebase/database"; // Importa las funciones necesarias
+import { ref, get, set, update, push } from "firebase/database";
 import { realtimeDb } from "@/configs/firebaseConfig";
 import { Button } from "@/components/ui/button"
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi2";
 
 const UserCourseList = () => {
   const [courseList,setCourseList] =  useState([]);
@@ -21,12 +22,12 @@ const UserCourseList = () => {
   useEffect(()=>{
      user&&getUserCourses();
      const timer = setTimeout(() => {
-      setShowSkeleton(false); // Hide skeleton after 10 seconds
+      setShowSkeleton(false);
     }, 3000);
 
-    // Cleanup the timer on component unmount
     return () => clearTimeout(timer);
   },[user, pageIndex])
+
   const getUserCourses = async () => {
     if (!user?.primaryEmailAddress?.emailAddress) {
       console.error("Falta la dirección de correo electrónico del usuario.");
@@ -34,32 +35,25 @@ const UserCourseList = () => {
     }
   
     try {
-      // Referencia a los cursos en Firebase
       const coursesRef = ref(realtimeDb, `courses`);
-      
-      // Obtener todos los cursos
       const snapshot = await get(coursesRef);
 
       if (snapshot.exists()) {
         const allCourses = snapshot.val();
-
-        // Filtrar los cursos creados por el usuario
         const userCourses = Object.values(allCourses).filter(
           (course) => course.createdBy === user.primaryEmailAddress.emailAddress
         );
 
-        // Implementar la paginación
         const startIndex = pageIndex * 6;
         const paginatedCourses = userCourses.slice(startIndex, startIndex + 6);
 
-        // Actualizar los estados
-        setCourseList(paginatedCourses); // Cursos para mostrar
-        setUserCourseList(userCourses); // Todos los cursos del usuario
+        setCourseList(paginatedCourses);
+        setUserCourseList(userCourses);
 
         console.log("Cursos del usuario:", userCourses);
       } else {
         console.error("No se encontraron cursos en la base de datos.");
-        setCourseList([]); // Vaciar la lista si no hay resultados
+        setCourseList([]);
         setUserCourseList([]);
       }
     } catch (error) {
@@ -68,47 +62,70 @@ const UserCourseList = () => {
   };
   
   return (
-    <div className='mt-5'>
-      <h2 className='font-medium text-xl'>Mis cursos</h2>
-      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-col-4 gap-5 mt-3'>
-        {/* {
-          courseList?.length>0?courseList.map((course, index)=>(
-            <CourseCard course={course} key={index} refreshData={()=>getUserCourses()}/>
-          ))
-          :[1,2,3,4,5].map((item,index)=>(
-            <div key={index} className='w-full mt-5 bg-slate-200 animate-pulse rounded-lg h-[250px]'>
-               </div>
-          ))
-        } */}
-           {showSkeleton ? (
-          // Show skeletons while loading (for the first 10 seconds)
-          [1, 2, 3, 4, 5,6].map((item, index) => (
+    <div className='mt-8'>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className='text-2xl font-bold text-gray-900'>Mis Cursos</h2>
+        <div className="flex items-center gap-2">
+          {pageIndex !== 0 && (
+            <Button 
+              onClick={() => setPageIndex(pageIndex - 1)}
+              variant="ghost"
+              className="flex items-center gap-2 text-gray-600 hover:text-orange-600 hover:bg-orange-50"
+            >
+              <HiOutlineChevronLeft className="text-lg" />
+              Anterior
+            </Button>
+          )}
+          {courseList?.length === 6 && (
+            <Button 
+              onClick={() => setPageIndex(pageIndex + 1)}
+              variant="ghost"
+              className="flex items-center gap-2 text-gray-600 hover:text-orange-600 hover:bg-orange-50"
+            >
+              Siguiente
+              <HiOutlineChevronRight className="text-lg" />
+            </Button>
+          )}
+        </div>
+      </div>
+
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        {showSkeleton ? (
+          [1, 2, 3, 4, 5, 6].map((item, index) => (
             <div
               key={index}
-              className="w-full mt-5 bg-slate-200 animate-pulse rounded-lg h-[250px]"
-            />
+              className="animate-pulse"
+            >
+              <div className="rounded-xl overflow-hidden">
+                <div className="w-full h-[200px] bg-slate-200" />
+                <div className="p-4 space-y-3">
+                  <div className="h-6 bg-slate-200 rounded w-3/4" />
+                  <div className="h-4 bg-slate-200 rounded w-1/4" />
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="h-8 bg-slate-200 rounded" />
+                    <div className="h-8 bg-slate-200 rounded" />
+                  </div>
+                </div>
+              </div>
+            </div>
           ))
         ) : courseList?.length > 0 ? (
-          // Display courses if available
           courseList.map((course, index) => (
-            <CourseCard course={course} key={index} refreshData={()=>getUserCourses()}/>
+            <div
+              key={index}
+              className="opacity-0 animate-fadeIn"
+              style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
+            >
+              <CourseCard course={course} refreshData={()=>getUserCourses()}/>
+            </div>
           ))
         ) : (
-          // Show "No courses available" after skeleton and if no courses found
-          <div className="flex items-center justify-center">
-            <h2>Aun no tienes cursos</h2>
+          <div className="col-span-full flex flex-col items-center justify-center py-12 px-4">
+            <div className="text-center">
+              <h3 className="mt-2 text-lg font-medium text-gray-900">No tienes cursos aún</h3>
+              <p className="mt-1 text-sm text-gray-500">Comienza creando tu primer curso con IA.</p>
+            </div>
           </div>
-        )}
-      </div>
-      <div className="flex justify-between mt-4 items-center">
-        {pageIndex !== 0 && (
-          <Button onClick={() => setPageIndex(pageIndex - 1)}>
-            Previous Page
-          </Button>
-        )}
-        {/* Only show the "Next" button if there are courses to navigate through */}
-        {courseList?.length === 6 && (
-          <Button onClick={() => setPageIndex(pageIndex + 1)}>Next Page</Button>
         )}
       </div>
     </div>
