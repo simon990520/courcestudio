@@ -166,70 +166,109 @@ const CreateCourse = () => {
   };
   
   return (
-    <div>
-      {/* steper */}
-      <div className="flex flex-col justify-center items-center mt-10">
-        <h2 className="text-4xl text-primary font-medium">Crear curso</h2>
-        <div className="flex  mt-10">
-          {StepperOptions.map((item, index) => (
-            <div className="flex items-center" key={item.id}>
-              <div className="flex flex-col items-center w-[50px] md:w-[100px]">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-6 px-4">
+      {/* stepper loader */}
+      <div className="max-w-4xl mx-auto mb-6">
+        <div className="relative flex justify-center items-center py-6">
+          {/* Progress bar background */}
+          <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-100 transform -translate-y-1/2"></div>
+          
+          {/* Animated progress bar */}
+          <div 
+            className="absolute top-1/2 left-0 h-1 transform -translate-y-1/2 transition-all duration-500 ease-out bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-300"
+            style={{
+              width: `${(activeIndex / (StepperOptions.length - 1)) * 100}%`,
+              boxShadow: '0 0 10px rgba(255, 126, 50, 0.3)'
+            }}
+          />
+
+          {/* Steps */}
+          <div className="relative flex justify-between w-full">
+            {StepperOptions.map((item, index) => (
+              <div 
+                key={item.id}
+                className="flex flex-col items-center"
+                style={{
+                  transition: 'transform 0.5s ease-out',
+                  transform: `translateY(${activeIndex === index ? '-4px' : '0'})`
+                }}
+              >
                 <div
-                  className={`bg-gray-300 p-3 rounded-full text-white ${
-                    activeIndex >= index && "bg-orange-500"
-                  }`}
+                  className={`w-12 h-12 rounded-full flex items-center justify-center text-lg relative z-10
+                    transition-all duration-500 ease-out cursor-pointer
+                    ${activeIndex === index 
+                      ? 'bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-300 text-white shadow-lg scale-110 animate-pulse-shadow' 
+                      : activeIndex > index
+                        ? 'bg-gradient-to-r from-orange-500 to-yellow-300 text-white'
+                        : 'bg-white text-gray-400 border-2 border-gray-200'
+                    }`}
+                  onClick={() => activeIndex > index && setActiveIndex(index)}
                 >
-                  {item.icon}
+                  <span className={`transition-transform duration-300 ${activeIndex >= index ? 'scale-110' : 'scale-100'}`}>
+                    {activeIndex > index ? (
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    ) : (
+                      item.icon
+                    )}
+                  </span>
                 </div>
-                <h2 className="hidden md:block md:text-sm">{item.name}</h2>
+                <span 
+                  className={`mt-2 text-xs font-medium transition-all duration-300
+                    ${activeIndex >= index 
+                      ? 'text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-400' 
+                      : 'text-gray-400'
+                    }`}
+                >
+                  {item.name}
+                </span>
               </div>
-              {index != StepperOptions.length - 1 && (
-                <div
-                  className={`h-1 w-[50px] md:w-[100px] rounded-full bg-gray-300 lg:w-[170px] ${
-                    activeIndex - 1 >= index && "bg-purple-500"
-                  } `}
-                ></div>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="px-10 md:px-20 lg:px-44 mt-10">
-        {/* components */}
-        {activeIndex == 0 ? (
-          <SelectCategory />
-        ) : activeIndex == 1 ? (
-          <TopicDescription />
-        ) : (
-          <SelectOption />
-        )}
+      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-4 md:p-6 transition-all duration-300 ease-in-out transform hover:shadow-xl">
+        <div className="min-h-[300px] flex flex-col justify-between">
+          <div className={`animate-fade-in transform transition-all duration-500 ${activeIndex === 1 ? 'translate-x-0' : activeIndex === 2 ? '-translate-x-0' : ''}`}>
+            {activeIndex === 0 ? (
+              <SelectCategory />
+            ) : activeIndex === 1 ? (
+              <TopicDescription />
+            ) : (
+              <SelectOption />
+            )}
+          </div>
 
-        {/* next previous button  */}
-        <div className="flex justify-between mt-10">
-          <Button
-            disabled={activeIndex == 0}
-            onClick={() => setActiveIndex(activeIndex - 1)}
-            variant="outline"
-          >
-            Previous
-          </Button>
-          {activeIndex < 2 && (
+          <div className="flex justify-between mt-4 pt-4 border-t">
             <Button
-              disabled={checkStaus()}
-              onClick={() => setActiveIndex(activeIndex + 1)}
+              disabled={activeIndex === 0}
+              onClick={() => setActiveIndex(activeIndex - 1)}
+              variant="outline"
+              className="transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
             >
-              Next
+              Previous
             </Button>
-          )}
-          {activeIndex == 2 && (
-            <Button
-              disabled={checkStaus()}
-              onClick={() => GenerateCourseLayout()}
-            >
-              Generar curso
-            </Button>
-          )}
+            {activeIndex < 2 && (
+              <Button
+                disabled={checkStaus()}
+                onClick={() => setActiveIndex(activeIndex + 1)}
+                className="bg-gradient-to-r from-orange-500 to-yellow-400 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+              >
+                Next
+              </Button>
+            )}
+            {activeIndex === 2 && (
+              <Button
+                disabled={checkStaus()}
+                onClick={() => GenerateCourseLayout()}
+                className="bg-gradient-to-r from-orange-500 to-yellow-400 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+              >
+                Generar curso
+              </Button>
+            )}
+          </div>
         </div>
       </div>
       <Loading loading={loading} />
