@@ -319,8 +319,8 @@ const FlashcardsPage = () => {
     <div className="container mx-auto p-6">
       {/* Barra de progreso y estadísticas */}
       <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <Button
               variant="outline"
               size="sm"
@@ -328,7 +328,7 @@ const FlashcardsPage = () => {
                 resetSession();
                 setShowSummary(false);
               }}
-              className="flex items-center gap-2"
+              className="w-full sm:w-auto flex items-center gap-2"
             >
               <HiOutlineChevronLeft className="w-4 h-4" />
               Volver
@@ -337,14 +337,14 @@ const FlashcardsPage = () => {
               Tarjeta {currentIndex + 1} de {flashcards.length}
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <div className="flex items-center gap-2 w-full sm:w-auto justify-center">
               <HiOutlineCheck className="w-4 h-4 text-green-500" />
               <span className="text-sm text-gray-500">
                 {sessionStats.mastered} dominadas
               </span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 w-full sm:w-auto justify-center">
               <HiOutlineRefresh className="w-4 h-4 text-orange-500" />
               <span className="text-sm text-gray-500">
                 {sessionStats.reviewing} repasando
@@ -406,18 +406,18 @@ const FlashcardsPage = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex gap-2 mt-4"
+                  className="flex flex-col sm:flex-row gap-4 mt-4"
                 >
                   <Button
                     onClick={() => handleCardStatus('reviewing')}
-                    className="flex-1 bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white hover:opacity-90"
+                    className="w-full sm:flex-1 bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white hover:opacity-90"
                   >
                     Repasar Después
                     <HiOutlineRefresh className="w-4 h-4 ml-2" />
                   </Button>
                   <Button
                     onClick={() => handleCardStatus('mastered')}
-                    className="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white hover:opacity-90"
+                    className="w-full sm:flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white hover:opacity-90"
                   >
                     ¡Lo Domino!
                     <HiOutlineCheck className="w-4 h-4 ml-2" />
@@ -438,12 +438,12 @@ const SessionSummary = ({ summary, onRestart }) => (
     initial={{ opacity: 0, scale: 0.9 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.3 }}
-    className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-auto"
+    className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-auto p-4 sm:p-6"
   >
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-6 text-center">¡Sesión Completada!</h2>
+    <div className="space-y-6">
+      <h2 className="text-xl sm:text-2xl font-bold text-center">¡Sesión Completada!</h2>
       
-      <div className="grid grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -451,12 +451,12 @@ const SessionSummary = ({ summary, onRestart }) => (
         >
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-green-100 rounded-lg">
-                <HiOutlineTrendingUp className="w-6 h-6 text-green-600" />
+              <div className="p-2 sm:p-3 bg-green-100 rounded-lg">
+                <HiOutlineTrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
               </div>
               <div>
-                <div className="text-sm text-gray-500">Tasa de Éxito</div>
-                <div className="text-2xl font-bold text-green-600">
+                <div className="text-xs sm:text-sm text-gray-500">Tasa de Éxito</div>
+                <div className="text-xl sm:text-2xl font-bold text-green-600">
                   {Math.round(summary.completionRate)}%
                 </div>
               </div>
@@ -471,12 +471,12 @@ const SessionSummary = ({ summary, onRestart }) => (
         >
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-blue-100 rounded-lg">
-                <HiOutlineClock className="w-6 h-6 text-blue-600" />
+              <div className="p-2 sm:p-3 bg-blue-100 rounded-lg">
+                <HiOutlineClock className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
               </div>
               <div>
-                <div className="text-sm text-gray-500">Tiempo Total</div>
-                <div className="text-2xl font-bold">
+                <div className="text-xs sm:text-sm text-gray-500">Tiempo Total</div>
+                <div className="text-xl sm:text-2xl font-bold">
                   {Math.floor(summary.timeSpent / 60)}:{String(summary.timeSpent % 60).padStart(2, '0')}
                 </div>
               </div>
@@ -489,26 +489,25 @@ const SessionSummary = ({ summary, onRestart }) => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="mb-8"
       >
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-4">Resumen de Tarjetas</h3>
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <div>
-              <div className="text-sm text-gray-500">Dominadas</div>
-              <div className="text-xl font-bold text-green-600">
+        <Card className="p-4 sm:p-6">
+          <h3 className="text-base sm:text-lg font-semibold mb-4">Resumen de Tarjetas</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+            <div className="p-3 bg-gray-50 rounded-lg">
+              <div className="text-xs sm:text-sm text-gray-500">Dominadas</div>
+              <div className="text-lg sm:text-xl font-bold text-green-600">
                 {summary.mastered}
               </div>
             </div>
-            <div>
-              <div className="text-sm text-gray-500">En Revisión</div>
-              <div className="text-xl font-bold text-orange-600">
+            <div className="p-3 bg-gray-50 rounded-lg">
+              <div className="text-xs sm:text-sm text-gray-500">En Revisión</div>
+              <div className="text-lg sm:text-xl font-bold text-orange-600">
                 {summary.reviewing}
               </div>
             </div>
-            <div>
-              <div className="text-sm text-gray-500">Total</div>
-              <div className="text-xl font-bold">
+            <div className="p-3 bg-gray-50 rounded-lg">
+              <div className="text-xs sm:text-sm text-gray-500">Total</div>
+              <div className="text-lg sm:text-xl font-bold">
                 {summary.total}
               </div>
             </div>
@@ -520,19 +519,19 @@ const SessionSummary = ({ summary, onRestart }) => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="flex justify-center gap-4"
+        className="flex flex-col sm:flex-row justify-center gap-4"
       >
         <Button
           onClick={onRestart}
-          className="flex items-center gap-2"
+          className="w-full sm:w-auto flex items-center justify-center gap-2"
         >
           <HiOutlineRefresh className="w-5 h-5" />
           Nueva Sesión
         </Button>
-        <Link href="/dashboard/review/flashcards/progress">
+        <Link href="/dashboard/review/flashcards/progress" className="w-full sm:w-auto">
           <Button
             variant="outline"
-            className="flex items-center gap-2"
+            className="w-full flex items-center justify-center gap-2"
           >
             <HiOutlineChartBar className="w-5 h-5" />
             Ver Progreso Completo
