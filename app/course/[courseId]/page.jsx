@@ -11,6 +11,7 @@ import Link from "next/link";
 const Course = ({ params }) => {
   const [course, setCourse] = useState(null);
   const [copied, setCopied] = useState(false);
+  const [expandedChapter, setExpandedChapter] = useState(null);
 
   useEffect(() => {
     params && GetCourse();
@@ -47,6 +48,13 @@ const Course = ({ params }) => {
     } catch (error) {
       console.error("Error al copiar:", error);
     }
+  };
+
+  const calculateChapterTime = (chapter) => {
+    if (!chapter?.content?.length) return 0;
+    
+    // Estimamos 5 minutos por cada tema de contenido
+    return chapter.content.length * 5;
   };
 
   if (!course) {
@@ -119,47 +127,74 @@ const Course = ({ params }) => {
         </div>
       </div>
 
-      {/* Content Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 animate-fadeIn">
-        {/* Chapters Preview */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+      {/* Course Content Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
           <h2 className="text-2xl font-bold mb-6 text-gray-800">Contenido del Curso</h2>
-          <div className="space-y-4">
+          
+          <div className="space-y-6">
             {course.chapters?.map((chapter, index) => (
               <div
-                key={chapter.chapterId}
-                className="p-4 border border-gray-100 rounded-lg hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 animate-slideInUp"
-                style={{ animationDelay: `${index * 100}ms` }}
+                key={index}
+                className="border border-gray-100 rounded-lg hover:border-primary/30 hover:shadow-md transition-all duration-300"
               >
-                <div className="flex items-center gap-4">
-                  <div className="bg-orange-100 p-3 rounded-lg">
-                    <HiOutlineBookOpen className="text-2xl text-orange-600" />
+                <div className="p-4 cursor-pointer" onClick={() => setExpandedChapter(expandedChapter === index ? null : index)}>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-semibold">
+                        {index + 1}
+                      </span>
+                      <div>
+                        <h3 className="text-lg font-medium text-gray-800">{chapter.name}</h3>
+                        <p className="text-sm text-gray-500 mt-1">
+                          {chapter.content?.length || 0} temas · {calculateChapterTime(chapter)} min estimados
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={`h-5 w-5 text-gray-400 transform transition-transform duration-300 ${
+                          expandedChapter === index ? 'rotate-180' : ''
+                        }`}
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">{chapter.name}</h3>
-                    {chapter.about && (
-                      <p className="text-gray-600 text-sm mt-1">{chapter.about}</p>
-                    )}
+                </div>
+
+                {/* Contenido expandible */}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    expandedChapter === index ? 'max-h-[500px] border-t border-gray-100' : 'max-h-0'
+                  }`}
+                >
+                  <div className="p-4 space-y-3">
+                    {chapter.content?.map((content, contentIndex) => (
+                      <div
+                        key={contentIndex}
+                        className="flex flex-col gap-2 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                      >
+                        <h4 className="text-base font-medium text-gray-800">{content.title}</h4>
+                        {content.description && (
+                          <p className="text-sm text-gray-600">{content.description}</p>
+                        )}
+                        {content.codeExample && (
+                          <pre className="mt-2 p-3 bg-gray-100 rounded-lg text-sm font-mono whitespace-pre-wrap">
+                            {content.codeExample}
+                          </pre>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
-        {/* Course Details */}
-        {course.courseOutput?.course?.requirements && (
-          <div className="bg-white rounded-xl shadow-lg p-8 animate-slideInUp">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">Requisitos</h2>
-            <ul className="list-disc list-inside space-y-2 text-gray-600">
-              {course.courseOutput?.course?.requirements.split('\n').map((req, index) => (
-                <li key={index} className="animate-slideInLeft" style={{ animationDelay: `${index * 100}ms` }}>
-                  {req}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
     </div>
   );
