@@ -3339,6 +3339,523 @@
       "userName": "Simon Fuentes",
       "userProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycERrc0RTMjM5YXRZSmQyT205NkZxUU1lYnIifQ"
     },
+    "48d9fa0e-84ab-4f79-8daa-d5e179e320f6": {
+      "category": "Educación",
+      "chapters": [
+        {
+          "chapterId": 0,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "La idea del átomo, como partícula indivisible e indestructible, surgió en la antigua Grecia, no como resultado de experimentos científicos, sino como una especulación filosófica para explicar la naturaleza de la realidad.  A diferencia de la ciencia moderna, la filosofía griega se basaba en la razón y la lógica deductiva, no en la experimentación empírica.",
+              "title": "El átomo en la filosofía griega: Introducción"
+            },
+            {
+              "codeExample": "",
+              "description": "Leucipo (siglo V a. C.), considerado el fundador del atomismo, postuló la existencia de partículas indivisibles llamadas átomos, que se movían en el vacío. Su discípulo, Demócrito (siglo V-IV a. C.), desarrolló más ampliamente esta teoría.  Para Demócrito, los átomos eran eternos, indivisibles, sólidos e infinitos en número y formas.  Las diferencias en las propiedades de la materia se debían a la variación en la forma, orden y posición de estos átomos.",
+              "title": "Los atomistas griegos: Leucipo y Demócrito"
+            },
+            {
+              "codeExample": "",
+              "description": "Los atomistas griegos atribuían las siguientes características a los átomos:\n\n* **Indivisibilidad:** Los átomos eran las unidades más pequeñas e indivisibles de la materia.\n* **Eternidad:** Los átomos existían desde siempre y no podían ser creados ni destruidos.\n* **Solidez:** Los átomos eran sólidos y ocupaban un espacio.\n* **Infinidad y Diversidad:** Existía una infinidad de átomos con diferentes formas, tamaños y pesos.\n* **Movimiento en el vacío:** Los átomos se movían en un espacio vacío, el vacío (keno) siendo tan fundamental como los propios átomos.",
+              "title": "Características principales del átomo según los atomistas"
+            },
+            {
+              "codeExample": "",
+              "description": "El vacío o keno era un concepto fundamental en la filosofía atomista, ya que permitía el movimiento de los átomos.  Sin el vacío, la materia no podría moverse ni cambiar. La aceptación del vacío, sin embargo, era una de las ideas más polémicas del atomismo.",
+              "title": "El vacío (Keno): Un concepto fundamental"
+            },
+            {
+              "codeExample": "",
+              "description": "Aristóteles (siglo IV a. C.), en oposición al atomismo, proponía que la materia era continua y que no existía el vacío.  Para Aristóteles, la materia estaba compuesta por cuatro elementos fundamentales: tierra, agua, aire y fuego. Esta visión, muy influyente en la Edad Media, retardó el avance del atomismo.",
+              "title": "Diferencias con la visión aristotélica"
+            },
+            {
+              "codeExample": "",
+              "description": "A pesar de carecer de base experimental, la teoría atomista griega fue un hito en la historia del pensamiento científico.  La idea de la materia compuesta por partículas indivisibles sentó las bases para el desarrollo de la teoría atómica moderna, que surgiría siglos después gracias al trabajo de científicos como Dalton, Thomson, Rutherford y Bohr.",
+              "title": "Legado del atomismo griego"
+            },
+            {
+              "codeExample": "",
+              "description": "El atomismo griego se basaba en especulaciones filosóficas y carecía de evidencia experimental. No ofrecía un modelo concreto del átomo ni explicaba cómo interactuaban entre sí.  Su desarrollo fue limitado por la falta de herramientas y métodos de investigación científica.",
+              "title": "Limitaciones del atomismo griego"
+            }
+          ],
+          "name": "El átomo en la filosofía griega",
+          "videoId": "gvlcnNbxRdo"
+        },
+        {
+          "chapterId": 1,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "La alquimia fue una tradición filosófica y protocientífica que se practicó durante siglos, principalmente en el mundo mediterráneo y posteriormente en el mundo islámico y Europa.  Si bien a menudo se la asocia con la búsqueda de la piedra filosofal y la transmutación de metales, la alquimia tuvo una influencia significativa en el desarrollo de la química moderna. Sus precursores fueron diversas culturas y pensadores que sentaron las bases para sus prácticas y creencias.",
+              "title": "La Alquimia: Una Precursora de la Química"
+            },
+            {
+              "codeExample": "",
+              "description": "Las civilizaciones egipcia y mesopotámica desarrollaron conocimientos prácticos en metalurgia y elaboración de medicinas, proporcionando un sustrato empírico para las futuras prácticas alquímicas. Los egipcios, por ejemplo, poseían amplios conocimientos de la extracción y manipulación de metales, como el oro, la plata y el cobre.  Los mesopotámicos, a su vez, desarrollaron técnicas avanzadas en cerámica y metalurgia.",
+              "title": "Precursores de la Alquimia: Egipcios y Mesopotámicos"
+            },
+            {
+              "codeExample": "",
+              "description": "La filosofía griega, particularmente las ideas de Aristóteles sobre los cuatro elementos (tierra, agua, aire y fuego) y las teorías de Empédocles sobre las raíces, influyeron profundamente en las especulaciones alquímicas.  Los alquimistas adoptaron y adaptaron estas ideas a sus propias teorías sobre la composición de la materia y la posibilidad de la transmutación.",
+              "title": "La influencia de la filosofía griega"
+            },
+            {
+              "codeExample": "",
+              "description": "Aunque la teoría atomista griega de Leucipo y Demócrito proponía la existencia de partículas indivisibles, su influencia directa en la alquimia fue limitada.  Sin embargo, la idea de átomos y su combinación para formar diferentes sustancias fue un concepto subyacente a la búsqueda alquimista de la transmutación de metales.",
+              "title": "El Atomismo Griego y la Alquimia"
+            },
+            {
+              "codeExample": "",
+              "description": "El mundo islámico medieval fue un centro crucial para el desarrollo de la alquimia. Alquimistas musulmanes como Jabir ibn Hayyan (Geber) realizaron importantes avances experimentales, desarrollando técnicas y aparatos de laboratorio, y dejando un gran corpus de textos alquímicos que influyeron en la tradición europea.",
+              "title": "Alquimia en el Mundo Islámico"
+            },
+            {
+              "codeExample": "",
+              "description": "En la Europa medieval, la alquimia se integró en la cultura, recibiendo influencias de las tradiciones griega, islámica y otras.  Se desarrolló un rico simbolismo y lenguaje alquímico, repleto de metáforas y alegorías. Si bien la búsqueda de la piedra filosofal permaneció central, la alquimia medieval también contribuyó al desarrollo de la medicina y la metalurgia.",
+              "title": "La Alquimia en la Europa Medieval"
+            },
+            {
+              "codeExample": "",
+              "description": "Para los alquimistas, la transmutación de metales implicaba una transformación profunda a nivel fundamental de la materia. Aunque no contaban con el concepto moderno de átomo, sus prácticas experimentales y especulaciones filosóficas sobre la naturaleza de la materia contribuyeron indirectamente al desarrollo de la teoría atómica moderna. Buscaban la esencia de la materia, lo que podría interpretarse como una búsqueda temprana de las partículas fundamentales.",
+              "title": "La Alquimia y la Concepción del Átomo"
+            },
+            {
+              "codeExample": "",
+              "description": "La alquimia, a pesar de sus limitaciones y métodos a menudo pseudocientíficos, dejó un legado significativo.  Sus prácticas experimentales, desarrollo de técnicas de laboratorio y búsqueda de la comprensión de la materia sentaron las bases para el desarrollo de la química moderna. Muchos procedimientos y aparatos utilizados en química moderna tienen sus raíces en las prácticas alquímicas.",
+              "title": "Legado de la Alquimia"
+            }
+          ],
+          "name": "La Alquimia y sus Precursores",
+          "videoId": "YskALi6Q8r0"
+        },
+        {
+          "chapterId": 2,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "El modelo atómico de Dalton, propuesto por John Dalton a principios del siglo XIX, fue el primer modelo científico que describió la estructura de la materia a nivel atómico.  A diferencia de las especulaciones filosóficas de los antiguos griegos, el modelo de Dalton se basaba en evidencia experimental y marca un punto de inflexión en la historia de la química.",
+              "title": "Introducción al Modelo Atómico de Dalton"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Dalton se basa en una serie de postulados:\n\n1. **Toda la materia está compuesta por átomos:** Los átomos son partículas indivisibles e indestructibles.\n2. **Todos los átomos de un mismo elemento son idénticos:** Tienen la misma masa y las mismas propiedades.\n3. **Los átomos de diferentes elementos tienen masas y propiedades diferentes:** Esta diferencia en masa y propiedades define la identidad de cada elemento.\n4. **Los compuestos químicos se forman por la unión de átomos de dos o más elementos en proporciones enteras y sencillas:** Los átomos se combinan para formar compuestos químicos en proporciones fijas, que se pueden representar mediante fórmulas químicas.\n5. **En una reacción química, los átomos se separan, se combinan o se reordenan:** Las reacciones químicas implican la reorganización de los átomos, pero no la creación o destrucción de los mismos.",
+              "title": "Postulados del Modelo Atómico de Dalton"
+            },
+            {
+              "codeExample": "",
+              "description": "A pesar de su importancia histórica, el modelo de Dalton presentaba algunas limitaciones:\n\n* **Indivisibilidad del átomo:** Se demostró posteriormente que los átomos no son indivisibles, sino que están formados por partículas subatómicas (protones, neutrones y electrones).\n* **Identidad de los átomos de un mismo elemento:**  Se descubrió la existencia de isótopos, átomos del mismo elemento con diferente masa atómica.\n* **Simples proporciones enteras:**  Existen compuestos con proporciones no enteras (compuestos no estequiométricos).",
+              "title": "Limitaciones del Modelo Atómico de Dalton"
+            },
+            {
+              "codeExample": "",
+              "description": "A pesar de sus limitaciones, el modelo atómico de Dalton tuvo una gran importancia en el desarrollo de la química.  Proporcionó una base conceptual para entender las leyes de las proporciones definidas y múltiples, y sentó las bases para el desarrollo de la química cuantitativa.  Además, introdujo el concepto crucial de que la materia está formada por partículas discretas llamadas átomos.",
+              "title": "Importancia del Modelo Atómico de Dalton"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Dalton explicaba satisfactoriamente fenómenos observados experimentalmente, como:\n\n* **Ley de conservación de la masa:** En una reacción química, la masa total de los reactivos es igual a la masa total de los productos, ya que los átomos no se crean ni se destruyen.\n* **Ley de las proporciones definidas (Proust):** Un compuesto químico siempre contiene los mismos elementos en la misma proporción en masa, debido a la combinación de átomos en proporciones fijas.\n* **Ley de las proporciones múltiples (Dalton):** Si dos elementos forman más de un compuesto, las masas de un elemento que se combinan con una masa fija del otro están en una relación de números enteros sencillos.",
+              "title": "Ejemplos de Aplicación del Modelo de Dalton"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Dalton fue un paso crucial, pero fue posteriormente refinado y reemplazado por modelos más complejos que incorporaban el descubrimiento de las partículas subatómicas y la naturaleza cuántica de la materia. Sin embargo, la idea central de Dalton, la existencia de átomos como bloques fundamentales de la materia, permanece como un pilar de la ciencia moderna.",
+              "title": "Evolución del concepto de átomo tras Dalton"
+            }
+          ],
+          "name": "El modelo atómico de Dalton",
+          "videoId": "niwTksrlfgk"
+        },
+        {
+          "chapterId": 3,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "El descubrimiento del electrón a finales del siglo XIX marcó un hito fundamental en la física y la química.  Demostró que los átomos no eran indivisibles, como proponía el modelo atómico de Dalton, sino que estaban compuestos por partículas subatómicas con carga eléctrica.  Este descubrimiento revolucionó la comprensión de la materia y abrió el camino hacia el desarrollo de la física moderna.",
+              "title": "El descubrimiento del electrón: Introducción"
+            },
+            {
+              "codeExample": "",
+              "description": "El descubrimiento del electrón se debe principalmente al estudio de los rayos catódicos.  Estos rayos, observados en tubos de vacío a baja presión, se producen al aplicar una alta diferencia de potencial entre dos electrodos.  Se observó que los rayos catódicos viajaban del cátodo (electrodo negativo) al ánodo (electrodo positivo), produciendo fluorescencia en las paredes del tubo.",
+              "title": "Experimento de rayos catódicos"
+            },
+            {
+              "codeExample": "",
+              "description": "A través de diversos experimentos, se determinaron las siguientes propiedades de los rayos catódicos:\n\n* Viajan en línea recta desde el cátodo al ánodo.\n* Se desvían por campos eléctricos (hacia el polo positivo) y magnéticos.\n* Su naturaleza es independiente del material del cátodo.\n* Producen fluorescencia al chocar con ciertas sustancias.",
+              "title": "Propiedades de los rayos catódicos"
+            },
+            {
+              "codeExample": "",
+              "description": "J.J. Thomson realizó experimentos cruciales para determinar la relación carga-masa (e/m) del electrón.  Utilizando campos eléctricos y magnéticos, logró desviar los rayos catódicos y medir su desviación.  A partir de estas mediciones, calculó la relación carga-masa del electrón, demostrando que era mucho menor que la relación carga-masa de cualquier ion conocido.  Esto sugirió que los rayos catódicos estaban compuestos por partículas mucho más ligeras que los átomos.",
+              "title": "J.J. Thomson y la determinación de la relación carga-masa del electrón"
+            },
+            {
+              "codeExample": "",
+              "description": "Robert Millikan, en su famoso experimento de la gota de aceite, midió la carga del electrón.  En este experimento, Millikan observó la caída de gotas de aceite electrificadas en un campo eléctrico.  Al analizar el movimiento de las gotas, pudo determinar la carga de cada una y encontró que la carga siempre era un múltiplo entero de una carga fundamental, la carga del electrón.",
+              "title": "Determinación de la carga del electrón por Robert Millikan"
+            },
+            {
+              "codeExample": "",
+              "description": "El descubrimiento del electrón tuvo implicaciones revolucionarias:\n\n* Demostró que los átomos no eran indivisibles, sino que contenían partículas subatómicas.\n* Introdujo el concepto de carga eléctrica a nivel subatómico.\n* Abrió el camino para el desarrollo de nuevos modelos atómicos, como el modelo de Thomson (budín de pasas) y posteriormente el de Rutherford.\n* Contribuyó al desarrollo de la física moderna y la mecánica cuántica.",
+              "title": "Implicaciones del descubrimiento del electrón"
+            },
+            {
+              "codeExample": "",
+              "description": "Basándose en el descubrimiento del electrón, Thomson propuso un modelo atómico en el que los electrones (con carga negativa) estaban incrustados en una esfera de carga positiva, similar a las pasas en un budín.  Este modelo, aunque posteriormente fue reemplazado, fue un paso importante en la comprensión de la estructura atómica.",
+              "title": "El Modelo Atómico de Thomson (Budín de pasas)"
+            }
+          ],
+          "name": "El descubrimiento del electrón",
+          "videoId": "8lX8FjjLKhc"
+        },
+        {
+          "chapterId": 4,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "El modelo atómico de Thomson, también conocido como el modelo del 'budín de pasas', fue propuesto por J.J. Thomson en 1904, tras su descubrimiento del electrón.  Este modelo fue un intento de explicar la estructura del átomo a la luz de la evidencia experimental disponible en ese momento, principalmente el descubrimiento de que los átomos contenían partículas con carga negativa: los electrones.",
+              "title": "Introducción al Modelo Atómico de Thomson"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Thomson describe al átomo como una esfera de materia con carga eléctrica positiva, en la cual están incrustados los electrones, con carga negativa.  La cantidad de carga positiva es igual a la cantidad de carga negativa, haciendo que el átomo en su conjunto sea eléctricamente neutro.  La analogía con un budín de pasas, donde las pasas representan los electrones y la masa del budín la carga positiva, es bastante ilustrativa.",
+              "title": "Descripción del Modelo"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Thomson se basó en los experimentos de rayos catódicos, que demostraron la existencia de los electrones y su carga negativa.  La neutralidad eléctrica de la materia sugería la necesidad de una carga positiva que compensara la carga negativa de los electrones.  Thomson propuso que esta carga positiva estaba distribuida uniformemente en la esfera atómica.",
+              "title": "Evidencia Experimental que Sustentó el Modelo"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Thomson tenía importantes limitaciones, principalmente porque no explicaba:\n\n* **La estabilidad del átomo:**  Si los electrones estaban estáticos dentro de la esfera de carga positiva, deberían colapsar hacia el centro debido a la atracción electrostática.  El modelo no explicaba cómo los electrones podían mantenerse en órbita.\n* **Los espectros atómicos:** El modelo no podía explicar las líneas discretas observadas en los espectros de emisión de los átomos, que sugerían que los átomos sólo podían emitir o absorber energía en cantidades específicas.\n* **La dispersión de partículas alfa:**  Los experimentos posteriores de Rutherford demostraron que la mayor parte del átomo era espacio vacío y que la carga positiva estaba concentrada en un núcleo pequeño.",
+              "title": "Limitaciones del Modelo de Thomson"
+            },
+            {
+              "codeExample": "",
+              "description": "A pesar de sus limitaciones, el modelo de Thomson fue un paso crucial en el desarrollo de la teoría atómica.  Fue el primer modelo que incluía la existencia de partículas subatómicas y planteó la idea de que los átomos no eran partículas sólidas e indivisibles, como creía Dalton.  Este modelo sirvió como base para el desarrollo posterior del modelo atómico de Rutherford.",
+              "title": "Importancia del Modelo de Thomson"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Thomson sentó las bases para experimentos posteriores, como los de Geiger y Marsden, dirigidos por Rutherford. Estos experimentos, que consistieron en bombardear una lámina delgada de oro con partículas alfa, llevaron al descubrimiento del núcleo atómico y a la refutación del modelo de Thomson. La dispersión inesperada de las partículas alfa indicó que la carga positiva no estaba distribuida uniformemente en el átomo, sino concentrada en una región pequeña y densa.",
+              "title": "El Modelo de Thomson y el Descubrimiento del Núcleo Atómico"
+            }
+          ],
+          "name": "El modelo atómico de Thomson",
+          "videoId": "8lX8FjjLKhc"
+        },
+        {
+          "chapterId": 5,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "El experimento de Rutherford, realizado en 1911 por Hans Geiger y Ernest Marsden bajo la dirección de Ernest Rutherford, revolucionó la comprensión de la estructura atómica.  Este experimento refutó el modelo atómico de Thomson y condujo al desarrollo del modelo atómico nuclear.",
+              "title": "El Experimento de Rutherford: Introducción"
+            },
+            {
+              "codeExample": "",
+              "description": "El experimento consistía en bombardear una fina lámina de oro (aproximadamente 0.0004 mm de espesor) con partículas alfa (núcleos de helio, con carga positiva).  Se esperaba que las partículas atravesaran la lámina de oro con pequeñas desviaciones, de acuerdo con el modelo atómico de Thomson, que proponía una distribución uniforme de la carga positiva en el átomo.  Para detectar las partículas alfa que atravesaban o rebotaran en la lámina se colocó una pantalla de sulfuro de zinc alrededor de la lámina.  Esta pantalla produce un destello de luz cada vez que una partícula alfa la impacta.",
+              "title": "Diseño del Experimento"
+            },
+            {
+              "codeExample": "",
+              "description": "Los resultados del experimento sorprendieron a Rutherford y su equipo.  La mayoría de las partículas alfa atravesaron la lámina de oro sin desviarse o con desviaciones muy pequeñas, como se esperaba. Sin embargo, una pequeña fracción de las partículas (aproximadamente 1 de cada 8000) sufrieron desviaciones muy grandes, incluso rebotando hacia atrás.  Este resultado era completamente inesperado según el modelo de Thomson.",
+              "title": "Resultados del Experimento"
+            },
+            {
+              "codeExample": "",
+              "description": "Rutherford interpretó los resultados del experimento proponiendo un nuevo modelo atómico: el modelo nuclear.\n\n* La mayoría de las partículas alfa atravesaban la lámina sin desviarse porque la mayor parte del átomo es espacio vacío.\n* Las partículas alfa que sufrían grandes desviaciones o rebotaban lo hacían al acercarse a una región pequeña, densa y con carga positiva dentro del átomo, el núcleo atómico.\n* Los electrones, con carga negativa, orbitaban alrededor del núcleo, a una gran distancia del mismo.",
+              "title": "Interpretación de los Resultados"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo atómico nuclear de Rutherford se caracteriza por:\n\n* Un núcleo central pequeño y denso, con carga eléctrica positiva, que contiene casi toda la masa del átomo.\n* Electrones que orbitan alrededor del núcleo a una gran distancia, como planetas alrededor del Sol.\n* La mayor parte del átomo es espacio vacío.",
+              "title": "Modelo Atómico Nuclear de Rutherford"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Rutherford, aunque representó un avance significativo, tenía limitaciones importantes.  Principalmente no explicaba:\n\n* La estabilidad del átomo:  Según las leyes del electromagnetismo clásico, un electrón en órbita alrededor del núcleo debería emitir radiación electromagnética, perdiendo energía y finalmente colapsando en el núcleo.\n* Los espectros atómicos: El modelo no podía explicar el espectro de líneas discretas observado en la emisión y absorción de luz por los átomos.",
+              "title": "Limitaciones del Modelo de Rutherford"
+            },
+            {
+              "codeExample": "",
+              "description": "El experimento de Rutherford fue fundamental en el desarrollo de la física atómica.  Demostró la existencia del núcleo atómico, refutó el modelo atómico de Thomson y sentó las bases para el desarrollo posterior del modelo atómico de Bohr, que incorporaba principios de la mecánica cuántica para explicar la estabilidad del átomo y los espectros atómicos.",
+              "title": "Importancia del Experimento de Rutherford"
+            }
+          ],
+          "name": "El experimento de Rutherford y el núcleo atómico",
+          "videoId": "8UhdyYk3IDA"
+        },
+        {
+          "chapterId": 6,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "El modelo atómico de Bohr, propuesto por Niels Bohr en 1913, fue un intento de mejorar el modelo atómico de Rutherford, el cual no podía explicar la estabilidad de los átomos y sus espectros de emisión. Bohr incorporó conceptos de la teoría cuántica, recién desarrollada, para explicar estas características.",
+              "title": "Introducción al Modelo Atómico de Bohr"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Bohr se basa en los siguientes postulados:\n\n1. **Los electrones orbitan alrededor del núcleo en órbitas circulares estacionarias.**  A diferencia del modelo de Rutherford, estas órbitas no son arbitrarias, sino que tienen radios y energías definidos.\n2. **Los electrones solo pueden ocupar ciertas órbitas permitidas.** Cada órbita tiene un nivel de energía específico, cuantificado.  Estas órbitas se denominan niveles de energía.\n3. **Mientras un electrón se encuentra en una órbita permitida, no emite energía.**  Esto resuelve el problema de la inestabilidad del átomo en el modelo de Rutherford.\n4. **Un electrón puede pasar de una órbita a otra absorbiendo o emitiendo energía.**  Si un electrón absorbe energía, salta a una órbita de mayor energía.  Si un electrón salta a una órbita de menor energía, emite energía en forma de fotón, cuya energía es igual a la diferencia de energía entre las dos órbitas.  La energía del fotón determina la frecuencia y longitud de onda de la luz emitida, lo que explica los espectros de líneas discretas observados en los experimentos.",
+              "title": "Postulados del Modelo de Bohr"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Bohr explica satisfactoriamente los espectros de emisión y absorción de los átomos.  La energía de los fotones emitidos o absorbidos corresponde a las diferencias de energía entre los niveles de energía permitidos en el átomo.  Cada línea espectral corresponde a una transición electrónica entre dos órbitas específicas.",
+              "title": "Explicación de los Espectros Atómicos"
+            },
+            {
+              "codeExample": "",
+              "description": "A pesar de su éxito en la explicación de los espectros de hidrógeno y átomos similares, el modelo de Bohr tenía limitaciones:\n\n* **Solo funciona bien para átomos con un solo electrón (hidrógeno).**  No podía explicar con precisión los espectros de átomos con múltiples electrones.\n* **No explica la intensidad de las líneas espectrales.**\n* **No considera los efectos relativistas.**\n* **No explica la estructura fina de los espectros.**\n* **El modelo asume que los electrones se mueven en órbitas circulares definidas, lo cual no es cierto según la mecánica cuántica.**",
+              "title": "Limitaciones del Modelo de Bohr"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Bohr, a pesar de sus limitaciones, fue un paso fundamental en la comprensión de la estructura atómica.  Fue el primer modelo que incorporó conceptos cuánticos y explicó con éxito los espectros de emisión y absorción atómica, sentando las bases para el desarrollo de la mecánica cuántica moderna y modelos atómicos más complejos y precisos, como el modelo mecánico-cuántico.",
+              "title": "Importancia del Modelo de Bohr"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo de Bohr, aunque una simplificación, fue un puente crucial entre la física clásica y la mecánica cuántica.  Su éxito en la explicación de ciertos fenómenos atómicos evidenció la necesidad de una nueva física para describir el mundo a escala atómica. El modelo fue posteriormente superado por la mecánica cuántica, que proporciona una descripción más completa y precisa de la estructura atómica, aunque conserva la idea fundamental de niveles de energía discretos.",
+              "title": "El Modelo de Bohr y la Mecánica Cuántica"
+            }
+          ],
+          "name": "El modelo atómico de Bohr",
+          "videoId": "J8Cdsq9JKI4"
+        },
+        {
+          "chapterId": 7,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "La mecánica cuántica revolucionó la comprensión de la estructura atómica a principios del siglo XX.  A diferencia de la física clásica, la mecánica cuántica describe el comportamiento de la materia a nivel atómico y subatómico utilizando conceptos como la cuantización de la energía y la dualidad onda-partícula.  Esto condujo a un modelo atómico mucho más preciso y complejo que los modelos anteriores.",
+              "title": "Introducción a la Mecánica Cuántica y el Átomo"
+            },
+            {
+              "codeExample": "",
+              "description": "Algunos de los principios fundamentales de la mecánica cuántica que son cruciales para entender el modelo atómico son:\n\n* **Cuantización de la energía:** La energía de los sistemas atómicos no es continua, sino que está cuantizada; es decir, solo puede tomar valores discretos.  Esto se refleja en la existencia de niveles de energía específicos para los electrones en el átomo.\n* **Principio de incertidumbre de Heisenberg:** Es imposible conocer simultáneamente y con precisión la posición y el momento (masa x velocidad) de una partícula.  Cuanto más precisa es la medida de la posición, menos precisa es la medida del momento, y viceversa.\n* **Dualidad onda-partícula:** Las partículas, como los electrones, exhiben propiedades tanto ondulatorias como corpusculares.  Esto se refleja en el concepto de orbital atómico, una región del espacio donde es probable encontrar al electrón.",
+              "title": "Principios Fundamentales de la Mecánica Cuántica"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo atómico mecánico-cuántico se basa en la ecuación de Schrödinger, una ecuación matemática que describe la evolución temporal de la función de onda de una partícula.  La función de onda contiene toda la información posible sobre el estado de la partícula, incluyendo su energía, momento y posición.  Al resolver la ecuación de Schrödinger para el átomo de hidrógeno, se obtienen los orbitales atómicos, que describen las regiones del espacio donde es más probable encontrar al electrón.",
+              "title": "El Modelo Atómico Mecánico-Cuántico"
+            },
+            {
+              "codeExample": "",
+              "description": "Para describir el estado de un electrón en un átomo, se utilizan cuatro números cuánticos:\n\n* **Número cuántico principal (n):** Determina el nivel de energía del electrón y el tamaño del orbital.  Toma valores enteros positivos (1, 2, 3...).\n* **Número cuántico azimutal o secundario (l):** Determina la forma del orbital y toma valores enteros desde 0 hasta n-1.\n* **Número cuántico magnético (ml):** Determina la orientación espacial del orbital en el espacio y toma valores enteros desde -l hasta +l.\n* **Número cuántico de espín (ms):** Describe el momento angular intrínseco del electrón y toma los valores +1/2 o -1/2.",
+              "title": "Números Cuánticos"
+            },
+            {
+              "codeExample": "",
+              "description": "Los orbitales atómicos son regiones del espacio tridimensional donde la probabilidad de encontrar un electrón es alta.  Cada orbital atómico está definido por un conjunto de números cuánticos.  Los orbitales s son esféricos, los orbitales p tienen forma de mancuerna y los orbitales d y f tienen formas más complejas.",
+              "title": "Orbitales Atómicos"
+            },
+            {
+              "codeExample": "",
+              "description": "El principio de exclusión de Pauli establece que dos electrones en un átomo no pueden tener el mismo conjunto de cuatro números cuánticos.  Esto significa que cada orbital atómico puede contener como máximo dos electrones, con espines opuestos.",
+              "title": "Principio de Exclusión de Pauli"
+            },
+            {
+              "codeExample": "",
+              "description": "La configuración electrónica de un átomo describe cómo los electrones están distribuidos en los diferentes orbitales atómicos.  Para determinar la configuración electrónica de un átomo, se sigue el principio de Aufbau, llenando los orbitales de menor energía primero y siguiendo el principio de exclusión de Pauli.",
+              "title": "Configuración Electrónica"
+            },
+            {
+              "codeExample": "",
+              "description": "El modelo mecánico-cuántico del átomo proporciona una descripción precisa y completa de la estructura y comportamiento de los átomos.  Es fundamental para la comprensión de las propiedades químicas de los elementos y de las moléculas, así como para el desarrollo de nuevas tecnologías.",
+              "title": "Importancia del Modelo Mecánico-Cuántico"
+            }
+          ],
+          "name": "La Mecánica Cuántica y el átomo",
+          "videoId": "wxIxWTTsBj4"
+        },
+        {
+          "chapterId": 8,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "El modelo atómico actual es una descripción compleja y sofisticada que integra los principios de la mecánica cuántica para explicar el comportamiento de los átomos. No existe un único \"modelo\", sino más bien una comprensión basada en la teoría cuántica de campos que describe las partículas y sus interacciones.",
+              "title": "Introducción al Modelo Atómico Actual"
+            },
+            {
+              "codeExample": "",
+              "description": "El átomo está compuesto por tres tipos de partículas fundamentales: protones, neutrones y electrones.  Los protones y neutrones se encuentran en el núcleo atómico, mientras que los electrones ocupan la región del espacio alrededor del núcleo (la nube electrónica).  Sin embargo, la mecánica cuántica describe a estas partículas de una forma más compleja que la visión clásica de partículas puntuales.",
+              "title": "Partículas Subatómicas Fundamentales"
+            },
+            {
+              "codeExample": "",
+              "description": "El núcleo atómico está compuesto por protones (con carga positiva) y neutrones (sin carga).  La masa de un protón es aproximadamente igual a la de un neutrón, y ambas son mucho mayores que la masa de un electrón.  El número de protones en el núcleo (número atómico, Z) determina la identidad química del átomo, es decir, a qué elemento pertenece. El número de neutrones puede variar para un mismo elemento, dando lugar a los isótopos.",
+              "title": "El Núcleo Atómico"
+            },
+            {
+              "codeExample": "",
+              "description": "Los electrones, con carga negativa, ocupan la región del espacio alrededor del núcleo.  La mecánica cuántica describe la posición de los electrones mediante la función de onda, que da la probabilidad de encontrar un electrón en una determinada región del espacio.  Estas regiones de alta probabilidad se denominan orbitales atómicos, y cada orbital está definido por un conjunto de cuatro números cuánticos (principal, azimutal, magnético y de espín).",
+              "title": "La Nube Electrónica"
+            },
+            {
+              "codeExample": "",
+              "description": "Los números cuánticos describen las características del orbital atómico y la energía del electrón que ocupa ese orbital.  El número cuántico principal (n) determina el nivel de energía y el tamaño del orbital, el número cuántico azimutal (l) la forma del orbital, el número cuántico magnético (ml) su orientación espacial, y el número cuántico de espín (ms) el momento angular intrínseco del electrón (+1/2 o -1/2).",
+              "title": "Orbitales Atómicos y Números Cuánticos"
+            },
+            {
+              "codeExample": "",
+              "description": "Debido al principio de incertidumbre de Heisenberg, es imposible conocer simultáneamente y con precisión la posición y el momento de un electrón.  En lugar de órbitas definidas, se habla de orbitales, regiones donde la probabilidad de encontrar al electrón es alta.",
+              "title": "Principio de Incertidumbre de Heisenberg"
+            },
+            {
+              "codeExample": "",
+              "description": "Los protones en el núcleo se repelen entre sí debido a la fuerza electromagnética. Sin embargo, el núcleo se mantiene estable gracias a la fuerza nuclear fuerte, una fuerza mucho más intensa que la fuerza electromagnética, pero de alcance mucho más corto. La fuerza nuclear débil también juega un papel en ciertos fenómenos nucleares, como la desintegración radiactiva.",
+              "title": "Fuerzas Nucleares"
+            },
+            {
+              "codeExample": "",
+              "description": "Los protones y neutrones no son partículas fundamentales, sino que están compuestos por quarks. Los quarks son partículas elementales que interactúan mediante la fuerza nuclear fuerte, mediada por gluones.  La comprensión actual de la estructura atómica se basa en el Modelo Estándar de la física de partículas, que describe las partículas elementales y sus interacciones fundamentales.",
+              "title": "Más Allá de Protones, Neutrones y Electrones"
+            },
+            {
+              "codeExample": "",
+              "description": "A pesar de su complejidad y precisión, el modelo atómico actual también tiene limitaciones.  Por ejemplo, no integra completamente la gravedad, y aún quedan preguntas abiertas sobre la naturaleza de la materia oscura y la energía oscura.",
+              "title": "Limitaciones del Modelo Actual"
+            }
+          ],
+          "name": "El modelo atómico actual",
+          "videoId": "NZfPhwX2HPI"
+        },
+        {
+          "chapterId": 9,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "El descubrimiento de la radioactividad a finales del siglo XIX y el posterior desarrollo de la física nuclear llevaron a una comprensión más profunda de la estructura atómica, incluyendo el concepto de isótopos y la naturaleza inestable de algunos núcleos atómicos.",
+              "title": "Introducción a Isótopos y Radioactividad"
+            },
+            {
+              "codeExample": "",
+              "description": "Los isótopos son átomos del mismo elemento químico que tienen el mismo número atómico (número de protones), pero diferente número másico (suma de protones y neutrones).  Esto significa que los isótopos tienen el mismo número de protones y electrones, lo que determina sus propiedades químicas, pero difieren en el número de neutrones, lo que afecta a sus propiedades nucleares (masa y estabilidad).",
+              "title": "Isótopos: Definición y Propiedades"
+            },
+            {
+              "codeExample": "",
+              "description": "Los isótopos se representan mediante la notación  AX, donde A es el número másico (protones + neutrones) y X es el símbolo del elemento.  Por ejemplo, el carbono-12 (¹²C) tiene 6 protones y 6 neutrones, mientras que el carbono-14 (¹⁴C) tiene 6 protones y 8 neutrones.",
+              "title": "Notación de Isótopos"
+            },
+            {
+              "codeExample": "",
+              "description": "La radioactividad fue descubierta por Henri Becquerel en 1896.  La radioactividad es la emisión espontánea de radiación por parte de un núcleo atómico inestable.  Existen tres tipos principales de radiación:",
+              "title": "Radioactividad: Descubrimiento y Tipos"
+            },
+            {
+              "codeExample": "",
+              "description": "Consiste en la emisión de partículas alfa, que son núcleos de helio (2 protones y 2 neutrones).  Tienen alta energía y masa, y son fácilmente absorbidas por la materia.",
+              "title": "Radiación Alfa (α)"
+            },
+            {
+              "codeExample": "",
+              "description": "Consiste en la emisión de partículas beta, que son electrones o positrones (antielectrones).  Tienen menor masa y mayor poder de penetración que las partículas alfa.",
+              "title": "Radiación Beta (β)"
+            },
+            {
+              "codeExample": "",
+              "description": "Consiste en la emisión de fotones de alta energía (radiación electromagnética).  Tiene alta energía y gran poder de penetración.",
+              "title": "Radiación Gamma (γ)"
+            },
+            {
+              "codeExample": "",
+              "description": "La estabilidad de un núcleo atómico depende de la relación entre el número de protones y neutrones.  Los isótopos radioactivos son inestables y se desintegran espontáneamente, emitiendo radiación hasta alcanzar un estado más estable.  La velocidad de desintegración se describe mediante la vida media del isótopo.",
+              "title": "Isótopos Radioactivos y Estabilidad Nuclear"
+            },
+            {
+              "codeExample": "",
+              "description": "Los isótopos radioactivos tienen numerosas aplicaciones en ciencia y tecnología, incluyendo:\n\n* **Medicina:** Diagnóstico y tratamiento de enfermedades (radioterapia, diagnóstico por imagen).\n* **Industria:** Control de procesos, datación de materiales.\n* **Investigación:** Datación radiocarbónica, seguimiento de procesos biológicos y químicos.",
+              "title": "Aplicaciones de los Isótopos Radioactivos"
+            },
+            {
+              "codeExample": "",
+              "description": "La radiación ionizante puede tener efectos perjudiciales para los seres vivos, ya que puede dañar el ADN y otras moléculas.  Los efectos de la radiación dependen de la dosis, el tipo de radiación y la parte del cuerpo expuesta.",
+              "title": "Efectos Biológicos de la Radiación"
+            }
+          ],
+          "name": "Isótopos y Radioactividad",
+          "videoId": "USDLwPKpNxs"
+        }
+      ],
+      "courseBanner": "https://firebasestorage.googleapis.com/v0/b/togs-cc569.appspot.com/o/ai-course%2F1734124278290.jpg?alt=media&token=2ab12f18-22f0-4284-ac22-e137e8cdf398",
+      "courseId": "48d9fa0e-84ab-4f79-8daa-d5e179e320f6",
+      "courseOutput": {
+        "course": {
+          "category": "Educación",
+          "chapters": [
+            {
+              "about": "Exploramos las ideas de Leucipo y Demócrito, los primeros en proponer la existencia de átomos indivisibles.",
+              "duration": "10 minutes",
+              "name": "El átomo en la filosofía griega"
+            },
+            {
+              "about": "Analizamos la influencia de la alquimia en la búsqueda de la comprensión de la materia y sus transformaciones.",
+              "duration": "15 minutes",
+              "name": "La Alquimia y sus Precursores"
+            },
+            {
+              "about": "Estudiamos el modelo atómico de Dalton y su importancia en el desarrollo de la teoría atómica moderna.",
+              "duration": "20 minutes",
+              "name": "El modelo atómico de Dalton"
+            },
+            {
+              "about": "Analizamos los experimentos que llevaron al descubrimiento del electrón y su impacto en la comprensión de la estructura atómica.",
+              "duration": "15 minutes",
+              "name": "El descubrimiento del electrón"
+            },
+            {
+              "about": "Estudiamos el modelo atómico de Thomson, también conocido como el modelo del pudín de pasas.",
+              "duration": "15 minutes",
+              "name": "El modelo atómico de Thomson"
+            },
+            {
+              "about": "Analizamos el experimento de Rutherford y su crucial descubrimiento del núcleo atómico.",
+              "duration": "20 minutes",
+              "name": "El experimento de Rutherford y el núcleo atómico"
+            },
+            {
+              "about": "Estudiamos el modelo atómico de Bohr y su introducción de los niveles de energía.",
+              "duration": "20 minutes",
+              "name": "El modelo atómico de Bohr"
+            },
+            {
+              "about": "Exploramos los principios de la mecánica cuántica y su aplicación a la comprensión del átomo.",
+              "duration": "25 minutes",
+              "name": "La Mecánica Cuántica y el átomo"
+            },
+            {
+              "about": "Analizamos el modelo atómico actual y la naturaleza probabilística de la ubicación de los electrones.",
+              "duration": "20 minutes",
+              "name": "El modelo atómico actual"
+            },
+            {
+              "about": "Exploramos los isótopos, la radioactividad y sus aplicaciones.",
+              "duration": "15 minutes",
+              "name": "Isótopos y Radioactividad"
+            }
+          ],
+          "description": "Este curso explora la fascinante historia del concepto de átomo, desde las primeras teorías filosóficas griegas hasta los modelos atómicos modernos.  Aprenderemos sobre las diferentes contribuciones científicas, los experimentos clave, y la evolución de nuestra comprensión de la estructura atómica.",
+          "duration": "2 Hours",
+          "level": "Intermediate",
+          "name": "Átomos y su Historia: Un Curso Intermedio",
+          "noOfChapters": 10,
+          "topic": "átomos y su historia"
+        }
+      },
+      "createdBy": "simontrinidad.f.b@gmail.com",
+      "includeVideo": "Yes",
+      "level": "Intermediate",
+      "name": "atomos y su historia",
+      "publish": true,
+      "userName": "Simon Fuentes",
+      "userProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycERrc0RTMjM5YXRZSmQyT205NkZxUU1lYnIifQ"
+    },
     "69468958-17b1-471e-b856-81975590b612": {
       "category": "Salud",
       "chapters": [
@@ -4620,6 +5137,443 @@
       "includeVideo": "Yes",
       "level": "Intermediate",
       "name": "Introduccion en las matematicas",
+      "publish": true,
+      "userName": "Simon Fuentes",
+      "userProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycERrc0RTMjM5YXRZSmQyT205NkZxUU1lYnIifQ"
+    },
+    "9ec0a89b-f62a-4e54-bda1-f4d05e82f893": {
+      "category": "Salud",
+      "chapters": [
+        {
+          "chapterId": 0,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "La nutrición infantil es crucial para el desarrollo físico, cognitivo y emocional del niño.  Una alimentación saludable debe basarse en una dieta variada, equilibrada y suficiente para cubrir las necesidades energéticas y nutritivas de cada etapa del crecimiento.",
+              "title": "Principios de la Nutrición Infantil"
+            },
+            {
+              "codeExample": "",
+              "description": "Las necesidades calóricas y nutricionales varían según la edad, el sexo, el nivel de actividad física y el estado de salud del niño.  Es fundamental consultar con un profesional de la salud para determinar las necesidades específicas de cada niño.",
+              "title": "Necesidades Calóricas y Nutricionales"
+            },
+            {
+              "codeExample": "",
+              "description": "Una dieta saludable para niños debe incluir una variedad de alimentos de todos los grupos: \n\n* **Frutas y verduras:**  Aportan vitaminas, minerales y fibra. Se recomienda consumir al menos 5 porciones al día.\n* **Cereales integrales:**  Fuente de energía, fibra y nutrientes. Se prefieren los cereales integrales a los refinados.\n* **Proteínas:**  Esenciales para el crecimiento y desarrollo muscular. Se encuentran en carnes magras, pescado, huevos, legumbres y frutos secos.\n* **Lácteos:**  Proporcionan calcio, esencial para la salud ósea. Se recomienda leche, yogur y queso.\n* **Grasas saludables:**  Necesarias para el desarrollo cerebral y la absorción de vitaminas. Se encuentran en el aceite de oliva, aguacate, frutos secos y semillas.",
+              "title": "Grupos de Alimentos"
+            },
+            {
+              "codeExample": "",
+              "description": "Aquí hay algunos ejemplos de comidas saludables para niños, teniendo en cuenta la variedad y el equilibrio nutricional:\n\n* **Desayuno:** Avena con frutas, yogur y nueces; tostada integral con aguacate y huevo; pancakes integrales con fruta.\n* **Almuerzo:** Pollo a la plancha con arroz integral y verduras; Lentejas con verduras y pan integral; Pasta integral con salsa de tomate y verduras.\n* **Cena:**  Pescado al horno con puré de patatas;  Sopa de verduras con huevo; tortilla francesa con verduras.",
+              "title": "Ejemplos de Comidas Saludables"
+            },
+            {
+              "codeExample": "",
+              "description": "Para asegurar una alimentación saludable en los niños, es importante considerar:\n\n* **Limitar el consumo de azúcares añadidos, grasas saturadas y alimentos procesados.**\n* **Ofrecer agua como bebida principal.**\n* **Crear un ambiente positivo a la hora de comer.**\n* **Incluir a los niños en la preparación de las comidas.**\n* **Ser un buen modelo a seguir en cuanto a hábitos alimenticios.**\n* **Consultar con un nutricionista o dietista para obtener un plan de alimentación personalizado.**",
+              "title": "Recomendaciones Adicionales"
+            },
+            {
+              "codeExample": "",
+              "description": "Algunos errores comunes a evitar en la alimentación infantil son:\n\n* **Presión para que el niño coma:** Esto puede generar rechazo a la comida.\n* **Utilizar la comida como recompensa o castigo:**  Esto puede distorsionar la relación del niño con la comida.\n* **Ofrecer solo alimentos que al niño le gustan:**  Es importante ofrecer variedad de alimentos para asegurar una nutrición completa.\n* **Saltarse comidas:**  Las comidas regulares son importantes para mantener los niveles de energía y nutrientes.",
+              "title": "Errores Comunes a Evitar"
+            }
+          ],
+          "name": "Principios de la Nutrición Infantil",
+          "videoId": "FaLmwmN1MP0"
+        },
+        {
+          "chapterId": 1,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "El desayuno es la comida más importante del día para los niños, ya que les proporciona la energía y los nutrientes necesarios para afrontar la mañana, concentrarse en clase y tener un buen rendimiento físico e intelectual. Saltarse el desayuno puede afectar negativamente su rendimiento académico, su estado de ánimo y su salud a largo plazo.",
+              "title": "Importancia del Desayuno en Niños"
+            },
+            {
+              "codeExample": "",
+              "description": "Un desayuno saludable para niños debe incluir una combinación de nutrientes esenciales como:\n\n* **Carbohidratos complejos:** Proporcionan energía de liberación lenta, evitando picos de glucosa en sangre.  Ejemplos: avena, pan integral, cereales integrales (evitar los azucarados).\n* **Proteínas:**  Esenciales para el crecimiento y la reparación de tejidos. Ejemplos: huevos, yogur, leche, queso, frutos secos, semillas.\n* **Grasas saludables:**  Importantes para el desarrollo cerebral y la absorción de vitaminas. Ejemplos: aguacate, frutos secos, semillas, aceite de oliva.\n* **Frutas y verduras:**  Aportan vitaminas, minerales y fibra. Ejemplos: plátano, fresas, arándanos, manzana, zanahoria rallada.",
+              "title": "Nutrientes Clave en un Desayuno Saludable"
+            },
+            {
+              "codeExample": "",
+              "description": "A continuación, se presentan algunas ideas para preparar desayunos saludables y energéticos para niños:\n\n* **Avena con frutas y frutos secos:**  Se puede preparar con leche, yogur o agua. Agregar frutas frescas como plátano, fresas o arándanos, y frutos secos como nueces o almendras.\n* **Tostada integral con aguacate y huevo:**  Una tostada de pan integral con aguacate machacado y un huevo revuelto o poché.\n* **Yogur con granola y miel:**  Un yogur natural con granola casera (evitar las granolas con alto contenido de azúcar) y una pequeña cantidad de miel.\n* **Pancakes integrales con fruta:**  Preparar pancakes con harina integral, añadiendo puré de fruta para dar sabor y color. Servir con sirope de arce o miel (con moderación).\n* **Batido de frutas y verduras:**  Combinar frutas y verduras como plátano, espinacas, fresas, leche o yogur.",
+              "title": "Ideas de Desayunos Saludables y Energéticos"
+            },
+            {
+              "codeExample": "",
+              "description": "Para asegurar que el niño consuma un desayuno nutritivo, se recomiendan los siguientes consejos:\n\n* **Preparar el desayuno la noche anterior:**  Esto ayuda a ahorrar tiempo por la mañana.\n* **Incluir al niño en la preparación del desayuno:**  Así se fomenta su participación y se le da más interés a la comida.\n* **Ofrecer variedad:**  Para evitar la monotonía y asegurar una ingesta de nutrientes variada.\n* **Evitar los alimentos procesados, azucarados y con alto contenido en grasas saturadas:**  Estos alimentos no proporcionan nutrientes esenciales y pueden afectar negativamente la salud del niño.\n* **Crear un ambiente relajado a la hora del desayuno:**  Permitir que el niño disfrute de su desayuno sin prisas.",
+              "title": "Consejos para un Desayuno Exitoso"
+            },
+            {
+              "codeExample": "",
+              "description": "Es importante evitar los siguientes tipos de desayunos:\n\n* **Cereales azucarados:** Altos en azúcar y bajos en nutrientes.\n* **Bollería industrial:**  Contiene grasas saturadas, azúcares y poca fibra.\n* **Zumos envasados:**  A menudo tienen un alto contenido de azúcares añadidos.\n* **Desayunos salados sin acompañamiento nutricional:** Un sándwich simple de embutido no es un desayuno balanceado.",
+              "title": "Ejemplos de Desayunos a Evitar"
+            }
+          ],
+          "name": "Desayunos Saludables y Energéticos",
+          "videoId": "ydUkGA230NA"
+        },
+        {
+          "chapterId": 2,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "El almuerzo representa una parte significativa de la ingesta diaria de nutrientes en niños, siendo fundamental para su crecimiento, desarrollo y energía durante la tarde. Un almuerzo saludable debe ser equilibrado, variado y atractivo para fomentar buenos hábitos alimenticios.",
+              "title": "La Importancia de un Almuerzo Nutritivo para Niños"
+            },
+            {
+              "codeExample": "",
+              "description": "Un almuerzo ideal para niños debe incluir una combinación de:\n\n* **Grupo de cereales:**  Fuente principal de energía.  Priorizar cereales integrales como arroz integral, quinoa, pasta integral, pan integral, etc.  Evitar el exceso de pan blanco.\n* **Grupo de proteínas:**  Esenciales para el crecimiento muscular y la reparación de tejidos. Incluir opciones como carnes magras (pollo, pavo), pescado, legumbres (lentejas, garbanzos, frijoles), huevos, tofu, etc.\n* **Grupo de vegetales:**  Aportan vitaminas, minerales y fibra.  Incluir una variedad de colores para asegurar una gama amplia de nutrientes. Ejemplos:  Ensaladas, purés, verduras salteadas, etc.\n* **Grupo de grasas saludables:**  Necesarias para el desarrollo cerebral y la absorción de vitaminas.  Incluir fuentes como aguacate, aceite de oliva, frutos secos (con moderación).",
+              "title": "Componentes de un Almuerzo Saludable"
+            },
+            {
+              "codeExample": "",
+              "description": "Para hacer los almuerzos más atractivos para los niños, se pueden emplear técnicas creativas como:\n\n* **Presentaciones divertidas:**  Utilizar cortadores de galletas para dar formas divertidas a las verduras o el pan.\n* **Combinaciones de colores:**  Crear platos visualmente atractivos combinando alimentos de diferentes colores.\n* **Miniaturas:**  Preparar porciones pequeñas y manejables para los niños.\n* **Incorporación de salsas saludables:**  Utilizar salsas a base de yogur, hummus o pesto para añadir sabor.\n* **Envases atractivos:**  Utilizar recipientes coloridos y adecuados para llevar el almuerzo a la escuela.",
+              "title": "Ideas Creativas para Almuerzos Infantiles"
+            },
+            {
+              "codeExample": "",
+              "description": "Algunos ejemplos de almuerzos saludables y creativos para niños:\n\n* **Wrap de pollo y verduras:**  Tortilla de trigo integral con pollo a la plancha, lechuga, tomate y zanahoria rallada.\n* **Ensalada de pasta integral con verduras:**  Pasta integral con verduras variadas, aceitunas y un ligero aliño.\n* **Arroz integral con verduras y huevo:**  Arroz integral con brócoli, guisantes y un huevo cocido.\n* **Lentejas estofadas con verduras:**  Lentejas estofadas con zanahoria, calabacín y cebolla.\n* **Sándwich de pan integral con hummus y verduras:** Pan integral con hummus, tomate, pepino y lechuga.",
+              "title": "Ejemplos de Almuerzos Saludables"
+            },
+            {
+              "codeExample": "",
+              "description": "Para asegurar el éxito de los almuerzos saludables, se recomienda:\n\n* **Incluir a los niños en la planificación y preparación de sus almuerzos:**  Esto aumenta su interés y aceptación de la comida.\n* **Ofrecer variedad:**  Evitar la monotonía y asegurar una ingesta nutricional diversa.\n* **Preparar almuerzos con anticipación:**  Esto ayuda a ahorrar tiempo y a mantener el control sobre la calidad de los ingredientes.\n* **Utilizar recipientes adecuados para transportar los almuerzos:**  Mantener la comida fresca y segura.\n* **Escuchar las preferencias de los niños (dentro de un marco saludable):**  Incorporar algunos alimentos favoritos, siempre con opciones saludables.\n* **Evitar las golosinas y los alimentos procesados:**  Estos alimentos no aportan nutrientes esenciales y pueden provocar picos de azúcar en sangre.",
+              "title": "Consejos para un Almuerzo Exitoso"
+            },
+            {
+              "codeExample": "",
+              "description": "Algunos errores comunes a evitar al preparar almuerzos para niños:\n\n* **Exceso de alimentos procesados y precocinados:**  Estos alimentos suelen ser ricos en sodio, azúcares y grasas saturadas.\n* **Poca variedad de frutas y verduras:**  Es crucial para una alimentación equilibrada.\n* **Falta de planificación:**  Llevar a la improvisación puede resultar en almuerzos poco saludables o desequilibrados.\n* **Porciones demasiado grandes:**  Puede desalentar al niño a comer todo el almuerzo.\n* **Ignorar las preferencias del niño:**  Intente involucrar al niño en la elección de sus alimentos dentro de un rango saludable.",
+              "title": "Errores Comunes a Evitar"
+            }
+          ],
+          "name": "Almuerzos Creativos y Llenos de Nutrientes",
+          "videoId": "WsPF83Cauds"
+        },
+        {
+          "chapterId": 3,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "Las meriendas son importantes para mantener los niveles de energía y nutrientes entre las comidas principales, especialmente en niños que están en crecimiento y tienen altos niveles de actividad. Una merienda saludable proporciona energía sostenida y evita el consumo excesivo de alimentos poco nutritivos.",
+              "title": "La Importancia de las Meriendas"
+            },
+            {
+              "codeExample": "",
+              "description": "Una merienda ideal para niños debe ser:\n\n* **Nutritiva:**  Debe aportar nutrientes esenciales como carbohidratos complejos, proteínas, grasas saludables, vitaminas y minerales.\n* **Satisfactoria:**  Debe proporcionar saciedad para evitar el hambre excesiva antes de la siguiente comida.\n* **Fácil de preparar y transportar:**  Ideal para llevar al colegio o actividades extraescolares.\n* **Agradable al paladar:**  Para fomentar el consumo regular de alimentos saludables.\n* **Moderada en tamaño:**  Debe complementar, no sustituir, las comidas principales.",
+              "title": "Características de una Merienda Saludable"
+            },
+            {
+              "codeExample": "",
+              "description": "Para crear una merienda nutritiva, se recomienda combinar diferentes grupos de alimentos:\n\n* **Fruta + Yogur:** Manzana con yogur natural, plátano con yogur griego.\n* **Frutos secos + Fruta:**  Un puñado de almendras o nueces con una pieza de fruta (manzana, pera, etc.).\n* **Vegetales + Hummus:**  Zanahoria, pepino o pimientos con hummus.\n* **Pan integral + Queso bajo en grasa:**  Sándwich de pan integral con queso bajo en grasa y tomate.\n* **Galletas integrales + Leche:**  Galletas integrales con leche descremada.\n* **Yogur + Cereales integrales:**  Yogur con cereales integrales (evitar los azucarados).",
+              "title": "Combinaciones de Alimentos para Meriendas Saludables"
+            },
+            {
+              "codeExample": "",
+              "description": "Algunas ideas de meriendas saludables y deliciosas para niños:\n\n* **Palitos de zanahoria y hummus.\n* **Fruta fresca (manzana, plátano, pera, etc.).\n* **Yogur natural con granola casera.\n* **Tostada integral con aguacate.\n* **Queso bajo en grasa con uvas.\n* **Un puñado de frutos secos (almendras, nueces, etc.).\n* **Batido de frutas y verduras (evitar azúcares añadidos).",
+              "title": "Ejemplos de Meriendas Saludables"
+            },
+            {
+              "codeExample": "",
+              "description": "Es importante evitar las meriendas con alto contenido en azúcares, grasas saturadas y sodio, como:\n\n* **Refrescos azucarados.\n* **Bollería industrial.\n* **Chucherías.\n* **Patatas fritas.\n* **Snacks procesados con alto contenido en sal.",
+              "title": "Meriendas a Evitar"
+            },
+            {
+              "codeExample": "",
+              "description": "Para fomentar el consumo de meriendas saludables:\n\n* **Incluir a los niños en la elección de sus meriendas:**  Les da más responsabilidad y control sobre sus hábitos alimenticios.\n* **Ofrecer una variedad de opciones saludables:**  Evitar la monotonía y asegurar una ingesta nutricional variada.\n* **Preparar las meriendas con anticipación:**  Facilita la planificación y permite elegir opciones saludables.\n* **Utilizar recipientes adecuados para transportar las meriendas:**  Mantener los alimentos frescos y seguros.\n* **Proporcionar las meriendas en porciones adecuadas:**  Evitar el consumo excesivo.",
+              "title": "Consejos para una Buena Merienda"
+            }
+          ],
+          "name": "Meriendas Nutritivas y Deliciosas",
+          "videoId": "izTtkvh2z78"
+        },
+        {
+          "chapterId": 4,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "La cena es una comida importante para niños, ya que completa su ingesta nutricional diaria y proporciona los nutrientes necesarios para un descanso reparador.  Una cena ligera y equilibrada promueve un buen sueño y evita problemas digestivos.",
+              "title": "Importancia de la Cena en la Alimentación Infantil"
+            },
+            {
+              "codeExample": "",
+              "description": "Una cena saludable para niños debe incluir una combinación de:\n\n* **Proteína magra:**  Pescado, pollo, pavo, legumbres (lentejas, garbanzos), tofu, huevos.  Las proteínas ayudan en la reparación de tejidos y en la sensación de saciedad.\n* **Carbohidratos complejos:**  Arroz integral, quinoa, patata (al horno o hervida), pasta integral.  Los carbohidratos complejos proporcionan energía de liberación lenta.\n* **Verduras:**  Una gran variedad de verduras aporta vitaminas, minerales y fibra. Se pueden incluir en sopas, cremas, purés, o como acompañamiento.\n* **Grasas saludables (con moderación):**  Aceite de oliva virgen extra, aguacate, frutos secos (en pequeñas cantidades).  Las grasas saludables son esenciales para el desarrollo cerebral.",
+              "title": "Componentes de una Cena Saludable para Niños"
+            },
+            {
+              "codeExample": "",
+              "description": "Para asegurar que la cena sea una experiencia nutritiva y placentera:\n\n* **Planifique las cenas con anticipación:**  Esto permite una mejor selección de ingredientes y evita la improvisación con opciones poco saludables.\n* **Involcre a los niños en la preparación de la cena:**  Les enseña hábitos alimenticios saludables y aumenta su interés por la comida.\n* **Cree un ambiente familiar y relajado durante la cena:**  Las cenas familiares son una oportunidad para conectar y disfrutar de la comida en compañía.\n* **Evite la presión para que los niños coman:**  Un ambiente relajado ayuda a que los niños coman con más calma y disfruten de la comida.\n* **Ofrezca variedad en las cenas:**  Esto previene la monotonía y garantiza que los niños reciban una amplia gama de nutrientes.\n* **Limite el consumo de azúcares añadidos, grasas saturadas y alimentos procesados:**  Estos alimentos aportan pocas propiedades nutritivas y pueden afectar negativamente la salud.",
+              "title": "Consejos para una Cena Familiar Nutritiva"
+            },
+            {
+              "codeExample": "",
+              "description": "Aquí hay algunos ejemplos de cenas saludables y balanceadas para niños:\n\n* **Pescado al horno con puré de patata y brócoli.\n* **Pollo a la plancha con arroz integral y judías verdes.\n* **Crema de verduras con pan integral.\n* **Lentejas estofadas con verduras.\n* **Tortilla francesa con verduras y queso bajo en grasa.\n* **Pasta integral con salsa de tomate casera y verduras.",
+              "title": "Ideas de Cenas Saludables y Balanceadas"
+            },
+            {
+              "codeExample": "",
+              "description": "Se deben evitar las cenas con alto contenido de grasas saturadas, azúcares añadidos y alimentos procesados, como:\n\n* **Comidas rápidas (hamburguesas, pizzas, etc.).\n* **Platos precocinados con alto contenido de sodio.\n* **Bollería industrial.\n* **Comida frita.",
+              "title": "Cenas a Evitar"
+            },
+            {
+              "codeExample": "",
+              "description": "Es importante tener en cuenta las necesidades individuales de cada niño, así como posibles alergias o intolerancias alimentarias. Consultar con un nutricionista o dietista puede ser beneficioso para obtener un plan de alimentación personalizado.",
+              "title": "Consideraciones Adicionales"
+            }
+          ],
+          "name": "Cenas Familiares Nutritivas y Balanceadas",
+          "videoId": "87Tda0Bv-q8"
+        },
+        {
+          "chapterId": 5,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "Las frutas y verduras son esenciales en la dieta de los niños, aportando vitaminas, minerales, fibra y antioxidantes cruciales para su crecimiento y desarrollo.  Su consumo regular fortalece el sistema inmunológico, mejora la digestión y ayuda a prevenir enfermedades crónicas.",
+              "title": "Importancia de Frutas y Verduras en la Alimentación Infantil"
+            },
+            {
+              "codeExample": "",
+              "description": "Para fomentar el consumo de frutas y verduras en niños, es fundamental recurrir a estrategias creativas que las hagan atractivas y divertidas:\n\n* **Presentación divertida:** Cortar las frutas y verduras en formas divertidas con cortadores de galletas o palillos.  Crear caras divertidas con las verduras en el plato.\n* **Combinaciones de colores:**  Crear platos visualmente atractivos combinando frutas y verduras de diferentes colores. \n* **Incorporación en diferentes preparaciones:**  Incluir frutas y verduras en batidos, purés, salsas, panes, pizzas caseras, etc.\n* **Miniaturas:**  Ofrecer porciones pequeñas y manejables, adecuadas a la edad del niño.\n* **Incluirlas en recetas familiares:** Integrar las verduras en las recetas tradicionales de forma sutil, sin modificar el sabor demasiado.\n* **Degustaciones:**  Ofrecer pequeñas cantidades de nuevas frutas y verduras para que el niño las pruebe sin presión.",
+              "title": "Estrategias para Incorporar Frutas y Verduras Creativamente"
+            },
+            {
+              "codeExample": "",
+              "description": "Algunas ideas creativas para incorporar frutas en la dieta de los niños:\n\n* **Brochetas de frutas:**  Crear brochetas con diferentes frutas de colores.\n* **Batidos de frutas:**  Combinar diferentes frutas en batidos nutritivos y refrescantes.  Agregar yogur o leche para dar más consistencia.\n* **Macedonia de frutas:**  Mezclar diferentes frutas cortadas en dados.\n* **Frutas deshidratadas:**  Una opción saludable para snacks, siempre con moderación.\n* **Tartas y muffins de fruta:**  Usar purés de fruta en la preparación de tartas o muffins caseros (reducir la cantidad de azúcar).\n* **Yogur con fruta fresca:**  Una opción sencilla y nutritiva.",
+              "title": "Ideas Creativas con Frutas"
+            },
+            {
+              "codeExample": "",
+              "description": "Algunas ideas creativas para incorporar verduras en la dieta de los niños:\n\n* **Verduras al vapor:**  Prepararlas al vapor para que conserven sus nutrientes y sabor.\n* **Purés de verduras:**  Crear purés cremosos y suaves que se pueden mezclar con pasta o arroz.\n* **Verduras asadas:**  Asar las verduras al horno con un poco de aceite de oliva para darles un sabor más intenso.\n* **Verduras en salsas:**  Incorporar verduras finamente picadas en salsas para pasta o carne.\n* **Pizza casera con verduras:**  Crear pizzas caseras con una base integral y una gran variedad de verduras.\n* **Hamburguesas vegetarianas con verduras:**  Incorporar verduras picadas a las hamburguesas vegetarianas.",
+              "title": "Ideas Creativas con Verduras"
+            },
+            {
+              "codeExample": "",
+              "description": "Para maximizar el éxito al introducir frutas y verduras:\n\n* **Sea paciente:** Puede llevar tiempo que un niño acepte nuevas frutas y verduras.\n* **Sea un buen ejemplo:** Si los padres consumen frutas y verduras regularmente, los niños serán más propensos a hacerlo.\n* **No fuerce a los niños a comer:**  La presión puede provocar rechazo a la comida.\n* **Ofrezca variedad:**  Esto ayuda a evitar la monotonía y a garantizar una amplia gama de nutrientes.\n* **Involúcrelos en la preparación:**  Los niños son más propensos a comer alimentos en cuya preparación han participado.",
+              "title": "Consejos Adicionales"
+            },
+            {
+              "codeExample": "",
+              "description": "Algunos errores comunes a evitar:\n\n* **Ofrecer solo las frutas y verduras favoritas del niño:**  Limitar la variedad impide una nutrición completa.\n* **Preparar las verduras de forma poco atractiva:**  La presentación influye en la aceptación del niño.\n* **Usar excesiva cantidad de condimentos o salsas:**  Esto puede enmascarar el sabor natural de las frutas y verduras.\n* **Forzar el consumo de grandes cantidades:**  El niño debe probar y acostumbrarse gradualmente.",
+              "title": "Errores Comunes a Evitar"
+            }
+          ],
+          "name": "Incorporando Frutas y Verduras de Forma Creativa",
+          "videoId": "mYpdnfkA9fI"
+        },
+        {
+          "chapterId": 6,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "Las alergias e intolerancias alimentarias son reacciones adversas a ciertos alimentos que pueden variar en gravedad.  Es crucial comprender las diferencias entre ambas y cómo manejarlas para asegurar la salud y el bienestar de los niños.",
+              "title": "Introducción a las Alergias e Intolerancias Alimentarias en Niños"
+            },
+            {
+              "codeExample": "",
+              "description": "Una **alergia alimentaria** es una reacción del sistema inmunitario a una proteína específica en un alimento.  Puede provocar síntomas leves o graves, incluso potencialmente mortales (anafilaxia). Una **intolerancia alimentaria** no implica una respuesta inmunitaria, sino una dificultad para digerir un alimento específico.  Los síntomas suelen ser menos graves y se limitan al sistema digestivo (ej: hinchazón, gases).",
+              "title": "Diferencias entre Alergia e Intolerancia"
+            },
+            {
+              "codeExample": "",
+              "description": "Algunos de los alérgenos alimentarios más comunes en niños son:\n\n* **Leche de vaca:**  Una de las alergias más frecuentes en la infancia.\n* **Huevo:**  Otro alérgeno común, especialmente en niños pequeños.\n* **Maní (cacahuate):**  Una de las alergias más graves y persistentes.\n* **Soja:**  Puede provocar reacciones alérgicas significativas.\n* **Trigo:**  Alergia frecuente relacionada con enfermedades celíacas (intolerancia al gluten).\n* **Pescado:**  La alergia al pescado suele ser duradera.\n* **Mariscos:**  Alergia potencialmente grave.\n* **Nueces:**  Diversas nueces (avellanas, almendras, etc.) pueden causar reacciones alérgicas.",
+              "title": "Alergenos Comunes en Niños"
+            },
+            {
+              "codeExample": "",
+              "description": "Los síntomas de las alergias alimentarias pueden variar desde leves a graves y aparecer minutos después de la ingesta del alérgeno o incluso horas después.  Algunos síntomas son:\n\n* **Leves:**  Erupciones cutáneas, picazón, urticaria, hinchazón de labios o lengua.\n* **Graves:**  Dificultad para respirar, sibilancias, hinchazón de la garganta, vómitos, diarrea, mareos, pérdida de conciencia (anafilaxia).",
+              "title": "Síntomas de las Alergias Alimentarias"
+            },
+            {
+              "codeExample": "",
+              "description": "El diagnóstico de alergias alimentarias debe ser realizado por un médico alergólogo o inmunólogo.  Las pruebas comunes incluyen:\n\n* **Pruebas cutáneas:**  Se aplican pequeñas cantidades de alérgenos en la piel para observar reacciones.\n* **Pruebas de sangre:**  Miden los niveles de anticuerpos específicos en la sangre.\n* **Prueba de eliminación y provocación:**  Consiste en eliminar el alimento sospechoso de la dieta y luego reintroducirlo para observar la reacción.",
+              "title": "Diagnóstico de Alergias e Intolerancias"
+            },
+            {
+              "codeExample": "",
+              "description": "El manejo de las alergias e intolerancias alimentarias se centra en la prevención, mediante la evitación estricta del alimento causante de la reacción.  Es fundamental:\n\n* **Leer las etiquetas de los alimentos con atención:**  Verificar la presencia del alérgeno en la lista de ingredientes.\n* **Informar a familiares, cuidadores y maestros:**  Asegurar que todos sean conscientes de la alergia.\n* **Llevar siempre un plan de emergencia:**  En caso de alergias graves, es esencial tener un plan de acción que incluya epinefrina (adrenalina) y la información necesaria para atención médica inmediata.\n* **Buscar alternativas alimentarias:**  Encontrar sustitutos adecuados para los alimentos que causan alergia o intolerancia.\n* **Consultar con un dietista-nutricionista:**  Para elaborar un plan de alimentación seguro y nutritivo.",
+              "title": "Manejo de Alergias e Intolerancias"
+            },
+            {
+              "codeExample": "",
+              "description": "Planificar las comidas para niños con alergias requiere un mayor cuidado y atención a los detalles.  Se deben elegir alimentos seguros y nutritivos, asegurándose de que se cubran todas las necesidades nutricionales.  Es importante consultar con un profesional para obtener un plan de alimentación personalizado.",
+              "title": "Planificación de Comidas para Niños con Alergias"
+            }
+          ],
+          "name": "Manejo de Alergias e Intolerancias Alimentarias",
+          "videoId": "PzNCNtpEutQ"
+        },
+        {
+          "chapterId": 7,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "La elección entre preparar comidas caseras y consumir comidas procesadas tiene un impacto significativo en la salud de los niños.  Las comidas caseras suelen ser más nutritivas y saludables, mientras que las comidas procesadas a menudo contienen ingredientes poco saludables como azúcares añadidos, grasas saturadas, sodio y aditivos artificiales.",
+              "title": "Comidas Caseras vs. Comidas Procesadas: Una Comparación"
+            },
+            {
+              "codeExample": "",
+              "description": "Las comidas caseras ofrecen numerosas ventajas:\n\n* **Control total sobre los ingredientes:** Se pueden seleccionar ingredientes frescos, de alta calidad y libres de aditivos artificiales.\n* **Mayor contenido nutricional:**  Las comidas caseras suelen ser más ricas en vitaminas, minerales, fibra y antioxidantes.\n* **Menor contenido de azúcares, grasas saturadas y sodio:** Se puede controlar la cantidad de estos ingredientes poco saludables.\n* **Adaptabilidad a las necesidades individuales:**  Se pueden adaptar las recetas a las necesidades y preferencias de cada niño, incluyendo alergias o intolerancias.\n* **Mayor variedad:** Se pueden preparar una amplia gama de platos con ingredientes frescos y creativos.\n* **Mayor satisfacción:**  Cocinar en familia puede ser una actividad divertida y educativa.",
+              "title": "Ventajas de las Comidas Caseras"
+            },
+            {
+              "codeExample": "",
+              "description": "Las comidas caseras también presentan algunas desventajas:\n\n* **Requieren más tiempo y esfuerzo:**  Preparar comidas caseras desde cero demanda tiempo y dedicación.\n* **Mayor costo:**  Los ingredientes frescos pueden ser más caros que los alimentos procesados.\n* **Requiere habilidades culinarias:**  Se necesitan conocimientos básicos de cocina para preparar comidas equilibradas y nutritivas.\n* **Planificación previa:** Se requiere planificación para comprar los ingredientes y preparar las comidas con anticipación.",
+              "title": "Desventajas de las Comidas Caseras"
+            },
+            {
+              "codeExample": "",
+              "description": "Las comidas procesadas presentan varias desventajas:\n\n* **Alto contenido de azúcares añadidos, grasas saturadas y sodio:**  Estos ingredientes contribuyen al aumento de peso, problemas cardiovasculares y otros problemas de salud.\n* **Bajo contenido nutricional:**  Las comidas procesadas suelen ser bajas en vitaminas, minerales y fibra.\n* **Presencia de aditivos artificiales:**  Algunos aditivos pueden tener efectos negativos en la salud.\n* **Mayor riesgo de obesidad infantil:**  El consumo regular de comidas procesadas se asocia con un mayor riesgo de obesidad.\n* **Menos variedad:**  Las opciones suelen ser limitadas y repetitivas.\n* **Mayor costo a largo plazo:** Aunque a menudo parecen más económicas a corto plazo, el impacto en la salud a largo plazo puede resultar en costos médicos significativos.",
+              "title": "Desventajas de las Comidas Procesadas"
+            },
+            {
+              "codeExample": "",
+              "description": "Para obtener los beneficios de las comidas caseras sin renunciar completamente a la conveniencia, se pueden considerar las siguientes estrategias:\n\n* **Combinar comidas caseras y procesadas:**  Preparar la mayoría de las comidas en casa, recurriendo a alimentos procesados solo ocasionalmente.\n* **Elegir alimentos procesados de forma inteligente:**  Optar por opciones con bajo contenido de azúcares, grasas saturadas y sodio.\n* **Utilizar ingredientes procesados de forma creativa en comidas caseras:**  Incorporar ingredientes como legumbres enlatadas, salsas de tomate sin azúcar añadido, etc., en recetas caseras.\n* **Planificar las comidas:**  Preparar comidas con anticipación, congelar porciones o utilizar recetas sencillas para optimizar el tiempo.",
+              "title": "Consejos para Equilibrar Ambas Opciones"
+            },
+            {
+              "codeExample": "",
+              "description": "Priorizar las comidas caseras es fundamental para una alimentación saludable en niños.  Aunque las comidas procesadas pueden tener su lugar de forma ocasional, deben consumirse con moderación y eligiendo opciones más saludables. Una buena planificación y organización pueden ayudar a equilibrar ambas opciones.",
+              "title": "Conclusión"
+            }
+          ],
+          "name": "Preparación de Comidas Caseras vs. Comidas Procesadas",
+          "videoId": "87Tda0Bv-q8"
+        },
+        {
+          "chapterId": 8,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "Establecer hábitos alimenticios saludables en la infancia es crucial para el crecimiento, desarrollo y bienestar a largo plazo del niño. Una alimentación equilibrada proporciona la energía y los nutrientes necesarios para un correcto funcionamiento físico e intelectual, previniendo enfermedades crónicas y promoviendo un peso saludable.",
+              "title": "La Importancia de los Hábitos Alimenticios Saludables"
+            },
+            {
+              "codeExample": "",
+              "description": "Para fomentar hábitos alimenticios saludables en los niños, es importante implementar diversas estrategias:\n\n* **Ser un buen ejemplo:** Los niños aprenden observando a sus padres y familiares.  Si los adultos consumen alimentos saludables, los niños serán más propensos a imitarlos.\n* **Incluir a los niños en la planificación y preparación de las comidas:**  Esto les da un mayor sentido de responsabilidad y participación, aumentando su interés por los alimentos.\n* **Ofrecer variedad de alimentos:**  Una alimentación variada garantiza una ingesta adecuada de nutrientes. Presentar nuevos alimentos de forma gradual y repetida.\n* **Crear un ambiente positivo a la hora de comer:**  Un ambiente relajado y sin presiones facilita una mejor digestión y una actitud más positiva hacia la comida.\n* **Evitar el uso de la comida como recompensa o castigo:**  Esto puede crear una relación distorsionada con la comida.\n* **No obligar a los niños a comer:**  La presión puede generar rechazo hacia ciertos alimentos.\n* **Establecer horarios regulares para las comidas:**  Esto ayuda a regular el apetito y a prevenir el consumo excesivo de alimentos entre comidas.\n* **Escuchar las preferencias del niño (dentro de un marco saludable):**  Incorporar algunos de sus alimentos favoritos en el menú, adaptando recetas para que sean más saludables.\n* **Ofrecer porciones adecuadas a su edad:**  Evitar porciones demasiado grandes que puedan desanimar al niño.\n* **Educar sobre nutrición de forma lúdica:**  Utilizar juegos, cuentos o dibujos para enseñarles sobre los beneficios de una alimentación saludable.",
+              "title": "Estrategias para Incentivar Hábitos Saludables"
+            },
+            {
+              "codeExample": "",
+              "description": "Para maximizar el éxito en la implementación de hábitos alimenticios saludables, se recomienda:\n\n* **Paciencia y perseverancia:**  Puede llevar tiempo que los niños adopten nuevos hábitos alimenticios.\n* **Repetir la presentación de alimentos nuevos:**  Los niños pueden necesitar varias exposiciones a un alimento antes de aceptarlo.\n* **Reforzar positivamente los buenos hábitos:**  Celebrar y elogiar los esfuerzos del niño al elegir alimentos saludables.\n* **Buscar apoyo profesional:**  Un nutricionista o dietista puede ofrecer un plan de alimentación personalizado y orientación profesional.\n* **Ser coherentes en las normas:**  Establecer reglas claras y constantes en torno a la alimentación.",
+              "title": "Consejos Adicionales para el Éxito"
+            },
+            {
+              "codeExample": "",
+              "description": "Para hacer el aprendizaje sobre alimentación más divertido:\n\n* **Crear un huerto en casa:**  Permite a los niños participar en el proceso de cultivo de frutas y verduras.\n* **Juegos de mesa educativos:**  Existen juegos de mesa que enseñan sobre los grupos de alimentos y una alimentación sana.\n* **Cuentos sobre alimentación saludable:**  Existen muchos cuentos infantiles que promueven hábitos alimenticios saludables.\n* **Recetas divertidas:**  Involucrar a los niños en la preparación de recetas creativas y atractivas.",
+              "title": "Ejemplos de Actividades Lúdicas"
+            },
+            {
+              "codeExample": "",
+              "description": "Algunos errores comunes que pueden obstaculizar el desarrollo de hábitos saludables son:\n\n* **Utilizar la comida como recompensa o castigo.**\n* **Presionar al niño para que coma.**\n* **Saltarse las comidas.**\n* **Ofrecer solo alimentos que al niño le gustan, sin considerar la variedad nutricional.**\n* **No ser un buen ejemplo para el niño.**",
+              "title": "Errores Comunes a Evitar"
+            }
+          ],
+          "name": "Cómo Incentivar Hábitos Alimenticios Saludables en Niños",
+          "videoId": "Wr0_wULJnBE"
+        },
+        {
+          "chapterId": 9,
+          "content": [
+            {
+              "codeExample": "",
+              "description": "Planificar los menús semanales para niños es fundamental para asegurar una alimentación saludable, variada y equilibrada.  Una planificación adecuada facilita la compra de alimentos, ahorra tiempo en la cocina y ayuda a evitar la monotonía y la improvisación con opciones menos nutritivas.",
+              "title": "Importancia de la Planificación de Menús Semanales"
+            },
+            {
+              "codeExample": "",
+              "description": "Para crear un menú semanal efectivo, siga estos pasos:\n\n1. **Considere las necesidades nutricionales:**  Asegúrese de que el menú incluya todos los grupos de alimentos: frutas, verduras, cereales integrales, proteínas magras, lácteos (o alternativas) y grasas saludables.\n2. **Tenga en cuenta las preferencias del niño:**  Incorpore algunos de sus alimentos favoritos, pero asegúrese de que sean opciones saludables.\n3. **Planifique las cenas con anticipación:**  Las cenas suelen ser la comida más compleja de preparar, por lo que es importante planificarlas con antelación.\n4. **Considere el tiempo disponible:**  Elija recetas que sean fáciles y rápidas de preparar, especialmente para los días con menos tiempo.\n5. **Prepare una lista de compras:**  Una vez que tenga el menú planificado, haga una lista de compras detallada para evitar compras impulsivas.\n6. **Sea flexible:**  Los menús son una guía, no una regla.  Es importante estar preparado para adaptarse a cambios inesperados o a las preferencias del niño.",
+              "title": "Pasos para Planificar un Menú Semanal"
+            },
+            {
+              "codeExample": "",
+              "description": "Este es un ejemplo de menú semanal para niños, recuerde adaptarlo a las necesidades y preferencias de su familia y considerar posibles alergias o intolerancias:\n\n**Lunes:**\n* Desayuno: Avena con plátano y nueces.\n* Almuerzo: Pollo a la plancha con arroz integral y brócoli.\n* Merienda: Yogur con fresas.\n* Cena:  Sopa de verduras con pan integral.\n\n**Martes:**\n* Desayuno: Tostada integral con aguacate y huevo.\n* Almuerzo: Lentejas con verduras y pan integral.\n* Merienda: Manzana con un puñado de almendras.\n* Cena:  Pescado al horno con puré de patata.\n\n**Miércoles:**\n* Desayuno: Yogur con granola y miel (con moderación).\n* Almuerzo: Pasta integral con salsa de tomate y verduras.\n* Merienda: Plátano.\n* Cena:  Tortilla francesa con verduras.\n\n**Jueves:**\n* Desayuno: Pancakes integrales con fruta.\n* Almuerzo:  Ensalada de garbanzos con verduras y aceite de oliva.\n* Merienda:  Queso bajo en grasa con uvas.\n* Cena:  Pollo al curry con arroz integral y verduras.\n\n**Viernes:**\n* Desayuno: Batido de frutas y verduras.\n* Almuerzo:  Wrap de pollo y verduras.\n* Merienda:  Fruta fresca (kiwi, naranja).\n* Cena: Pizza casera integral con verduras.\n\n**Sábado:**\n* Desayuno:  Huevos revueltos con tomate y pan integral.\n* Almuerzo:  Resto de pizza casera.\n* Merienda:  Yogur con fruta.\n* Cena:  Familiar, se puede optar por un plato más libre pero incluyendo opciones saludables.\n\n**Domingo:**\n* Desayuno:  Cereales integrales con leche.\n* Almuerzo:  Comida familiar, similar al sábado.\n* Merienda:  Fruta fresca.\n* Cena:  Sopas de verduras.",
+              "title": "Ejemplo de Menú Semanal"
+            },
+            {
+              "codeExample": "",
+              "description": "Para facilitar la planificación:\n\n* **Utilice una aplicación móvil:** Existen aplicaciones que ayudan a planificar menús y crear listas de compras.\n* **Prepare comidas con anticipación:**  Prepare algunas comidas con antelación y congélelas para los días con menos tiempo.\n* **Recicle ingredientes:**  Utilice los restos de comida para crear nuevos platos.\n* **Tenga en cuenta las temporadas:**  Utilice frutas y verduras de temporada, ya que suelen ser más económicas y sabrosas.\n* **Busque inspiración en libros de cocina y recetas online:**  Existen numerosas recetas saludables y fáciles de preparar para niños.",
+              "title": "Consejos Adicionales"
+            },
+            {
+              "codeExample": "",
+              "description": "Recuerde que este es solo un ejemplo.  Ajuste el menú según las necesidades y preferencias de su familia.  Considere alergias, intolerancias y restricciones dietéticas.  Es importante involucrar a los niños en la elección de los alimentos, siempre dentro de un contexto saludable.",
+              "title": "Consideraciones Importantes"
+            }
+          ],
+          "name": "Planificación de Menús Semanales",
+          "videoId": "cpHq3a9MN5E"
+        }
+      ],
+      "courseBanner": "https://firebasestorage.googleapis.com/v0/b/togs-cc569.appspot.com/o/ai-course%2F1734120358165.jpg?alt=media&token=e0863706-f284-49e1-98c0-6cd44683c7d8",
+      "courseId": "9ec0a89b-f62a-4e54-bda1-f4d05e82f893",
+      "courseOutput": {
+        "course": {
+          "category": "Salud",
+          "chapters": [
+            {
+              "about": "Abordamos los requerimientos nutricionales esenciales en niños, considerando las etapas del crecimiento y las necesidades energéticas.",
+              "duration": "15 minutes",
+              "name": "Principios de la Nutrición Infantil"
+            },
+            {
+              "about": "Recetas de desayunos rápidos y nutritivos: desde avena con frutas hasta opciones con huevos y vegetales.",
+              "duration": "20 minutes",
+              "name": "Desayunos Saludables y Energéticos"
+            },
+            {
+              "about": "Ideas para almuerzos escolares y caseros: sándwiches, ensaladas, wraps y mucho más, con combinaciones atractivas.",
+              "duration": "25 minutes",
+              "name": "Almuerzos Creativos y Llenos de Nutrientes"
+            },
+            {
+              "about": "Recetas de meriendas saludables entre comidas: frutas, yogures, palitos de vegetales, etc.",
+              "duration": "15 minutes",
+              "name": "Meriendas Nutritivas y Deliciosas"
+            },
+            {
+              "about": "Recetas de cenas fáciles y rápidas para toda la familia, con proteínas magras, carbohidratos complejos y vegetales.",
+              "duration": "20 minutes",
+              "name": "Cenas Familiares Nutritivas y Balanceadas"
+            },
+            {
+              "about": "Estrategias para incluir más frutas y verduras en la dieta de los niños, superando posibles rechazos.",
+              "duration": "20 minutes",
+              "name": "Incorporando Frutas y Verduras de Forma Creativa"
+            },
+            {
+              "about": "Guía para identificar alergias e intolerancias comunes y cómo adaptar las recetas a las necesidades específicas.",
+              "duration": "15 minutes",
+              "name": "Manejo de Alergias e Intolerancias Alimentarias"
+            },
+            {
+              "about": "Beneficios de preparar comidas caseras y cómo minimizar el consumo de alimentos procesados.",
+              "duration": "15 minutes",
+              "name": "Preparación de Comidas Caseras vs. Comidas Procesadas"
+            },
+            {
+              "about": "Estrategias para fomentar el consumo de alimentos saludables en niños de manera divertida y efectiva.",
+              "duration": "20 minutes",
+              "name": "Cómo Incentivar Hábitos Alimenticios Saludables en Niños"
+            },
+            {
+              "about": "Herramientas y ejemplos para planificar menús semanales equilibrados y nutritivos para toda la familia.",
+              "duration": "15 minutes",
+              "name": "Planificación de Menús Semanales"
+            }
+          ],
+          "description": "Este curso proporciona estrategias y recetas prácticas para preparar comidas nutritivas y atractivas para niños. Aprenderás a incorporar frutas, verduras y proteínas de forma creativa, adaptando las recetas a los gustos infantiles y superando los desafíos comunes a la hora de alimentar a los más pequeños.",
+          "duration": "2 Hours",
+          "level": "Intermediate",
+          "name": "Comidas Saludables para Niños: Un Curso Intermedio",
+          "noOfChapters": 10,
+          "topic": "Comidas saludables para niños"
+        }
+      },
+      "createdBy": "simontrinidad.f.b@gmail.com",
+      "includeVideo": "Yes",
+      "level": "Intermediate",
+      "name": "Comidas saludables para niños",
       "publish": true,
       "userName": "Simon Fuentes",
       "userProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycERrc0RTMjM5YXRZSmQyT205NkZxUU1lYnIifQ"
@@ -6271,508 +7225,6 @@
       "publish": true,
       "userName": "Simon Fuentes",
       "userProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycERrc0RTMjM5YXRZSmQyT205NkZxUU1lYnIifQ"
-    },
-    "c5ed674a-d814-4671-a579-93a3c3b38351": {
-      "category": "Educación",
-      "chapters": [
-        {
-          "chapterId": 0,
-          "content": [
-            {
-              "codeExample": "",
-              "description": "Canva es una plataforma de diseño gráfico en línea, intuitiva y fácil de usar, que permite crear diseños profesionales sin necesidad de tener conocimientos avanzados de diseño. Ofrece una amplia variedad de plantillas, elementos gráficos, fotos y herramientas para diseñar diferentes tipos de contenido, como presentaciones, redes sociales, tarjetas, volantes, etc.",
-              "title": "Introducción a Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva ofrece una gran variedad de herramientas y funciones, algunas de las más importantes son:\n\n* **Plantillas:** Canva proporciona miles de plantillas prediseñadas para diferentes propósitos, lo que facilita el inicio del proceso de diseño. Puedes personalizarlas a tu gusto.\n* **Elementos de diseño:**  Acceso a una biblioteca extensa de imágenes, iconos, gráficos, fuentes y elementos de diseño que se pueden arrastrar y soltar en tus creaciones.\n* **Edición de imágenes:** Herramientas básicas de edición de imágenes como recortar, ajustar el brillo, contraste y saturación. \n* **Texto:**  Herramientas para agregar, editar y formatear texto, con diferentes opciones de tipografía y estilos.\n* **Colaboración:**  Permite la colaboración en tiempo real con otros usuarios, lo cual es ideal para proyectos grupales.\n* **Descarga:**  Posibilidad de descargar tus diseños en diferentes formatos (JPEG, PNG, PDF, etc.) para su posterior uso.",
-              "title": "Funcionalidades Principales"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva permite crear una amplia gama de diseños, incluyendo (pero no limitado a):\n\n* **Redes sociales:** Posts para Facebook, Instagram, Twitter, Pinterest, etc.\n* **Presentaciones:** Para reuniones, capacitaciones, conferencias.\n* **Documentos:**  Infografías, folletos, libros electrónicos.\n* **Marketing:**  Volantes, banners, anuncios para redes sociales,  materiales para email marketing.\n* **Material educativo:**  Carteles, presentaciones, fichas.\n* **Tarjetas:** Invitaciones, felicitaciones, tarjetas de agradecimiento.",
-              "title": "Tipos de Diseños"
-            },
-            {
-              "codeExample": "",
-              "description": "El proceso de creación de un diseño en Canva es generalmente sencillo e intuitivo:\n\n1. **Seleccionar una plantilla:** Elige una plantilla de la amplia biblioteca de Canva o comienza desde cero con un lienzo en blanco.\n2. **Personalizar la plantilla:** Modifica los elementos existentes de la plantilla, como imágenes, texto, colores y fuentes.\n3. **Agregar elementos:** Arrastra y suelta elementos gráficos de la biblioteca de Canva o sube tus propias imágenes.\n4. **Editar elementos:** Ajusta el tamaño, posición, color y otros atributos de los elementos de diseño.\n5. **Guardar y descargar:** Guarda tu diseño y descárgalo en el formato que necesites.",
-              "title": "Creando un Diseño en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva ofrece dos versiones: una gratuita y una versión de pago (Canva Pro). La versión gratuita ofrece funcionalidades básicas y acceso a una biblioteca limitada de plantillas y elementos. Canva Pro, por otro lado, brinda acceso a más recursos, funciones avanzadas como la programación de publicaciones en redes sociales, acceso a más plantillas y elementos, y la posibilidad de crear una marca propia con logos y paletas de colores.",
-              "title": "Canva Free vs. Canva Pro"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva es una herramienta poderosa y versátil para el diseño gráfico, ideal tanto para principiantes como para diseñadores con más experiencia. Su facilidad de uso y amplia gama de funcionalidades hacen de Canva una opción ideal para crear diseños profesionales de forma rápida y eficiente.",
-              "title": "Conclusión"
-            }
-          ],
-          "name": "Introducción a Canva",
-          "videoId": "OwyMqApPlw4"
-        },
-        {
-          "chapterId": 1,
-          "content": [
-            {
-              "codeExample": "",
-              "description": "Canva ofrece una amplia variedad de tipos de diseño, adaptables a diversas necesidades y plataformas.  La plataforma se centra en la facilidad de uso, ofreciendo plantillas prediseñadas y herramientas intuitivas para cada tipo de diseño. La categorización puede variar ligeramente con las actualizaciones de Canva, pero estos son algunos de los tipos más comunes:",
-              "title": "Tipos de diseños en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva facilita la creación de contenido visual para diferentes plataformas de redes sociales.  Esto incluye plantillas para publicaciones de Instagram (cuadradas, verticales, historias), Facebook (publicaciones, anuncios), Twitter, Pinterest (pins), LinkedIn (publicaciones, banners), entre otras.  Permite optimizar el tamaño y formato para cada red, asegurando una presentación adecuada.",
-              "title": "Redes Sociales"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva es una herramienta popular para el diseño de materiales de marketing.  En esta categoría se encuentran diseños para:\n\n* **Banners:** Para páginas web, anuncios online, redes sociales.\n* **Volantes y Folletos:**  Para eventos, promociones, información de productos o servicios.\n* **Anuncios:** Para redes sociales, plataformas online.\n* **Presentaciones de ventas:** Para reuniones con clientes potenciales.\n* **Email marketing:** Diseño de emails atractivos y profesionales.",
-              "title": "Marketing y Publicidad"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva ofrece plantillas y herramientas para la creación de presentaciones profesionales para diversas ocasiones, como presentaciones corporativas, académicas, o para compartir información de manera visualmente atractiva.  La posibilidad de añadir animaciones y transiciones básicas también está disponible.",
-              "title": "Presentaciones"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva permite diseñar documentos para diferentes usos, como:\n\n* **Infografías:** Para visualizar datos de manera clara y concisa.\n* **Libros electrónicos (eBooks):** Para publicar contenido digital.\n* **Revistas:** Para crear publicaciones digitales o impresas.\n* **Folletos informativos:** Para compartir información de manera organizada.",
-              "title": "Documentos y Publicaciones"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva es una opción útil para crear recursos educativos.  Ejemplos incluyen:\n\n* **Carteles:** Para anuncios educativos, recordatorios, motivacionales.\n* **Fichas didácticas:** Para actividades en clase o para el aprendizaje en casa.\n* **Presentaciones para aulas:**  Para dar clases o para complementar el aprendizaje.\n* **Tarjetas de vocabulario:** Para el aprendizaje de idiomas.",
-              "title": "Material Educativo"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva facilita la creación de tarjetas para diversas ocasiones. Esto incluye:\n\n* **Invitaciones:** Para eventos, fiestas, cumpleaños, bodas.\n* **Tarjetas de felicitación:** Para cumpleaños, aniversarios, etc.\n* **Tarjetas de agradecimiento:** Para expresar gratitud.\n* **Tarjetas de presentación (business cards):** Para profesionales.",
-              "title": "Tarjetas y Diseño Personal"
-            },
-            {
-              "codeExample": "",
-              "description": "Además de las categorías anteriores, Canva permite crear otros tipos de diseños según la necesidad, como logotipos (aunque se recomienda el uso de herramientas especializadas para ello en la mayoría de los casos), certificados, calendarios, y una gran variedad de opciones más.  La versatilidad de la herramienta permite adaptarse a diferentes requerimientos de diseño.",
-              "title": "Otros Diseños"
-            }
-          ],
-          "name": "Tipos de diseños en Canva",
-          "videoId": "2tZGNVLpOLY"
-        },
-        {
-          "chapterId": 2,
-          "content": [
-            {
-              "codeExample": "",
-              "description": "Canva, a pesar de su interfaz sencilla, permite el manejo de los elementos básicos del diseño gráfico, facilitando la creación de piezas visuales atractivas y profesionales.  Comprender estos elementos ayuda a mejorar la calidad de tus diseños.",
-              "title": "Elementos Básicos de Diseño en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "La elección de las fuentes es crucial para la legibilidad y la estética del diseño. Canva ofrece una amplia biblioteca de fuentes, permitiendo seleccionar la que mejor se adapte al tono y estilo del proyecto. Es importante considerar la jerarquía tipográfica (títulos, subtítulos, cuerpo de texto) para una mejor organización de la información.  Se recomienda evitar el uso excesivo de fuentes diferentes en un mismo diseño, generalmente se aconseja usar un máximo de dos o tres.",
-              "title": "Tipografía"
-            },
-            {
-              "codeExample": "",
-              "description": "El color juega un papel fundamental en la comunicación visual.  Influye en las emociones, la percepción y la memorabilidad del diseño. Canva permite la selección de colores predefinidos o la creación de paletas personalizadas usando códigos hexadecimales o seleccionando colores directamente en una paleta de colores.  Es importante considerar la psicología del color y la armonía entre los colores elegidos.  Canva facilita la creación de paletas armoniosas mediante sugerencias.",
-              "title": "Color"
-            },
-            {
-              "codeExample": "",
-              "description": "Las imágenes son esenciales para comunicar visualmente ideas y conceptos. Canva ofrece una biblioteca de imágenes de stock, aunque es posible subir imágenes propias.  La calidad de las imágenes es importante para la profesionalidad del diseño.  Se debe tener en cuenta la resolución y el tamaño de las imágenes, así como la integración armoniosa con el resto de elementos del diseño.",
-              "title": "Imagen"
-            },
-            {
-              "codeExample": "",
-              "description": "El espacio en blanco, o espacio negativo, es el área vacía alrededor de los elementos de diseño. No es un espacio sin importancia, sino un elemento fundamental para la organización y la legibilidad del diseño.  Un uso correcto del espacio en blanco permite que los elementos visuales respiren y evita la sensación de saturación visual. Canva permite controlar fácilmente este espacio al modificar la posición y tamaño de los elementos.",
-              "title": "Espacio en Blanco (Espacio Negativo)"
-            },
-            {
-              "codeExample": "",
-              "description": "La composición se refiere a la organización de los elementos en el diseño.  Una buena composición crea equilibrio, armonía y guía la mirada del espectador. Canva ofrece guías y reglas para ayudar a organizar los elementos de forma equilibrada.  Es importante considerar la regla de los tercios, la simetría y la asimetría, y otros principios de diseño para una composición efectiva.",
-              "title": "Composición"
-            },
-            {
-              "codeExample": "",
-              "description": "La jerarquía visual determina la importancia relativa de los elementos en un diseño.  Los elementos más importantes deben destacarse visualmente, mientras que los elementos secundarios juegan un papel de soporte. Esto se logra mediante el tamaño, el color, la tipografía y la posición de los elementos.  Canva facilita la creación de jerarquía visual con herramientas de formateo y organización de elementos.",
-              "title": "Jerarquía Visual"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva ofrece una extensa biblioteca de elementos gráficos, como iconos, formas, ilustraciones, etc.  Estos elementos pueden añadir valor visual al diseño, complementando las imágenes y el texto.  Es importante utilizar los elementos gráficos de manera coherente y estratégica, evitando la sobrecarga visual.",
-              "title": "Elementos Gráficos"
-            }
-          ],
-          "name": "Elementos básicos de diseño",
-          "videoId": "nZkQBD1duJ0"
-        },
-        {
-          "chapterId": 3,
-          "content": [
-            {
-              "codeExample": "",
-              "description": "Canva ofrece herramientas intuitivas y versátiles para trabajar con texto, permitiendo crear diseños visualmente atractivos y comunicativamente efectivos.  La correcta manipulación del texto es crucial para la legibilidad y la estética general del diseño.",
-              "title": "Trabajando con Texto en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Para añadir texto, simplemente selecciona la opción \"Texto\" en la barra lateral izquierda. Canva ofrece diferentes opciones, como \"Título\", \"Subtítulo\", \"Cuerpo de texto\", entre otras, cada una con un estilo predefinido.  También puedes agregar texto arrastrando y soltando un cuadro de texto directamente al lienzo.",
-              "title": "Agregar Texto"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva permite modificar el formato del texto de diversas maneras.  Puedes cambiar:\n\n* **Fuente:**  Seleccionar entre una amplia variedad de fuentes tipográficas.\n* **Tamaño:** Ajustar el tamaño de la fuente.\n* **Color:**  Cambiar el color del texto.\n* **Estilo:**  Aplicar estilos como negrita, cursiva, subrayado, tachado.\n* **Alineación:** Alinear el texto a la izquierda, derecha, centro o justificado.\n* **Espaciado:** Ajustar el espacio entre letras (tracking) y entre líneas (leading).",
-              "title": "Formato de Texto"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva ofrece la posibilidad de crear y guardar estilos de texto personalizados.  Esto permite aplicar consistentemente el mismo formato a diferentes partes del diseño, manteniendo la coherencia visual.  Esto es especialmente útil cuando se trabaja en proyectos con una misma identidad visual.",
-              "title": "Estilos de Texto"
-            },
-            {
-              "codeExample": "",
-              "description": "La edición de texto en Canva es sencilla e intuitiva.  Puedes editar el contenido del texto directamente haciendo clic en el cuadro de texto.  También puedes modificar la posición, el tamaño y la forma del cuadro de texto arrastrando y soltando con el ratón.",
-              "title": "Edición de Texto"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva permite aplicar efectos especiales al texto para crear diseños más llamativos.  Entre las opciones disponibles, se encuentran:\n\n* **Sombra:**  Añadir una sombra al texto para hacerlo destacar.\n* **Brillo:**  Añadir brillo al texto para darle un efecto luminoso.\n* **Contorno:**  Añadir un contorno al texto para mejorar la legibilidad sobre fondos con mucho contraste.\n* **Transformación:** Cambiar la perspectiva del texto, creando efectos 3D.",
-              "title": "Efectos de Texto"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva permite crear texto curvo siguiendo la forma de un objeto o una línea.  Esto añade un toque creativo y dinámico a los diseños. También ofrece la posibilidad de escribir texto dentro de formas predefinidas.",
-              "title": "Texto Curvo y Formas"
-            },
-            {
-              "codeExample": "",
-              "description": "Para mejorar la legibilidad y la comprensión del mensaje, es importante establecer una jerarquía visual con el texto.  Esto implica usar diferentes tamaños y estilos de fuente para destacar los títulos, subtítulos y el cuerpo de texto.  Canva facilita la creación de jerarquías tipográficas con sus herramientas de formateo.",
-              "title": "Jerarquía Tipográfica"
-            }
-          ],
-          "name": "Trabajando con texto",
-          "videoId": "2tZGNVLpOLY"
-        },
-        {
-          "chapterId": 4,
-          "content": [
-            {
-              "codeExample": "",
-              "description": "Las imágenes son un elemento fundamental en el diseño gráfico con Canva, permitiendo transmitir información, emociones y crear diseños visualmente atractivos. Canva facilita la incorporación y manipulación de imágenes a través de diversas opciones.",
-              "title": "Utilización de Imágenes en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva ofrece varias maneras de obtener imágenes para tus diseños:\n\n* **Biblioteca de Canva:** Ofrece una extensa colección de imágenes, fotos, ilustraciones e iconos de alta calidad, muchas de ellas gratuitas, aunque algunas requieren una suscripción a Canva Pro.  Se pueden buscar imágenes por palabras clave.\n* **Subir imágenes propias:** Puedes subir tus propias imágenes desde tu ordenador o desde otras plataformas de almacenamiento en la nube (como Dropbox o Google Drive). Asegúrate de tener los derechos de uso de las imágenes que subas.\n* **Integraciones:** Canva se integra con algunas plataformas de imágenes de stock, permitiendo buscar y añadir imágenes directamente desde esas plataformas.",
-              "title": "Fuentes de Imágenes"
-            },
-            {
-              "codeExample": "",
-              "description": "Para insertar una imagen, puedes arrastrar y soltar la imagen desde tu ordenador o desde la biblioteca de Canva directamente al lienzo. También puedes seleccionar la opción \"Subir imágenes\" o buscar imágenes directamente desde la barra de búsqueda.",
-              "title": "Inserción de Imágenes"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva proporciona herramientas básicas de edición de imágenes, que te permiten:\n\n* **Recortar:** Ajustar el tamaño y la proporción de la imagen.\n* **Ajustar el brillo, contraste y saturación:** Modificar los parámetros de color para mejorar la calidad y el aspecto de la imagen.\n* **Ajustar el enfoque:** Aumentar o disminuir el enfoque de la imagen.\n* **Aplicar filtros:**  Aplicar diferentes filtros preestablecidos para cambiar el estilo y la estética de la imagen.\n* **Eliminar el fondo:**  Elimina automáticamente o manualmente el fondo de las imágenes para crear composiciones más limpias. (Requiere Canva Pro en algunos casos)",
-              "title": "Edición de Imágenes"
-            },
-            {
-              "codeExample": "",
-              "description": "Es importante considerar el formato de la imagen y su resolución al insertarla en tu diseño.  Canva acepta diferentes formatos como JPEG, PNG, y otros, pero las imágenes de alta resolución (usualmente PNG o imágenes vectoriales) son preferibles para diseños impresos o para una mejor calidad en pantalla.",
-              "title": "Formato de Imagen"
-            },
-            {
-              "codeExample": "",
-              "description": "El posicionamiento de las imágenes en el diseño es crucial para la composición visual.  Canva ofrece herramientas para ajustar la posición, el tamaño y la alineación de las imágenes, ayudando a crear una composición equilibrada y atractiva.  Considera la regla de los tercios y otros principios de diseño al colocar las imágenes en el lienzo.",
-              "title": "Posicionamiento y Composición"
-            },
-            {
-              "codeExample": "",
-              "description": "Asegúrate de utilizar imágenes con las licencias correspondientes para evitar problemas de derechos de autor.  Canva indica claramente las licencias de las imágenes de su biblioteca. Si subes tus propias imágenes o utilizas imágenes de otras fuentes, debes asegurarte de tener los derechos de uso necesarios.",
-              "title": "Consideraciones de Licencias"
-            },
-            {
-              "codeExample": "",
-              "description": "Las imágenes PNG con fondo transparente son ideales para diseños que requieren superponer imágenes sin fondos.  Canva te permite trabajar fácilmente con imágenes PNG, permitiendo que los elementos de la imagen se mezclen con el resto del diseño sin mostrar un fondo cuadrado de color blanco u otro color.",
-              "title": "Imágenes Transparentes (PNG)"
-            }
-          ],
-          "name": "Utilización de imágenes",
-          "videoId": "2tZGNVLpOLY"
-        },
-        {
-          "chapterId": 5,
-          "content": [
-            {
-              "codeExample": "",
-              "description": "Si bien Canva no es una herramienta profesional de diseño de logotipos, ofrece funcionalidades que permiten crear logotipos básicos para proyectos pequeños o personales. Es importante recordar que para logotipos profesionales, es recomendable utilizar software especializado y la asesoría de un diseñador gráfico.",
-              "title": "Creación de Logotipos Básicos en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Antes de comenzar, considera los siguientes elementos esenciales para un logotipo efectivo:\n\n* **Simplicidad:** Un buen logotipo es memorable y fácil de reconocer.  Evita el exceso de detalles.\n* **Claridad:** Debe comunicar de manera clara la identidad de la marca.\n* **Versatilidad:**  Debe ser adaptable a diferentes tamaños y formatos (impreso, digital).\n* **Originalidad:** Debe ser único y diferenciarse de la competencia.\n* **Coherencia:** Debe ser coherente con la imagen y valores de la marca.",
-              "title": "Elementos Clave para un Logotipo"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva ofrece diferentes enfoques para crear logotipos básicos:\n\n1. **Utilizar Plantillas:** La forma más sencilla es usar las plantillas prediseñadas que ofrece Canva.  Puedes buscar plantillas de logotipos y personalizarlas con el nombre de tu marca, colores, y otros elementos.\n2. **Diseñar desde Cero:** Puedes crear un logotipo desde cero utilizando las herramientas de Canva: texto, formas, imágenes, etc. Esto permite mayor control sobre el diseño, pero requiere más habilidades de diseño.\n3. **Combinar Texto e Iconos:**  Una estrategia efectiva consiste en combinar un texto (nombre de la marca) con un icono representativo de la actividad o valores de la empresa.",
-              "title": "Proceso de Creación en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Al crear un logotipo en Canva, puedes aprovechar las siguientes herramientas:\n\n* **Texto:** Selecciona fuentes que sean legibles y representen la identidad de la marca.  Experimenta con diferentes estilos de texto.\n* **Formas:** Utiliza formas geométricas para crear elementos visuales, o como base para otros elementos del logotipo.\n* **Imágenes e Iconos:**  Incorpora imágenes o iconos relevantes para la marca, procurando que sean simples y de alta resolución.\n* **Color:** Define una paleta de colores coherente con la imagen de la marca. Considera la psicología del color.\n* **Efectos:** Canva permite aplicar efectos sencillos (como sombras o brillo) para mejorar la apariencia del logotipo.",
-              "title": "Utilización de las Herramientas de Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "* **Mantén la simplicidad:** Evita elementos superfluos que puedan complicar la lectura o la memorización del logotipo.\n* **Prueba diferentes versiones:**  Experimenta con diferentes combinaciones de elementos, colores y fuentes antes de decidirte por una opción final.\n* **Considera la escalabilidad:** Diseña el logotipo teniendo en cuenta que debe verse bien en diferentes tamaños, desde un icono pequeño hasta una versión impresa de gran tamaño.\n* **Guarda en diferentes formatos:**  Guarda el logotipo en formatos vectoriales (SVG o PDF) para asegurar una buena calidad de impresión, y en formatos rasterizados (PNG o JPG) para uso web. ",
-              "title": "Consejos Adicionales"
-            },
-            {
-              "codeExample": "",
-              "description": "Recuerda que Canva tiene limitaciones como herramienta para el diseño profesional de logotipos. Para logotipos complejos o para una marca que requiere una identidad visual robusta, considera la contratación de un diseñador gráfico profesional.",
-              "title": "Limitaciones de Canva para Logotipos"
-            }
-          ],
-          "name": "Creación de logotipos básicos",
-          "videoId": "blsrqSEsJAA"
-        },
-        {
-          "chapterId": 6,
-          "content": [
-            {
-              "codeExample": "",
-              "description": "Canva se ha convertido en una herramienta esencial para la creación de contenido visual para redes sociales. Su facilidad de uso y la amplia variedad de plantillas y recursos lo hacen ideal para diseñar publicaciones atractivas y profesionales, sin necesidad de ser un experto en diseño gráfico.",
-              "title": "Diseño para Redes Sociales con Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Antes de comenzar a diseñar, es fundamental tener en cuenta lo siguiente:\n\n* **Plataforma:** Define la red social para la que vas a diseñar (Instagram, Facebook, Twitter, LinkedIn, etc.). Cada plataforma tiene sus propias dimensiones y formatos óptimos.\n* **Objetivo:** ¿Cuál es el objetivo de tu publicación? ¿Informar, promocionar, generar engagement, etc.?  El objetivo influirá en la elección de imágenes, texto y estilo.\n* **Público Objetivo:** ¿A quién te diriges?  El diseño debe ser coherente con la imagen y los intereses de tu público objetivo.\n* **Marca:** Si representas una marca, asegúrate de que el diseño sea coherente con su identidad visual (colores, tipografía, etc.).",
-              "title": "Consideraciones Previas al Diseño"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva ofrece plantillas para una variedad de formatos de contenido en redes sociales:\n\n* **Publicaciones:**  Imágenes o videos para el feed principal de cada red.\n* **Historias:** Contenido efímero de corta duración (ideal para Instagram, Facebook).\n* **Carruseles:** Varias imágenes o videos que se deslizan en secuencia (especialmente popular en Instagram).\n* **Videos cortos:**  Videos de corta duración para plataformas como TikTok, Instagram Reels, YouTube Shorts.\n* **Anuncios:** Canva permite diseñar anuncios para diferentes plataformas, con las especificaciones de tamaño requeridas para cada una.\n* **Gráficos para Stories:** Elementos gráficos para resaltar textos o información en las historias.",
-              "title": "Tipos de Contenido para Redes Sociales"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva ofrece una gran cantidad de plantillas prediseñadas para redes sociales.  Estas plantillas facilitan el proceso de diseño, proporcionando una base visual que puedes personalizar.  También puedes utilizar la biblioteca de imágenes, iconos y elementos gráficos para enriquecer tus diseños.  Recuerda buscar imágenes de alta calidad para garantizar una buena presentación.",
-              "title": "Utilización de Plantillas y Recursos"
-            },
-            {
-              "codeExample": "",
-              "description": "* **Imágenes de alta calidad:** Usa imágenes atractivas y de alta resolución.\n* **Texto conciso:** Utiliza un lenguaje claro y conciso, adaptado al formato de la red social.\n* **Llamadas a la acción (CTA):** Incluye una llamada a la acción que invite a los usuarios a interactuar (ej: \"Visita nuestro sitio web\", \"Comenta aquí\").\n* **Coherencia visual:** Mantén un estilo consistente en todas tus publicaciones para reforzar la identidad de tu marca.\n* **Análisis de resultados:** Utiliza las herramientas de analítica de cada red social para medir el rendimiento de tus publicaciones y optimizar tus estrategias.",
-              "title": "Consejos para un buen Diseño en Redes Sociales"
-            },
-            {
-              "codeExample": "",
-              "description": "Es crucial conocer las dimensiones recomendadas para cada red social y tipo de contenido para que tus diseños se visualicen correctamente.  Canva generalmente te da las opciones de tamaño correctas según la plataforma seleccionada. Asegúrate de verificar las dimensiones ideales antes de comenzar a diseñar.",
-              "title": "Dimensiones y Formatos"
-            }
-          ],
-          "name": "Diseño para redes sociales",
-          "videoId": "ayxDl_oJy98"
-        },
-        {
-          "chapterId": 7,
-          "content": [
-            {
-              "codeExample": "",
-              "description": "Canva es una herramienta eficaz para crear infografías atractivas y fáciles de entender.  Las infografías son representaciones visuales de información compleja, convirtiendo datos en elementos gráficos que facilitan su comprensión y asimilación.",
-              "title": "Creación de Infografías con Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Una infografía efectiva debe incluir:\n\n* **Título claro y conciso:** Debe resumir el tema central de la infografía.\n* **Datos relevantes y precisos:** La información debe ser exacta y estar respaldada por fuentes confiables.\n* **Visualizaciones:** Usar gráficos, iconos, imágenes y otros elementos visuales para representar los datos de manera clara y atractiva. \n* **Diseño visualmente atractivo:** La infografía debe ser visualmente atractiva, utilizando una paleta de colores coherente, una buena tipografía y una composición equilibrada.\n* **Fácil de leer y entender:**  La información debe presentarse de manera organizada y fácil de seguir. Usar títulos, subtítulos, viñetas y otros elementos para estructurar el contenido.\n* **Fuente de información (opcional):**  Se recomienda incluir las fuentes de los datos utilizados en la infografía para dar credibilidad a la información.",
-              "title": "Elementos Clave de una Infografía"
-            },
-            {
-              "codeExample": "",
-              "description": "1. **Planificación:** Define el tema y la información que deseas comunicar.  Recopila los datos y decide qué tipo de visualizaciones utilizarás.\n2. **Selección de Plantilla:** Canva ofrece una gran variedad de plantillas de infografías, elige una que se adapte al tema y estilo de tu proyecto. \n3. **Añade tus Datos:** Introduce tus datos en la plantilla, utilizando las herramientas de texto, gráficos y elementos visuales de Canva.\n4. **Elige tus Visualizaciones:** Canva permite crear una variedad de gráficos, como barras, líneas, circulares, mapas, entre otros.  Selecciona los tipos de gráficos que mejor representen tus datos.\n5. **Personalización:**  Personaliza la infografía con imágenes, iconos, colores y tipografía para crear una imagen coherente y atractiva.  Ajusta el tamaño y la posición de los elementos para asegurar una buena composición. \n6. **Descarga y Comparte:** Guarda tu infografía en el formato deseado (PNG, JPEG, PDF) y comparte en diferentes plataformas.",
-              "title": "Proceso de Creación en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva permite crear diversos tipos de gráficos que puedes utilizar para representar tus datos en la infografía.  Algunos ejemplos:\n\n* **Gráficos de barras:** Ideales para comparar datos categóricos.\n* **Gráficos de líneas:** Útiles para mostrar tendencias a lo largo del tiempo.\n* **Gráficos circulares (pie charts):** Muestran la proporción de diferentes partes de un todo.\n* **Gráficos de mapas:** Para visualizar datos geográficos.\n* **Gráficos de dispersión:**  Para mostrar la relación entre dos variables.\n* **Iconos y otros elementos visuales:** Utilizar iconos para representar datos o conceptos.",
-              "title": "Tipos de Gráficos en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "* **Menos es más:**  Evita sobrecargar la infografía con demasiada información.  Prioriza los datos más relevantes.\n* **Coherencia visual:** Mantén un estilo visual consistente (colores, tipografía, etc.).\n* **Legibilidad:** Asegúrate de que el texto sea legible y fácil de entender.\n* **Atractivo visual:** Utiliza una combinación de imágenes, iconos y gráficos para hacer la infografía atractiva e interesante.\n* **Llamada a la acción (opcional):**  Incluir una llamada a la acción puede dirigir a los lectores a más información.",
-              "title": "Consejos para una Infografía Efectiva"
-            }
-          ],
-          "name": "Infografías",
-          "videoId": "3VMcmLXb-oY"
-        },
-        {
-          "chapterId": 8,
-          "content": [
-            {
-              "codeExample": "",
-              "description": "Una vez finalizado tu diseño en Canva, es importante descargarlo en el formato adecuado para su uso. Canva ofrece varias opciones de descarga y exportación, dependiendo del uso final que se le dará al diseño.",
-              "title": "Descarga y Exportación de Diseños en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva permite descargar los diseños en diferentes formatos, cada uno con sus propias características y usos:\n\n* **JPEG (.jpg):** Formato de imagen rasterizada, ideal para uso web y redes sociales.  Ofrece buena compresión, pero puede perder calidad al ser redimensionado.\n* **PNG (.png):** Formato de imagen rasterizada que soporta transparencia. Es ideal para logos, imágenes con fondos transparentes y diseños que requieran alta calidad.\n* **PDF (.pdf):** Formato de documento versátil, ideal para impresión, presentaciones y diseños que necesitan mantener su calidad y formato original.  Canva permite descargar en PDF estándar o PDF para impresión, con opciones de sangrado y marcas de corte.\n* **PDF para impresión:**  Este formato incluye marcas de corte y sangrado, optimizando el diseño para su impresión profesional.\n* **SVG (.svg):** Formato de imagen vectorial, ideal para logos y diseños que necesitan ser escalables sin pérdida de calidad.  Solo disponible en planes de pago en algunos casos.\n* **Otros formatos:** Dependiendo de la función y el diseño, Canva puede permitir descargar en formatos adicionales como GIF animado (para historias), o MP4 (para videos).",
-              "title": "Formatos de Descarga"
-            },
-            {
-              "codeExample": "",
-              "description": "El proceso de descarga es generalmente sencillo.  Una vez finalizado el diseño:\n\n1. Haz clic en el botón \"Descargar\" (generalmente ubicado en la esquina superior derecha).\n2. Selecciona el formato de archivo deseado.\n3. Opcionalmente, puedes elegir la calidad de la imagen (para JPEG y PNG).  Una mayor calidad significa un archivo más grande.\n4. Canva procesará la descarga y te permitirá guardar el archivo en tu dispositivo.",
-              "title": "Proceso de Descarga"
-            },
-            {
-              "codeExample": "",
-              "description": "Toma en cuenta estas consideraciones al descargar tus diseños:\n\n* **Tamaño del archivo:** Los formatos vectoriales (SVG) suelen tener un tamaño de archivo menor que los rasterizados (JPEG, PNG), especialmente en diseños con muchos detalles. Los archivos PDF pueden ser de gran tamaño dependiendo de su contenido.\n* **Calidad de imagen:** Los formatos rasterizados pueden perder calidad si se redimensionan o se comprimen excesivamente. Para impresiones de alta calidad, utiliza PNG o PDF.\n* **Transparencia:** Si necesitas transparencia en el diseño, usa PNG.\n* **Uso final:**  Selecciona el formato que mejor se adapte al uso final de tu diseño. Si es para web, JPEG o PNG pueden ser suficientes. Para impresión profesional, un PDF para impresión es la mejor opción. Para logos escalables, usa SVG.",
-              "title": "Consideraciones para la Descarga"
-            },
-            {
-              "codeExample": "",
-              "description": "En algunos planes, Canva permite acceder a las versiones previas de tus diseños.  Esto puede ser útil para recuperar una versión anterior en caso de necesitarla.",
-              "title": "Descarga de Versiones Previas"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva Pro ofrece opciones adicionales de descarga, como la posibilidad de descargar diseños con fondo transparente (para logos y elementos que se deben superponer sobre diferentes fondos) y la descarga de archivos en alta resolución.",
-              "title": "Opciones Avanzadas de Descarga (Canva Pro)"
-            }
-          ],
-          "name": "Descarga y exportación de diseños",
-          "videoId": "HZq4UqiexC0"
-        },
-        {
-          "chapterId": 9,
-          "content": [
-            {
-              "codeExample": "",
-              "description": "Además de las funciones básicas, Canva ofrece recursos adicionales y consejos para mejorar tus diseños y optimizar tu flujo de trabajo.",
-              "title": "Recursos Adicionales y Consejos en Canva"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva Pro es una suscripción de pago que ofrece funcionalidades avanzadas, incluyendo acceso a una biblioteca más extensa de plantillas, elementos gráficos, y herramientas de edición.  También permite la descarga de archivos en alta resolución, la creación de marcas personalizadas con logotipos y paletas de colores, y funciones de colaboración mejoradas.",
-              "title": "Canva Pro"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva para Equipos es una suscripción para equipos de trabajo que permite compartir diseños, colaborar en tiempo real y gestionar la identidad de marca de manera centralizada. Es ideal para agencias, empresas o instituciones que necesitan colaborar en proyectos de diseño.",
-              "title": "Canva para Equipos"
-            },
-            {
-              "codeExample": "",
-              "description": "Canva dispone de una gran cantidad de tutoriales y recursos de ayuda en su sitio web y en su aplicación.  Estos recursos te guiarán paso a paso para dominar las funciones de la plataforma.",
-              "title": "Tutoriales y Ayuda"
-            },
-            {
-              "codeExample": "",
-              "description": "Para un flujo de trabajo eficiente, organiza tus elementos en carpetas y grupos.  Crea paletas de colores personalizadas y guarda tus estilos de texto para mantener la consistencia en tus diseños. Usa las capas para un control preciso de la posición de los elementos.",
-              "title": "Organización de Elementos"
-            },
-            {
-              "codeExample": "",
-              "description": "Utiliza las guías y rejillas para crear composiciones equilibradas y alineadas.  Canva ofrece guías inteligentes que ayudan a alinear elementos automáticamente, y plantillas con rejillas predefinidas.",
-              "title": "Uso de las Guías y Rejillas"
-            },
-            {
-              "codeExample": "",
-              "description": "Comparte tus diseños para que otros puedan colaborar en tiempo real.  Puedes asignar roles a los colaboradores para controlar los permisos de edición.",
-              "title": "Colaboración en Tiempo Real"
-            },
-            {
-              "codeExample": "",
-              "description": "Planifica tus publicaciones en redes sociales con antelación usando la herramienta de programación (disponible en planes de pago).  Esto te permite mantener una programación regular de contenido.",
-              "title": "Planificación de Contenidos"
-            },
-            {
-              "codeExample": "",
-              "description": "Complementa el uso de Canva con otros recursos, como bancos de imágenes de alta calidad (si no usas la biblioteca de Canva Pro), tutoriales de diseño gráfico online, y herramientas de edición de fotos.  Tener conocimiento de las bases del diseño gráfico ayudará a crear mejores diseños.",
-              "title": "Recursos Externos"
-            },
-            {
-              "codeExample": "",
-              "description": "La práctica constante es clave para dominar Canva y mejorar tus habilidades de diseño.  Experimenta con diferentes elementos, estilos y técnicas para encontrar tu propio estilo.",
-              "title": "Práctica y Experimentación"
-            }
-          ],
-          "name": "Recursos adicionales y consejos",
-          "videoId": "wQacPuuJ76Q"
-        }
-      ],
-      "courseBanner": "https://firebasestorage.googleapis.com/v0/b/togs-cc569.appspot.com/o/ai-course%2F1733186939536.jpg?alt=media&token=2c8276cb-d3b6-46e0-b741-af79e0ca8618",
-      "courseId": "c5ed674a-d814-4671-a579-93a3c3b38351",
-      "courseOutput": {
-        "course": {
-          "category": "Educación",
-          "chapters": [
-            {
-              "about": "Exploración de la interfaz de Canva, creación de una cuenta y configuración básica.",
-              "duration": "10 minutos",
-              "name": "Introducción a Canva"
-            },
-            {
-              "about": "Descubre las diferentes plantillas y opciones de diseño disponibles en Canva para distintos propósitos.",
-              "duration": "15 minutos",
-              "name": "Tipos de diseños en Canva"
-            },
-            {
-              "about": "Aprende sobre imágenes, texto, formas y colores: cómo usarlos y combinarlos de manera efectiva.",
-              "duration": "20 minutos",
-              "name": "Elementos básicos de diseño"
-            },
-            {
-              "about": "Estilos de texto, tipografía, jerarquía visual y alineación.  Consejos para crear textos impactantes.",
-              "duration": "25 minutos",
-              "name": "Trabajando con texto"
-            },
-            {
-              "about": "Búsqueda y selección de imágenes, optimización de imágenes y derechos de autor.",
-              "duration": "20 minutos",
-              "name": "Utilización de imágenes"
-            },
-            {
-              "about": "Consejos y técnicas para crear un logotipo simple y efectivo utilizando las herramientas de Canva.",
-              "duration": "30 minutos",
-              "name": "Creación de logotipos básicos"
-            },
-            {
-              "about": "Creación de publicaciones atractivas para diferentes plataformas como Instagram, Facebook y Twitter.",
-              "duration": "30 minutos",
-              "name": "Diseño para redes sociales"
-            },
-            {
-              "about": "Diseño de infografías para comunicar información de forma visualmente atractiva.",
-              "duration": "25 minutos",
-              "name": "Infografías"
-            },
-            {
-              "about": "Aprende cómo descargar tus diseños en diferentes formatos y resoluciones.",
-              "duration": "15 minutos",
-              "name": "Descarga y exportación de diseños"
-            },
-            {
-              "about": "Recomendaciones de recursos adicionales para seguir aprendiendo y mejorando tus habilidades en Canva.",
-              "duration": "10 minutos",
-              "name": "Recursos adicionales y consejos"
-            }
-          ],
-          "description": "Aprende las bases del diseño gráfico utilizando Canva, una herramienta intuitiva y fácil de usar.  Este curso te guiará paso a paso para crear diseños impresionantes, desde logotipos hasta publicaciones en redes sociales.",
-          "duration": "2 horas",
-          "level": "Beginner",
-          "name": "Diseño gráfico con Canva: Principiante",
-          "noOfChapters": 10,
-          "topic": "Diseño Gráfico con Canva"
-        }
-      },
-      "createdBy": "simontrinidad.f.b@gmail.com",
-      "includeVideo": "Yes",
-      "level": "Beginner",
-      "name": "Diseño Gráfico con Canva",
-      "publish": true,
-      "userName": "Simon Fuentes",
-      "userProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycERrc0RTMjM5YXRZSmQyT205NkZxUU1lYnIifQ"
     }
   },
   "subjects": {
@@ -6782,6 +7234,16 @@
       "description": "resar alos dioses",
       "name": "religion",
       "notes": {
+        "-ODxiiiTp6aSN8Gs8W_p": {
+          "content": "**1. Contenido principal (mejorado y expandido)**\n\n**Los Apóstoles**\n\nEn el cristianismo, el término \"apóstoles\" se refiere a los doce discípulos principales elegidos por Jesús para difundir su mensaje y establecer la Iglesia. Fueron testigos oculares de los milagros y enseñanzas de Jesús, y cumplieron un papel crucial en la difusión del cristianismo primitivo.\n\n**Características de los Apóstoles:**\n\n* Eran judíos devotos que habían abandonado sus ocupaciones para seguir a Jesús.\n* Recibieron autoridad de Jesús para predicar, realizar milagros y perdonar pecados.\n* Eran testigos autorizados de la resurrección y ascensión de Jesús.\n* Estaban unidos por un vínculo especial de amor y obediencia a Jesús.\n\n**Nombres de los Apóstoles (según los evangelios):**\n\n* Pedro\n* Andrés\n* Santiago el Mayor\n* Juan\n* Felipe\n* Bartolomé\n* Tomás\n* Mateo (también conocido como Leví)\n* Santiago el Menor\n* Judas Tadeo\n* Simón el Zelote\n* Judas Iscariote (quien traicionó a Jesús y fue reemplazado por Matías)\n\n**2. Ejemplos prácticos**\n\n* **Pedro:** Apodado \"la Roca\", Pedro fue un líder audaz y un portavoz de los apóstoles. Jugó un papel fundamental en el establecimiento de la Iglesia primitiva en Jerusalén y Roma.\n* **Pablo:** Aunque no era uno de los doce discípulos originales, Pablo se convirtió en un apóstol crucial después de tener una visión de Jesús resucitado en el camino a Damasco. Sus viajes misioneros llevaron el mensaje cristiano al mundo grecorromano.\n* **Juan:** El \"discípulo amado\", Juan escribió el Evangelio de Juan, las tres cartas de Juan y el Apocalipsis. Su enseñanza enfatizó el amor y la comunión con Dios.\n\n**3. Puntos clave a recordar**\n\n* Los apóstoles fueron discípulos elegidos por Jesús para difundir su mensaje.\n* Poseían autoridad y fueron testigos de su resurrección y ascensión.\n* Jugaron un papel vital en el establecimiento y la expansión del cristianismo primitivo.\n\n**4. Referencias o recursos adicionales**\n\n* Nuevo Testamento (Mateo, Marcos, Lucas, Juan, Hechos)\n* Historia de la Iglesia Cristiana (Eusebio de Cesarea)\n* Los doce apóstoles: sus vidas, sus escritos y su legado (F.F. Bruce)",
+          "createdAt": "2024-12-13T01:56:05.318Z",
+          "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+          "subject": "religion",
+          "subjectId": "46e22c4e-9621-4197-a4fb-860d0abd594e",
+          "title": "los apostoles",
+          "updatedAt": "2024-12-13T01:56:05.318Z",
+          "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+        },
         "0f2a9e3b-e684-437b-8b94-6374c7d00345": {
           "content": "tenia 33 años",
           "createdAt": "2024-12-09T00:00:40.900Z",
@@ -6789,9 +7251,17 @@
           "id": "0f2a9e3b-e684-437b-8b94-6374c7d00345",
           "title": "jesus",
           "updatedAt": "2024-12-09T00:00:40.900Z"
+        },
+        "ae5cf091-7637-4651-ad20-6c8089f9aff8": {
+          "content": "datos de la biblia",
+          "createdAt": "2024-12-13T01:55:00.379Z",
+          "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+          "id": "ae5cf091-7637-4651-ad20-6c8089f9aff8",
+          "title": "La biblia ",
+          "updatedAt": "2024-12-13T01:55:00.379Z"
         }
       },
-      "updatedAt": "2024-12-09T00:00:40.900Z"
+      "updatedAt": "2024-12-13T01:55:00.379Z"
     },
     "5a2f6f90-7567-40ef-8a74-ea234dbe0ac0": {
       "createdAt": "2024-12-12T00:52:33.840Z",
@@ -7736,13 +8206,255 @@
             "reviewing": 2,
             "total": 10
           }
+        },
+        "1734120609490": {
+          "flashcards": [
+            {
+              "back": "Una ecuación que se puede expresar como `ax + b = 0`, donde `a` es el coeficiente de `x` y `b` es la constante.",
+              "difficulty": "basic",
+              "front": "Ecuación lineal",
+              "id": "m4n6mxuari1nluk8htb",
+              "lastReviewed": 1734120613601,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Ecuaciones lineales",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "`y = mx + c`, donde `y` es la variable dependiente, `x` es la variable independiente, `m` es la pendiente y `c` es el intercepto.",
+              "difficulty": "intermediate",
+              "front": "Forma general de una ecuación lineal",
+              "id": "m4n6mxuabfya2crohu",
+              "lastReviewed": 1734120614777,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Ecuaciones lineales",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Medida de la inclinación de una línea recta, calculada como `(y2 - y1) / (x2 - x1)`.",
+              "difficulty": "basic",
+              "front": "Pendiente",
+              "id": "m4n6mxuadisvrg6xbq",
+              "lastReviewed": 1734120616136,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Pendiente e intercepto",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Valor de `y` cuando `x` es igual a cero, calculado como `y - mx`.",
+              "difficulty": "intermediate",
+              "front": "Intercepto con el eje y",
+              "id": "m4n6mxua1m49aeapgo5",
+              "lastReviewed": 1734120617201,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Pendiente e intercepto",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Método para resolver ecuaciones lineales restando `b` de ambos lados y dividiendo por `a`.",
+              "difficulty": "basic",
+              "front": "Igualación a cero",
+              "id": "m4n6mxuaxak8wu936xq",
+              "lastReviewed": 1734120618176,
+              "reviewCount": 1,
+              "status": "reviewing",
+              "topic": "Resolución de ecuaciones lineales",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Método para resolver ecuaciones lineales restando `mx` de ambos lados.",
+              "difficulty": "intermediate",
+              "front": "Forma de pendiente-intercepto",
+              "id": "m4n6mxuai8nzy4kvp8q",
+              "lastReviewed": 1734120619176,
+              "reviewCount": 1,
+              "status": "reviewing",
+              "topic": "Resolución de ecuaciones lineales",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Método para resolver ecuaciones lineales sustituyendo el valor de una variable en otra ecuación.",
+              "difficulty": "basic",
+              "front": "Sustitución",
+              "id": "m4n6mxua0i1e95qtukg",
+              "lastReviewed": 1734120620400,
+              "reviewCount": 1,
+              "status": "reviewing",
+              "topic": "Resolución de ecuaciones lineales",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Ecuaciones lineales que tienen al menos una solución.",
+              "difficulty": "intermediate",
+              "front": "Ecuaciones consistentes",
+              "id": "m4n6mxuaucy096ru8jf",
+              "lastReviewed": 1734120624560,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Tipos de ecuaciones lineales",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Ecuaciones lineales que no tienen solución.",
+              "difficulty": "basic",
+              "front": "Ecuaciones inconsistentes",
+              "id": "m4n6mxua6gsjoau0val",
+              "lastReviewed": 1734120626024,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Tipos de ecuaciones lineales",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Ecuaciones lineales que tienen infinitas soluciones.",
+              "difficulty": "advanced",
+              "front": "Ecuaciones dependientes",
+              "id": "m4n6mxuamwzhz3ox6",
+              "lastReviewed": 1734120627600,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Tipos de ecuaciones lineales",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            }
+          ],
+          "lastUpdated": 1734120627600,
+          "stats": {
+            "completed": 10,
+            "mastered": 7,
+            "reviewing": 3,
+            "total": 10
+          }
+        },
+        "1734221174474": {
+          "flashcards": [
+            {
+              "back": "Según los evangelios, Jesucristo tenía 33 años cuando fue crucificado.",
+              "difficulty": "basic",
+              "front": "Edad de Jesucristo en su crucifixión",
+              "id": "m4ouiea271qobot5c1u",
+              "lastReviewed": 1734221268247,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Vida y muerte de Jesucristo",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "La edad de Jesús en el momento de su crucifixión es significativa porque indica su madurez y la plenitud de su ministerio. También se considera un signo de su divinidad, ya que vivió una vida relativamente corta pero impactante.",
+              "difficulty": "intermediate",
+              "front": "Importancia de la edad de Jesús",
+              "id": "m4ouiea2lgyr8aqc5g",
+              "lastReviewed": 1734221270991,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Vida y muerte de Jesucristo",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "En el contexto histórico de la antigua Judea, 33 años se consideraba una edad relativamente joven para morir. La esperanza de vida promedio era mucho más corta en ese momento. Por lo tanto, la edad de Jesús en el momento de su muerte enfatiza la naturaleza sacrificial de su muerte.",
+              "difficulty": "intermediate",
+              "front": "Contexto histórico de la edad de Jesús",
+              "id": "m4ouiea2ln85uvxuj8",
+              "lastReviewed": 1734221273000,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Vida y muerte de Jesucristo",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Algunos estudiosos también interpretan la edad de Jesús de manera simbólica. El número 33 a menudo se asocia con la plenitud y la perfección en la tradición cristiana. Por lo tanto, la edad de Jesús podría verse como un símbolo de su cumplimiento del propósito de Dios y la perfección de su sacrificio.",
+              "difficulty": "advanced",
+              "front": "Interpretaciones simbólicas de la edad de Jesús",
+              "id": "m4ouiea2ikvz8jgfxbo",
+              "lastReviewed": 1734221275232,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Vida y muerte de Jesucristo",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "La edad de Jesús en el momento de su crucifixión se menciona en los Evangelios de Mateo (27:54), Marcos (15:44) y Lucas (23:54). No se menciona explícitamente en el Evangelio de Juan.",
+              "difficulty": "basic",
+              "front": "Referencia bíblica a la edad de Jesus",
+              "id": "m4ouiea2sdxrrf1xgfc",
+              "lastReviewed": 1734221277808,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Vida y muerte de Jesucristo",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Existe cierto debate entre los historiadores sobre la edad exacta de Jesús en el momento de su crucifixión. Algunas fuentes afirman que tenía 33 años, mientras que otras sugieren que podría haber tenido 32 o incluso 34 años. Sin embargo, la edad de 33 años es la más comúnmente aceptada.",
+              "difficulty": "intermediate",
+              "front": "Debate sobre la edad exacta de Jesus",
+              "id": "m4ouiea2njy2umrojm",
+              "lastReviewed": 1734221330024,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Vida y muerte de Jesucristo",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "La edad de Jesús en el momento de su crucifixión tiene un significado teológico significativo. Simboliza su madurez espiritual, su plenitud como Mesías y la naturaleza sacrificial de su muerte. También se puede ver como un recordatorio de la brevedad de la vida y la importancia de vivirla con propósito.",
+              "difficulty": "advanced",
+              "front": "Significado teológico de la edad de Jesus",
+              "id": "m4ouiea2jl1f5lydvnd",
+              "lastReviewed": 1734221332866,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Vida y muerte de Jesucristo",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Es importante tener en cuenta que la determinación de la edad exacta de Jesús en el momento de su crucifixión se basa en fuentes históricas y evidencia indirecta. Por lo tanto, existe la posibilidad de error o inexactitud.",
+              "difficulty": "advanced",
+              "front": "Posibles errores en la determinación de la edad de Jesus",
+              "id": "m4ouiea2g7xumx39yh5",
+              "lastReviewed": 1734221335161,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Vida y muerte de Jesucristo",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Además de Jesús, la edad de otros personajes bíblicos también es significativa. Por ejemplo, Abraham tenía 75 años cuando Dios le llamó a dejar su tierra, y Moisés tenía 80 años cuando condujo a los israelitas fuera de Egipto.",
+              "difficulty": "basic",
+              "front": "Edad de otros personajes bíblicos",
+              "id": "m4ouiea2qaq1ayu6cpq",
+              "lastReviewed": 1734221337432,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Personajes bíblicos",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            },
+            {
+              "back": "Las edades en la Biblia a menudo se usan simbólicamente para transmitir un mensaje. Por ejemplo, el número 40 a menudo representa un período de prueba o purificación, mientras que el número 7 representa plenitud o perfección.",
+              "difficulty": "intermediate",
+              "front": "Uso simbólico de las edades en la Biblia",
+              "id": "m4ouiea2tz6qi1waw2k",
+              "lastReviewed": 1734221340016,
+              "reviewCount": 1,
+              "status": "mastered",
+              "topic": "Interpretación bíblica",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            }
+          ],
+          "lastUpdated": 1734221340016,
+          "stats": {
+            "completed": 10,
+            "mastered": 10,
+            "reviewing": 0,
+            "total": 10
+          }
         }
       },
       "progress": {
-        "averageScore": 41.111111111111114,
-        "totalCorrect": 20,
-        "totalQuestions": 55,
-        "totalQuizzes": 9
+        "averageScore": 36.36363636363637,
+        "totalCorrect": 23,
+        "totalQuestions": 66,
+        "totalQuizzes": 11
       },
       "quizHistory": {
         "1733630313612": {
@@ -8714,6 +9426,232 @@
           "startTime": "2024-12-12T04:23:52.932Z",
           "timestamp": "2024-12-12T04:23:55.861Z",
           "totalQuestions": 1
+        },
+        "1734220973215": {
+          "correctAnswers": 0,
+          "endTime": "2024-12-15T00:02:53.215Z",
+          "incorrectAnswers": 1,
+          "score": 0,
+          "selectedNotes": [
+            {
+              "content": "tenia 33 años",
+              "createdAt": "2024-12-09T00:00:40.900Z",
+              "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+              "id": "0f2a9e3b-e684-437b-8b94-6374c7d00345",
+              "subjectId": "46e22c4e-9621-4197-a4fb-860d0abd594e",
+              "title": "jesus",
+              "updatedAt": "2024-12-09T00:00:40.900Z"
+            }
+          ],
+          "selectedSubjects": [
+            {
+              "createdAt": "2024-12-09T00:00:14.980Z",
+              "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+              "description": "resar alos dioses",
+              "id": "46e22c4e-9621-4197-a4fb-860d0abd594e",
+              "name": "religion",
+              "notes": {
+                "-ODxiiiTp6aSN8Gs8W_p": {
+                  "content": "**1. Contenido principal (mejorado y expandido)**\n\n**Los Apóstoles**\n\nEn el cristianismo, el término \"apóstoles\" se refiere a los doce discípulos principales elegidos por Jesús para difundir su mensaje y establecer la Iglesia. Fueron testigos oculares de los milagros y enseñanzas de Jesús, y cumplieron un papel crucial en la difusión del cristianismo primitivo.\n\n**Características de los Apóstoles:**\n\n* Eran judíos devotos que habían abandonado sus ocupaciones para seguir a Jesús.\n* Recibieron autoridad de Jesús para predicar, realizar milagros y perdonar pecados.\n* Eran testigos autorizados de la resurrección y ascensión de Jesús.\n* Estaban unidos por un vínculo especial de amor y obediencia a Jesús.\n\n**Nombres de los Apóstoles (según los evangelios):**\n\n* Pedro\n* Andrés\n* Santiago el Mayor\n* Juan\n* Felipe\n* Bartolomé\n* Tomás\n* Mateo (también conocido como Leví)\n* Santiago el Menor\n* Judas Tadeo\n* Simón el Zelote\n* Judas Iscariote (quien traicionó a Jesús y fue reemplazado por Matías)\n\n**2. Ejemplos prácticos**\n\n* **Pedro:** Apodado \"la Roca\", Pedro fue un líder audaz y un portavoz de los apóstoles. Jugó un papel fundamental en el establecimiento de la Iglesia primitiva en Jerusalén y Roma.\n* **Pablo:** Aunque no era uno de los doce discípulos originales, Pablo se convirtió en un apóstol crucial después de tener una visión de Jesús resucitado en el camino a Damasco. Sus viajes misioneros llevaron el mensaje cristiano al mundo grecorromano.\n* **Juan:** El \"discípulo amado\", Juan escribió el Evangelio de Juan, las tres cartas de Juan y el Apocalipsis. Su enseñanza enfatizó el amor y la comunión con Dios.\n\n**3. Puntos clave a recordar**\n\n* Los apóstoles fueron discípulos elegidos por Jesús para difundir su mensaje.\n* Poseían autoridad y fueron testigos de su resurrección y ascensión.\n* Jugaron un papel vital en el establecimiento y la expansión del cristianismo primitivo.\n\n**4. Referencias o recursos adicionales**\n\n* Nuevo Testamento (Mateo, Marcos, Lucas, Juan, Hechos)\n* Historia de la Iglesia Cristiana (Eusebio de Cesarea)\n* Los doce apóstoles: sus vidas, sus escritos y su legado (F.F. Bruce)",
+                  "createdAt": "2024-12-13T01:56:05.318Z",
+                  "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+                  "subject": "religion",
+                  "subjectId": "46e22c4e-9621-4197-a4fb-860d0abd594e",
+                  "title": "los apostoles",
+                  "updatedAt": "2024-12-13T01:56:05.318Z",
+                  "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+                },
+                "0f2a9e3b-e684-437b-8b94-6374c7d00345": {
+                  "content": "tenia 33 años",
+                  "createdAt": "2024-12-09T00:00:40.900Z",
+                  "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+                  "id": "0f2a9e3b-e684-437b-8b94-6374c7d00345",
+                  "title": "jesus",
+                  "updatedAt": "2024-12-09T00:00:40.900Z"
+                },
+                "ae5cf091-7637-4651-ad20-6c8089f9aff8": {
+                  "content": "datos de la biblia",
+                  "createdAt": "2024-12-13T01:55:00.379Z",
+                  "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+                  "id": "ae5cf091-7637-4651-ad20-6c8089f9aff8",
+                  "title": "La biblia ",
+                  "updatedAt": "2024-12-13T01:55:00.379Z"
+                }
+              },
+              "updatedAt": "2024-12-13T01:55:00.379Z"
+            }
+          ],
+          "startTime": "2024-12-15T00:02:48.816Z",
+          "timestamp": "2024-12-15T00:02:53.215Z",
+          "totalQuestions": 1
+        },
+        "1734220973219": {
+          "correctAnswers": 0,
+          "endTime": "2024-12-15T00:02:53.219Z",
+          "incorrectAnswers": 1,
+          "score": 0,
+          "selectedNotes": [
+            {
+              "content": "tenia 33 años",
+              "createdAt": "2024-12-09T00:00:40.900Z",
+              "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+              "id": "0f2a9e3b-e684-437b-8b94-6374c7d00345",
+              "subjectId": "46e22c4e-9621-4197-a4fb-860d0abd594e",
+              "title": "jesus",
+              "updatedAt": "2024-12-09T00:00:40.900Z"
+            }
+          ],
+          "selectedSubjects": [
+            {
+              "createdAt": "2024-12-09T00:00:14.980Z",
+              "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+              "description": "resar alos dioses",
+              "id": "46e22c4e-9621-4197-a4fb-860d0abd594e",
+              "name": "religion",
+              "notes": {
+                "-ODxiiiTp6aSN8Gs8W_p": {
+                  "content": "**1. Contenido principal (mejorado y expandido)**\n\n**Los Apóstoles**\n\nEn el cristianismo, el término \"apóstoles\" se refiere a los doce discípulos principales elegidos por Jesús para difundir su mensaje y establecer la Iglesia. Fueron testigos oculares de los milagros y enseñanzas de Jesús, y cumplieron un papel crucial en la difusión del cristianismo primitivo.\n\n**Características de los Apóstoles:**\n\n* Eran judíos devotos que habían abandonado sus ocupaciones para seguir a Jesús.\n* Recibieron autoridad de Jesús para predicar, realizar milagros y perdonar pecados.\n* Eran testigos autorizados de la resurrección y ascensión de Jesús.\n* Estaban unidos por un vínculo especial de amor y obediencia a Jesús.\n\n**Nombres de los Apóstoles (según los evangelios):**\n\n* Pedro\n* Andrés\n* Santiago el Mayor\n* Juan\n* Felipe\n* Bartolomé\n* Tomás\n* Mateo (también conocido como Leví)\n* Santiago el Menor\n* Judas Tadeo\n* Simón el Zelote\n* Judas Iscariote (quien traicionó a Jesús y fue reemplazado por Matías)\n\n**2. Ejemplos prácticos**\n\n* **Pedro:** Apodado \"la Roca\", Pedro fue un líder audaz y un portavoz de los apóstoles. Jugó un papel fundamental en el establecimiento de la Iglesia primitiva en Jerusalén y Roma.\n* **Pablo:** Aunque no era uno de los doce discípulos originales, Pablo se convirtió en un apóstol crucial después de tener una visión de Jesús resucitado en el camino a Damasco. Sus viajes misioneros llevaron el mensaje cristiano al mundo grecorromano.\n* **Juan:** El \"discípulo amado\", Juan escribió el Evangelio de Juan, las tres cartas de Juan y el Apocalipsis. Su enseñanza enfatizó el amor y la comunión con Dios.\n\n**3. Puntos clave a recordar**\n\n* Los apóstoles fueron discípulos elegidos por Jesús para difundir su mensaje.\n* Poseían autoridad y fueron testigos de su resurrección y ascensión.\n* Jugaron un papel vital en el establecimiento y la expansión del cristianismo primitivo.\n\n**4. Referencias o recursos adicionales**\n\n* Nuevo Testamento (Mateo, Marcos, Lucas, Juan, Hechos)\n* Historia de la Iglesia Cristiana (Eusebio de Cesarea)\n* Los doce apóstoles: sus vidas, sus escritos y su legado (F.F. Bruce)",
+                  "createdAt": "2024-12-13T01:56:05.318Z",
+                  "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+                  "subject": "religion",
+                  "subjectId": "46e22c4e-9621-4197-a4fb-860d0abd594e",
+                  "title": "los apostoles",
+                  "updatedAt": "2024-12-13T01:56:05.318Z",
+                  "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+                },
+                "0f2a9e3b-e684-437b-8b94-6374c7d00345": {
+                  "content": "tenia 33 años",
+                  "createdAt": "2024-12-09T00:00:40.900Z",
+                  "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+                  "id": "0f2a9e3b-e684-437b-8b94-6374c7d00345",
+                  "title": "jesus",
+                  "updatedAt": "2024-12-09T00:00:40.900Z"
+                },
+                "ae5cf091-7637-4651-ad20-6c8089f9aff8": {
+                  "content": "datos de la biblia",
+                  "createdAt": "2024-12-13T01:55:00.379Z",
+                  "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+                  "id": "ae5cf091-7637-4651-ad20-6c8089f9aff8",
+                  "title": "La biblia ",
+                  "updatedAt": "2024-12-13T01:55:00.379Z"
+                }
+              },
+              "updatedAt": "2024-12-13T01:55:00.379Z"
+            }
+          ],
+          "startTime": "2024-12-15T00:02:48.816Z",
+          "timestamp": "2024-12-15T00:02:53.219Z",
+          "totalQuestions": 1
+        },
+        "1734221657284": {
+          "correctAnswers": 3,
+          "endTime": "2024-12-15T00:14:17.284Z",
+          "incorrectAnswers": 7,
+          "score": 30,
+          "selectedNotes": [
+            {
+              "content": "**1. Contenido principal (mejorado y expandido)**\n\n**El uranio**\n\nEl uranio es un elemento químico metálico radiactivo pesado con el símbolo U y el número atómico 92. Es un elemento denso y maleable de color blanco plateado que se oxida fácilmente en el aire. El uranio es el elemento más pesado que se encuentra naturalmente en la Tierra y es el único elemento con dos isótopos fisionables, uranio-235 y uranio-238.\n\n**Propiedades**\n\n* Número atómico: 92\n* Masa atómica: 238,02891\n* Punto de fusión: 1135 °C\n* Punto de ebullición: 3818 °C\n* Densidad: 19,1 g/cm³\n\n**Abundancia y fuentes**\n\nEl uranio es un elemento relativamente raro en la corteza terrestre, con una abundancia de aproximadamente 2,5 ppm. El uranio se encuentra principalmente en minerales como la uraninita (también conocida como pechblenda) y la carnotita. Las principales fuentes de uranio se encuentran en Australia, Canadá, Kazajstán y Estados Unidos.\n\n**Aplicaciones**\n\nEl uranio tiene una amplia gama de aplicaciones, entre las que destacan:\n\n* **Combustible nuclear:** El uranio-235 es el combustible principal utilizado en los reactores nucleares para generar electricidad.\n* **Armas nucleares:** El uranio-235 también se utiliza como material fisible en las armas nucleares.\n* **Investigación médica:** El uranio se utiliza en la investigación médica, como en la tomografía computarizada (TC) y la radioterapia.\n\n**Efectos sobre la salud**\n\nEl uranio y sus compuestos son radiactivos y pueden representar un riesgo para la salud si se inhalan o ingieren. La exposición a niveles elevados de uranio puede provocar problemas de salud como cáncer de pulmón, huesos y riñones. Por lo tanto, es esencial manejar y almacenar el uranio de forma segura y seguir todas las regulaciones aplicables.\n\n**2. Ejemplos prácticos**\n\n* La central nuclear de Diablo Canyon en California utiliza uranio-235 como combustible para generar electricidad.\n* La bomba atómica lanzada sobre Hiroshima en 1945 contenía uranio-235.\n* Los urinalizadores médicos utilizan uranio-238 para generar rayos X que se utilizan para obtener imágenes del cuerpo.\n\n**3. Puntos clave a recordar**\n\n* El uranio es un elemento metálico radiactivo pesado con el número atómico 92.\n* El uranio es el único elemento con dos isótopos fisionables, uranio-235 y uranio-238.\n* El uranio se utiliza como combustible nuclear, material fisible en las armas nucleares y en investigación médica.\n* La exposición a altos niveles de uranio puede representar un riesgo para la salud.\n* El manejo y almacenamiento seguros del uranio son esenciales para proteger la salud pública.\n\n**4. Referencias o recursos adicionales**\n\n* Agencia Internacional de Energía Atómica (AIEA): https://www.iaea.org/\n* Comisión de Regulación Nuclear de los Estados Unidos (NRC): https://www.nrc.gov/\n* World Nuclear Association: https://world-nuclear.org/",
+              "createdAt": "2024-12-12T00:54:01.875Z",
+              "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+              "id": "-ODsLw2x5VPpglK3QDPo",
+              "subject": "Quimica",
+              "subjectId": "5a2f6f90-7567-40ef-8a74-ea234dbe0ac0",
+              "title": "El uraneio",
+              "updatedAt": "2024-12-12T00:54:01.875Z",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            }
+          ],
+          "selectedSubjects": [
+            {
+              "createdAt": "2024-12-12T00:52:33.840Z",
+              "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+              "description": "La magia de los elementos",
+              "id": "5a2f6f90-7567-40ef-8a74-ea234dbe0ac0",
+              "name": "Quimica",
+              "notes": {
+                "-ODsLw2x5VPpglK3QDPo": {
+                  "content": "**1. Contenido principal (mejorado y expandido)**\n\n**El uranio**\n\nEl uranio es un elemento químico metálico radiactivo pesado con el símbolo U y el número atómico 92. Es un elemento denso y maleable de color blanco plateado que se oxida fácilmente en el aire. El uranio es el elemento más pesado que se encuentra naturalmente en la Tierra y es el único elemento con dos isótopos fisionables, uranio-235 y uranio-238.\n\n**Propiedades**\n\n* Número atómico: 92\n* Masa atómica: 238,02891\n* Punto de fusión: 1135 °C\n* Punto de ebullición: 3818 °C\n* Densidad: 19,1 g/cm³\n\n**Abundancia y fuentes**\n\nEl uranio es un elemento relativamente raro en la corteza terrestre, con una abundancia de aproximadamente 2,5 ppm. El uranio se encuentra principalmente en minerales como la uraninita (también conocida como pechblenda) y la carnotita. Las principales fuentes de uranio se encuentran en Australia, Canadá, Kazajstán y Estados Unidos.\n\n**Aplicaciones**\n\nEl uranio tiene una amplia gama de aplicaciones, entre las que destacan:\n\n* **Combustible nuclear:** El uranio-235 es el combustible principal utilizado en los reactores nucleares para generar electricidad.\n* **Armas nucleares:** El uranio-235 también se utiliza como material fisible en las armas nucleares.\n* **Investigación médica:** El uranio se utiliza en la investigación médica, como en la tomografía computarizada (TC) y la radioterapia.\n\n**Efectos sobre la salud**\n\nEl uranio y sus compuestos son radiactivos y pueden representar un riesgo para la salud si se inhalan o ingieren. La exposición a niveles elevados de uranio puede provocar problemas de salud como cáncer de pulmón, huesos y riñones. Por lo tanto, es esencial manejar y almacenar el uranio de forma segura y seguir todas las regulaciones aplicables.\n\n**2. Ejemplos prácticos**\n\n* La central nuclear de Diablo Canyon en California utiliza uranio-235 como combustible para generar electricidad.\n* La bomba atómica lanzada sobre Hiroshima en 1945 contenía uranio-235.\n* Los urinalizadores médicos utilizan uranio-238 para generar rayos X que se utilizan para obtener imágenes del cuerpo.\n\n**3. Puntos clave a recordar**\n\n* El uranio es un elemento metálico radiactivo pesado con el número atómico 92.\n* El uranio es el único elemento con dos isótopos fisionables, uranio-235 y uranio-238.\n* El uranio se utiliza como combustible nuclear, material fisible en las armas nucleares y en investigación médica.\n* La exposición a altos niveles de uranio puede representar un riesgo para la salud.\n* El manejo y almacenamiento seguros del uranio son esenciales para proteger la salud pública.\n\n**4. Referencias o recursos adicionales**\n\n* Agencia Internacional de Energía Atómica (AIEA): https://www.iaea.org/\n* Comisión de Regulación Nuclear de los Estados Unidos (NRC): https://www.nrc.gov/\n* World Nuclear Association: https://world-nuclear.org/",
+                  "createdAt": "2024-12-12T00:54:01.875Z",
+                  "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+                  "subject": "Quimica",
+                  "subjectId": "5a2f6f90-7567-40ef-8a74-ea234dbe0ac0",
+                  "title": "El uraneio",
+                  "updatedAt": "2024-12-12T00:54:01.875Z",
+                  "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+                },
+                "5dbbcf4e-3d6b-4018-8e2f-22b25e795bd8": {
+                  "content": "**1. Contenido principal (mejorado y expandido)**\n\n**Elementos de la Tabla Periódica**\n\nLa tabla periódica es una tabla organizada de elementos químicos que agrupa elementos con propiedades similares. Se organiza en filas (períodos) y columnas (grupos) en base a su número atómico, configuración electrónica y propiedades químicas.\n\nLa tabla periódica se divide en cuatro bloques principales:\n\n* **Bloque s:** Elementos con electrones de valencia en el orbital s (grupos 1 y 2).\n* **Bloque p:** Elementos con electrones de valencia en el orbital p (grupos 13-18).\n* **Bloque d:** Elementos con electrones de valencia en el orbital d (grupos 3-12).\n* **Bloque f:** Elementos con electrones de valencia en el orbital f (lantánidos y actínidos).\n\nCada elemento de la tabla periódica está representado por un símbolo químico, que generalmente consiste en la primera o dos letras de su nombre en latín. Por ejemplo, el hidrógeno se representa como H, el oxígeno como O y el sodio como Na.\n\n**Propiedades de los elementos**\n\nLas propiedades de los elementos varían según su posición en la tabla periódica. Algunas propiedades importantes incluyen:\n\n* **Metalidad:** Los metales son elementos sólidos y brillantes que conducen la electricidad y el calor. Se encuentran en el lado izquierdo de la tabla periódica.\n* **No metalidad:** Los no metales son elementos gaseosos o sólidos que no conducen la electricidad ni el calor. Se encuentran en el lado derecho de la tabla periódica.\n* **Metaloide:** Los metaloides tienen propiedades intermedias entre los metales y los no metales. Se encuentran a lo largo de una línea diagonal que va desde el boro (B) hasta el telurio (Te).\n* **Reactividad:** La reactividad de los elementos aumenta hacia abajo en un grupo y disminuye hacia la derecha en un período.\n\n**2. Ejemplos prácticos**\n\n* El hierro (Fe) es un metal que se usa en la construcción y la fabricación.\n* El oxígeno (O) es un no metal esencial para la respiración y la combustión.\n* El silicio (Si) es un metaloide que se utiliza en la fabricación de semiconductores.\n* El sodio (Na) es un metal que se usa para hacer sal y otros compuestos.\n\n**3. Puntos clave a recordar**\n\n* La tabla periódica es una organización sistemática de elementos químicos.\n* Los elementos se agrupan según sus propiedades y configuración electrónica.\n* Las propiedades de los elementos varían según su posición en la tabla periódica.\n* La tabla periódica es una herramienta valiosa para predecir el comportamiento químico y las aplicaciones de los elementos.\n\n**4. Referencias o recursos adicionales**\n\n* Tabla periódica interactiva: https://ptable.com/\n* Unión Internacional de Química Pura y Aplicada (IUPAC): https://iupac.org/\n* Sociedad Americana de Química (ACS): https://www.acs.org/",
+                  "createdAt": "2024-12-12T00:53:03.854Z",
+                  "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+                  "id": "5dbbcf4e-3d6b-4018-8e2f-22b25e795bd8",
+                  "subject": "Quimica",
+                  "subjectId": "5a2f6f90-7567-40ef-8a74-ea234dbe0ac0",
+                  "title": "Elementos de la tabla periodica",
+                  "updatedAt": "2024-12-12T00:53:27.650Z",
+                  "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+                }
+              },
+              "updatedAt": "2024-12-12T00:53:03.854Z"
+            }
+          ],
+          "startTime": "2024-12-15T00:13:37.771Z",
+          "timestamp": "2024-12-15T00:14:17.284Z",
+          "totalQuestions": 10
+        },
+        "1734221657287": {
+          "correctAnswers": 3,
+          "endTime": "2024-12-15T00:14:17.287Z",
+          "incorrectAnswers": 7,
+          "score": 30,
+          "selectedNotes": [
+            {
+              "content": "**1. Contenido principal (mejorado y expandido)**\n\n**El uranio**\n\nEl uranio es un elemento químico metálico radiactivo pesado con el símbolo U y el número atómico 92. Es un elemento denso y maleable de color blanco plateado que se oxida fácilmente en el aire. El uranio es el elemento más pesado que se encuentra naturalmente en la Tierra y es el único elemento con dos isótopos fisionables, uranio-235 y uranio-238.\n\n**Propiedades**\n\n* Número atómico: 92\n* Masa atómica: 238,02891\n* Punto de fusión: 1135 °C\n* Punto de ebullición: 3818 °C\n* Densidad: 19,1 g/cm³\n\n**Abundancia y fuentes**\n\nEl uranio es un elemento relativamente raro en la corteza terrestre, con una abundancia de aproximadamente 2,5 ppm. El uranio se encuentra principalmente en minerales como la uraninita (también conocida como pechblenda) y la carnotita. Las principales fuentes de uranio se encuentran en Australia, Canadá, Kazajstán y Estados Unidos.\n\n**Aplicaciones**\n\nEl uranio tiene una amplia gama de aplicaciones, entre las que destacan:\n\n* **Combustible nuclear:** El uranio-235 es el combustible principal utilizado en los reactores nucleares para generar electricidad.\n* **Armas nucleares:** El uranio-235 también se utiliza como material fisible en las armas nucleares.\n* **Investigación médica:** El uranio se utiliza en la investigación médica, como en la tomografía computarizada (TC) y la radioterapia.\n\n**Efectos sobre la salud**\n\nEl uranio y sus compuestos son radiactivos y pueden representar un riesgo para la salud si se inhalan o ingieren. La exposición a niveles elevados de uranio puede provocar problemas de salud como cáncer de pulmón, huesos y riñones. Por lo tanto, es esencial manejar y almacenar el uranio de forma segura y seguir todas las regulaciones aplicables.\n\n**2. Ejemplos prácticos**\n\n* La central nuclear de Diablo Canyon en California utiliza uranio-235 como combustible para generar electricidad.\n* La bomba atómica lanzada sobre Hiroshima en 1945 contenía uranio-235.\n* Los urinalizadores médicos utilizan uranio-238 para generar rayos X que se utilizan para obtener imágenes del cuerpo.\n\n**3. Puntos clave a recordar**\n\n* El uranio es un elemento metálico radiactivo pesado con el número atómico 92.\n* El uranio es el único elemento con dos isótopos fisionables, uranio-235 y uranio-238.\n* El uranio se utiliza como combustible nuclear, material fisible en las armas nucleares y en investigación médica.\n* La exposición a altos niveles de uranio puede representar un riesgo para la salud.\n* El manejo y almacenamiento seguros del uranio son esenciales para proteger la salud pública.\n\n**4. Referencias o recursos adicionales**\n\n* Agencia Internacional de Energía Atómica (AIEA): https://www.iaea.org/\n* Comisión de Regulación Nuclear de los Estados Unidos (NRC): https://www.nrc.gov/\n* World Nuclear Association: https://world-nuclear.org/",
+              "createdAt": "2024-12-12T00:54:01.875Z",
+              "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+              "id": "-ODsLw2x5VPpglK3QDPo",
+              "subject": "Quimica",
+              "subjectId": "5a2f6f90-7567-40ef-8a74-ea234dbe0ac0",
+              "title": "El uraneio",
+              "updatedAt": "2024-12-12T00:54:01.875Z",
+              "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+            }
+          ],
+          "selectedSubjects": [
+            {
+              "createdAt": "2024-12-12T00:52:33.840Z",
+              "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+              "description": "La magia de los elementos",
+              "id": "5a2f6f90-7567-40ef-8a74-ea234dbe0ac0",
+              "name": "Quimica",
+              "notes": {
+                "-ODsLw2x5VPpglK3QDPo": {
+                  "content": "**1. Contenido principal (mejorado y expandido)**\n\n**El uranio**\n\nEl uranio es un elemento químico metálico radiactivo pesado con el símbolo U y el número atómico 92. Es un elemento denso y maleable de color blanco plateado que se oxida fácilmente en el aire. El uranio es el elemento más pesado que se encuentra naturalmente en la Tierra y es el único elemento con dos isótopos fisionables, uranio-235 y uranio-238.\n\n**Propiedades**\n\n* Número atómico: 92\n* Masa atómica: 238,02891\n* Punto de fusión: 1135 °C\n* Punto de ebullición: 3818 °C\n* Densidad: 19,1 g/cm³\n\n**Abundancia y fuentes**\n\nEl uranio es un elemento relativamente raro en la corteza terrestre, con una abundancia de aproximadamente 2,5 ppm. El uranio se encuentra principalmente en minerales como la uraninita (también conocida como pechblenda) y la carnotita. Las principales fuentes de uranio se encuentran en Australia, Canadá, Kazajstán y Estados Unidos.\n\n**Aplicaciones**\n\nEl uranio tiene una amplia gama de aplicaciones, entre las que destacan:\n\n* **Combustible nuclear:** El uranio-235 es el combustible principal utilizado en los reactores nucleares para generar electricidad.\n* **Armas nucleares:** El uranio-235 también se utiliza como material fisible en las armas nucleares.\n* **Investigación médica:** El uranio se utiliza en la investigación médica, como en la tomografía computarizada (TC) y la radioterapia.\n\n**Efectos sobre la salud**\n\nEl uranio y sus compuestos son radiactivos y pueden representar un riesgo para la salud si se inhalan o ingieren. La exposición a niveles elevados de uranio puede provocar problemas de salud como cáncer de pulmón, huesos y riñones. Por lo tanto, es esencial manejar y almacenar el uranio de forma segura y seguir todas las regulaciones aplicables.\n\n**2. Ejemplos prácticos**\n\n* La central nuclear de Diablo Canyon en California utiliza uranio-235 como combustible para generar electricidad.\n* La bomba atómica lanzada sobre Hiroshima en 1945 contenía uranio-235.\n* Los urinalizadores médicos utilizan uranio-238 para generar rayos X que se utilizan para obtener imágenes del cuerpo.\n\n**3. Puntos clave a recordar**\n\n* El uranio es un elemento metálico radiactivo pesado con el número atómico 92.\n* El uranio es el único elemento con dos isótopos fisionables, uranio-235 y uranio-238.\n* El uranio se utiliza como combustible nuclear, material fisible en las armas nucleares y en investigación médica.\n* La exposición a altos niveles de uranio puede representar un riesgo para la salud.\n* El manejo y almacenamiento seguros del uranio son esenciales para proteger la salud pública.\n\n**4. Referencias o recursos adicionales**\n\n* Agencia Internacional de Energía Atómica (AIEA): https://www.iaea.org/\n* Comisión de Regulación Nuclear de los Estados Unidos (NRC): https://www.nrc.gov/\n* World Nuclear Association: https://world-nuclear.org/",
+                  "createdAt": "2024-12-12T00:54:01.875Z",
+                  "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+                  "subject": "Quimica",
+                  "subjectId": "5a2f6f90-7567-40ef-8a74-ea234dbe0ac0",
+                  "title": "El uraneio",
+                  "updatedAt": "2024-12-12T00:54:01.875Z",
+                  "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+                },
+                "5dbbcf4e-3d6b-4018-8e2f-22b25e795bd8": {
+                  "content": "**1. Contenido principal (mejorado y expandido)**\n\n**Elementos de la Tabla Periódica**\n\nLa tabla periódica es una tabla organizada de elementos químicos que agrupa elementos con propiedades similares. Se organiza en filas (períodos) y columnas (grupos) en base a su número atómico, configuración electrónica y propiedades químicas.\n\nLa tabla periódica se divide en cuatro bloques principales:\n\n* **Bloque s:** Elementos con electrones de valencia en el orbital s (grupos 1 y 2).\n* **Bloque p:** Elementos con electrones de valencia en el orbital p (grupos 13-18).\n* **Bloque d:** Elementos con electrones de valencia en el orbital d (grupos 3-12).\n* **Bloque f:** Elementos con electrones de valencia en el orbital f (lantánidos y actínidos).\n\nCada elemento de la tabla periódica está representado por un símbolo químico, que generalmente consiste en la primera o dos letras de su nombre en latín. Por ejemplo, el hidrógeno se representa como H, el oxígeno como O y el sodio como Na.\n\n**Propiedades de los elementos**\n\nLas propiedades de los elementos varían según su posición en la tabla periódica. Algunas propiedades importantes incluyen:\n\n* **Metalidad:** Los metales son elementos sólidos y brillantes que conducen la electricidad y el calor. Se encuentran en el lado izquierdo de la tabla periódica.\n* **No metalidad:** Los no metales son elementos gaseosos o sólidos que no conducen la electricidad ni el calor. Se encuentran en el lado derecho de la tabla periódica.\n* **Metaloide:** Los metaloides tienen propiedades intermedias entre los metales y los no metales. Se encuentran a lo largo de una línea diagonal que va desde el boro (B) hasta el telurio (Te).\n* **Reactividad:** La reactividad de los elementos aumenta hacia abajo en un grupo y disminuye hacia la derecha en un período.\n\n**2. Ejemplos prácticos**\n\n* El hierro (Fe) es un metal que se usa en la construcción y la fabricación.\n* El oxígeno (O) es un no metal esencial para la respiración y la combustión.\n* El silicio (Si) es un metaloide que se utiliza en la fabricación de semiconductores.\n* El sodio (Na) es un metal que se usa para hacer sal y otros compuestos.\n\n**3. Puntos clave a recordar**\n\n* La tabla periódica es una organización sistemática de elementos químicos.\n* Los elementos se agrupan según sus propiedades y configuración electrónica.\n* Las propiedades de los elementos varían según su posición en la tabla periódica.\n* La tabla periódica es una herramienta valiosa para predecir el comportamiento químico y las aplicaciones de los elementos.\n\n**4. Referencias o recursos adicionales**\n\n* Tabla periódica interactiva: https://ptable.com/\n* Unión Internacional de Química Pura y Aplicada (IUPAC): https://iupac.org/\n* Sociedad Americana de Química (ACS): https://www.acs.org/",
+                  "createdAt": "2024-12-12T00:53:03.854Z",
+                  "createdBy": "user_2pDksB8JmmBe3y5JZFSR1sStstt",
+                  "id": "5dbbcf4e-3d6b-4018-8e2f-22b25e795bd8",
+                  "subject": "Quimica",
+                  "subjectId": "5a2f6f90-7567-40ef-8a74-ea234dbe0ac0",
+                  "title": "Elementos de la tabla periodica",
+                  "updatedAt": "2024-12-12T00:53:27.650Z",
+                  "userId": "user_2pDksB8JmmBe3y5JZFSR1sStstt"
+                }
+              },
+              "updatedAt": "2024-12-12T00:53:03.854Z"
+            }
+          ],
+          "startTime": "2024-12-15T00:13:37.771Z",
+          "timestamp": "2024-12-15T00:14:17.287Z",
+          "totalQuestions": 10
         }
       }
     }
