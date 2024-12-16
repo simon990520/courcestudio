@@ -1,9 +1,51 @@
 'use client';
 
 import { motion } from "framer-motion";
+import { useRef, useEffect } from "react";
 import Link from "next/link";
+import Typed from 'typed.js';
 
 export default function AnimatedHero() {
+  const el = useRef(null);
+  const typed = useRef(null);
+
+  useEffect(() => {
+    const options = {
+      strings: [
+        'programación avanzada',
+        'matemáticas para niños',
+        'inglés conversacional',
+        'física cuántica',
+        'diseño gráfico digital',
+        'marketing digital',
+        'desarrollo web moderno',
+        'inteligencia artificial',
+        'música y composición',
+        'fotografía profesional',
+        'escritura creativa',
+        'negocios y emprendimiento',
+        'ciencia de datos',
+        'psicología práctica',
+        'arte y pintura',
+        'cocina internacional',
+        'desarrollo personal',
+        'historia del mundo',
+        'biología molecular',
+        'economía y finanzas'
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1500,
+      loop: true,
+    };
+
+    typed.current = new Typed(el.current, options);
+
+    return () => {
+      typed.current.destroy();
+    };
+  }, []);
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -12,8 +54,8 @@ export default function AnimatedHero() {
       className="text-center mb-8 md:mb-16 px-4 md:px-0"
     >
       <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 leading-tight">
-        Aprende y refuerza
-        <span className="block text-gray-400 mt-1 md:mt-2">tu conocimiento</span>
+        <span style={{ color: '#0a0a0a' }}>Aprende sobre </span>
+        <span ref={el} className="bg-gradient-to-r from-orange-500 to-yellow-400 text-transparent bg-clip-text"></span>
       </h1>
       <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 md:mb-10">
         Plataforma interactiva con cursos, quizzes y flashcards para potenciar tu aprendizaje
