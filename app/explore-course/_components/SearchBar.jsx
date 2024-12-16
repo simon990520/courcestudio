@@ -4,13 +4,27 @@ import { HiMagnifyingGlass, HiXMark } from "react-icons/hi2"
 import { motion, AnimatePresence } from "framer-motion"
 import CategoryList from '@/app/_shared/CategoryList'
 
-const SearchBar = ({ searchQuery, setSearchQuery }) => {
+const SearchBar = ({ searchQuery, setSearchQuery, selectedCategory, setSelectedCategory }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategoryClick = (category) => {
-    setSelectedCategory(category.name === selectedCategory?.name ? null : category);
-    setSearchQuery(category.name === selectedCategory?.name ? '' : category.name);
+    if (selectedCategory === category.name) {
+      setSelectedCategory(null);
+    } else {
+      setSelectedCategory(category.name);
+    }
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    if (selectedCategory) {
+      setSelectedCategory(null);
+    }
+  };
+
+  const handleClearSearch = () => {
+    setSearchQuery('');
+    setSelectedCategory(null);
   };
 
   return (
@@ -33,10 +47,10 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
           <input
             type="text"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={handleSearchChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            placeholder="Buscar por nombre, tema o nivel..."
+            placeholder="Buscar por nombre o descripción..."
             className="w-full px-4 py-4 pl-12 pr-10 bg-transparent rounded-xl border border-white/20 focus:border-orange-400 focus:ring-2 focus:ring-orange-200 transition-all duration-200 outline-none"
           />
           <motion.div
@@ -48,12 +62,12 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
           </motion.div>
           
           <AnimatePresence>
-            {searchQuery && (
+            {(searchQuery || selectedCategory) && (
               <motion.button
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                onClick={() => setSearchQuery('')}
+                onClick={handleClearSearch}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
               >
                 <HiXMark className="text-xl" />
@@ -69,6 +83,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
       >
         {CategoryList.map((category) => {
           const Icon = category.icon;
+          const isSelected = selectedCategory === category.name;
           return (
             <motion.button
               key={category.id}
@@ -76,7 +91,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className={`px-4 py-2.5 rounded-xl transition-all duration-200 flex items-center gap-2 ${
-                selectedCategory?.name === category.name
+                isSelected
                   ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/30'
                   : 'bg-white/80 backdrop-blur-lg text-orange-700 hover:bg-orange-50 shadow-md'
               }`}

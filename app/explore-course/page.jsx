@@ -10,6 +10,7 @@ const ExploreCourse = () => {
   const [courseList, setCourseList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     // Referencia a la colección de cursos
@@ -36,31 +37,35 @@ const ExploreCourse = () => {
     return () => unsubscribe();
   }, []);
 
-  // Filtrar cursos basado en la búsqueda
+  // Filtrar cursos basado en la búsqueda y categoría
   const filteredCourses = courseList.filter(course => {
-    if (!searchQuery.trim()) return true; // Si no hay búsqueda, mostrar todos los cursos
+    // Primero verificar el filtro de categoría
+    if (selectedCategory && course.category !== selectedCategory) {
+      return false;
+    }
+    
+    if (!searchQuery.trim()) return true; // Si no hay búsqueda, mostrar todos los cursos de la categoría seleccionada
     
     const searchLower = searchQuery.toLowerCase().trim();
     
     // Verificar cada campo que queremos buscar
-    const titleMatch = course.name?.toLowerCase().includes(searchLower);
-    const descriptionMatch = course.description?.toLowerCase().includes(searchLower);
-    const topicMatch = course.topic?.toLowerCase().includes(searchLower);
-    const levelMatch = course.level?.toLowerCase().includes(searchLower);
+    const titleMatch = course.courseOutput?.course?.name?.toLowerCase().includes(searchLower);
+    const descriptionMatch = course.courseOutput?.course?.description?.toLowerCase().includes(searchLower);
+    const categoryMatch = course.category?.toLowerCase().includes(searchLower);
 
     console.log('Búsqueda para curso:', {
       id: course.courseId,
-      name: course.name,
+      name: course.courseOutput?.course?.name,
+      category: course.category,
       searchTerm: searchLower,
       matches: {
         title: titleMatch,
         description: descriptionMatch,
-        topic: topicMatch,
-        level: levelMatch
+        category: categoryMatch
       }
     });
 
-    return titleMatch || descriptionMatch || topicMatch || levelMatch;
+    return titleMatch || descriptionMatch || categoryMatch;
   });
 
   console.log('Resultados filtrados:', filteredCourses.length); // Log para depuración
@@ -69,7 +74,12 @@ const ExploreCourse = () => {
     <div className='min-h-screen bg-gradient-to-b from-orange-50 to-white'>
       <div className='p-5'>
         <ExploreHeader />
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <SearchBar 
+          searchQuery={searchQuery} 
+          setSearchQuery={setSearchQuery}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
         
         <div className="mt-8 px-3 sm:px-3">
           {loading ? (
