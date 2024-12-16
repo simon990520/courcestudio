@@ -1,161 +1,90 @@
-# AI Course Generator :rocket:
+# Kunno: La Evolución del Aprendizaje Autónomo
 
-## Overview :mag:
-An AI-powered platform for creating and managing online courses. Built using **Next.js** and integrated with **Clerk** for authentication, **Gemini API** for AI-generated content, and **Firebase** for file storage, this platform allows users to create, track, and manage their courses, while administrators can oversee user and course management.
+**Bienvenido a Kunno**, una plataforma SaaS (Software as a Service) impulsada por inteligencia artificial diseñada para transformar la manera en que las personas aprenden y comparten conocimiento. Kunno no solo crea cursos, quizzes y flashcards basados en temas que tú elijas, sino que también genera un progreso de aprendizaje personalizado para ayudarte a dominar cada área de manera eficiente.
 
-## Features :sparkles:
+## ¿Cuál es el problema que resolvemos?
+En un mundo donde el aprendizaje autónomo es clave para el éxito profesional y personal, muchas plataformas educativas carecen de personalización y herramientas efectivas para garantizar el progreso del usuario. Los estudiantes y profesionales necesitan soluciones que sean rápidas, personalizadas y accesibles, y que también les permitan compartir su conocimiento.
 
-- **User Authentication** :lock:
-    - Managed via Clerk.
-    - Users can sign up, log in, and manage their profiles securely.
-    - Ensures secure access to the platform.
+Kunno está aquí para llenar ese vacío.
 
-- **Admin Dashboard** :bar_chart: 
-    - Special access for administrators.
-    - Admins can manage users and courses.
-    - Provides tools for overseeing platform activities.
+---
 
-- **Course Creation** :books: 
-    - Users can generate and manage their own courses.
-    - Utilizes AI for content creation.
-    - Simplifies the process of course development.
+## ¿Qué es Kunno?
+Kunno es una herramienta integral de aprendizaje autónomo que ofrece:
 
-- **File Storage** :floppy_disk: 
-    - Courses and media are stored in Firebase.
-    - Ensures reliable and scalable storage solutions.
-    - Facilitates easy access and management of course materials.
+- **Creación de contenido con IA**: Genera cursos, quizzes y flashcards en cuestión de minutos a partir de un tema que elijas.
+- **Progreso de aprendizaje personalizado**: Monitorea tu avance en las áreas de cursos, quizzes y flashcards para identificar fortalezas y áreas de mejora.
+- **Colaboración y comunidad**: Comparte los cursos que crees con amigos, estudiantes o colegas.
+- **Optimizado para resultados**: Diseñado para ayudarte a dominar cualquier tema en menos tiempo.
 
-- **AI Integration** :robot: 
-    - Content is generated with the Gemini API.
-    - Enhances course content with AI-generated materials.
-    - Provides dynamic and engaging learning experiences.
+---
 
-- **Responsive UI** :iphone: 
-    - Optimized for both desktop and mobile devices.
-    - Ensures a seamless user experience across different devices.
-    - Adapts to various screen sizes for better accessibility.
+## ¿Por qué elegir Kunno?
+Kunno es más que una plataforma educativa; es tu socio en el aprendizaje continuo. Estas son algunas razones por las que nuestros clientes nos prefieren:
 
-- **Progress Tracking** :chart_with_upwards_trend: 
-    - Displays user course progress.
-    - Helps users keep track of their learning journey.
-    - Provides insights into course completion and performance.
+1. **Eficiencia garantizada:** Con IA avanzada, reducimos el tiempo que necesitas para preparar materiales educativos.
+2. **Experiencia personalizada:** Adaptamos el contenido y el progreso a tus necesidades específicas.
+3. **Fácil de usar:** Diseñado para que cualquier persona, sin importar su nivel de tecnología, pueda crear y aprender rápidamente.
+4. **Accesible y escalable:** Planes flexibles para estudiantes individuales, equipos de trabajo o instituciones educativas.
 
-- **Role-based Management** :busts_in_silhouette: 
-    - Different views for admin and regular users.
-    - Ensures appropriate access and functionality based on user roles.
-    - Enhances security and user experience by tailoring features to roles.
+---
 
+## Características destacadas
 
-## Technologies Used
+### 1. **Creación de contenido inteligente**
+- Cursos detallados basados en cualquier tema.
+- Flashcards interactivas para repasar conceptos clave.
+- Quizzes automatizados para evaluar el progreso.
 
-| Technology      | Description                                                                 |
-|-----------------|-----------------------------------------------------------------------------|
-| **Next.js 14.x**| A framework for server-side rendering and static site generation.           |
-| **Clerk**       | Manages authentication and user profiles securely.                          |
-| **Gemini API**  | Generates AI-powered course content.                                        |
-| **Firebase**    | Provides file storage and database management.                              |
-| **Tailwind CSS**| A utility-first CSS framework for styling.                                  |
-| **React Icons** | A library of icons for React applications.                                  |
-| **Vercel**      | A platform for hosting and deploying web applications.                      |
+### 2. **Seguimiento de progreso**
+- Visualiza tu avance en un dashboard intuitivo.
+- Identifica áreas fuertes y oportunidades de mejora.
 
+### 3. **Compartir y colaborar**
+- Comparte tus cursos con un enlace sencillo.
+- Crea comunidades de aprendizaje en torno a tus temas favoritos.
 
+---
 
-## Installation :wrench:
+## ¿Para quién es Kunno?
+- **Estudiantes:** Mejora tu rendimiento académico con materiales personalizados.
+- **Profesores:** Genera materiales para tus clases en menos tiempo.
+- **Profesionales:** Aprende nuevas habilidades o prepara capacitaciones para tu equipo.
+- **Empresas:** Optimiza la formación interna con herramientas modernas y flexibles.
 
-- **Clone the repository**
+---
 
-   ```bash
-    git clone https://github.com/mrpankajpandey/ai-course-generator.git
-   ```
-- **Navigate to the project directory**
+## Planes y Precios
+Kunno ofrece planes adaptados a tus necesidades:
 
-   ```bash
-    cd ai-course-generator
-   ```
-- **Install the dependencies**
+- **Kunno Free**: Acceso gratuito con funciones básicas.
+- **Kunno Pro**: Acceso premium con características avanzadas por solo $7 USD al mes.
+- **Kunno Teams**: Diseñado para equipos, desde $20 USD al mes.
 
-   ```bash
-    npm install
-   ```
-- **Create a `.env.local` file in the root directory and add the following environment variables**
+---
 
-   ```javascript
-    NEXT_PUBLIC_CLERK_FRONTEND_API=<your-clerk-frontend-api>
-    CLERK_API_KEY=<your-clerk-api-key>
-    GEMINI_API_KEY=<your-gemini-api-key>
-    FIREBASE_API_KEY=<your-firebase-api-key>
-    FIREBASE_PROJECT_ID=<your-firebase-project-id>
-    DATABASE_URL=<your-database-url>
-   ```
-- **Run the development server**
+## Clientes que confían en Kunno
+¡Ya somos parte del aprendizaje de miles de usuarios en todo el mundo! Desde estudiantes individuales hasta empresas innovadoras, Kunno está marcando la diferencia.
 
-   ```bash
-    npm run dev
-   ```
+---
 
-## Live Demo :globe_with_meridians:
+## ¡Empieza ahora!
+¿Listo para llevar tu aprendizaje al siguiente nivel?
 
-<a href="https://mrpankajpandey-ai-course.vercel.app/">
-    <img height="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/chrome/chrome-original.svg" />
-</a>
+- Visita nuestra página web: [Kunno](http://www.kunno.vercelapp.com)
+- Prueba Kunno de manera gratuita.
+- Elige un plan premium para desbloquear todo el potencial de tu aprendizaje.
 
-## Contribution Guidelines :raising_hand: 
+---
 
-We welcome contributions to improve the platform. Here are the steps to get started:
+### Contacto
+Para más información o una demostración personalizada, contáctanos:
 
-### 1. Fork the Repository
+- **Correo:** support@kunno.com
+- **Redes sociales:** [Twitter](http://twitter.com/kunno) | [LinkedIn](http://linkedin.com/company/kunno)
+- **Teléfono:** +1 800 123 4567
 
-Click the "Fork" button at the top right of the repository page to create a copy of the repository in your GitHub account.
+---
 
-### 2. Clone Your Fork
-
-Clone your forked repository to your local machine using the following command:
-
-```bash
-git clone https://github.com/<your-username>/ai-course-generator.git
-```
-
-### 3. Create a Branch
-
-Create a new branch for your feature or bug fix:
-
-```bash
-git checkout -b feature-or-bugfix-name
-```
-
-### 4. Make Changes
-
-Make your changes to the codebase. Ensure your code follows the project's coding standards and passes all tests.
-
-### 5. Commit Your Changes
-
-Commit your changes with a descriptive commit message:
-
-```bash
-git add .
-git commit -m "Description of the feature or fix"
-```
-
-### 6. Push to Your Fork
-
-Push your changes to your forked repository:
-
-```bash
-git push origin feature-or-bugfix-name
-```
-
-### 7. Create a Pull Request
-
-Go to the original repository and click the "New Pull Request" button. Select your branch and submit the pull request for review.
-
-### 8. Review Process
-
-Your pull request will be reviewed by the maintainers. Please be responsive to any feedback or requests for changes.
-
-### 9. Merge
-
-Once approved, your pull request will be merged into the main branch. Congratulations on your contribution!
-
->[!TIP]
->**Follow [CONTRIBUTING.md](https://github.com/mrpankajpandey/ai-course-generator/blob/main/CONTRIBUTING.md) for detailed guidelines**
+**Kunno**: Diseñado para aprender. Creado para compartir. ¡Empieza hoy!
 

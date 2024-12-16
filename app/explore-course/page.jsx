@@ -5,12 +5,16 @@ import ExploreHeader from './_components/ExploreHeader'
 import SearchBar from './_components/SearchBar'
 import { ref, onValue } from 'firebase/database'
 import { realtimeDb } from '@/configs/firebaseConfig'
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi2"
+import { motion, AnimatePresence } from "framer-motion"
 
 const ExploreCourse = () => {
   const [courseList, setCourseList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const coursesPerPage = 16; // 4x4 grid
 
   useEffect(() => {
     // Referencia a la colección de cursos
@@ -25,7 +29,7 @@ const ExploreCourse = () => {
           ...course,
           courseId: id
         }));
-        console.log('Cursos cargados:', coursesArray); // Log para depuración
+        console.log('Cursos cargados:', coursesArray);
         setCourseList(coursesArray);
       }
       setLoading(false);
@@ -39,36 +43,36 @@ const ExploreCourse = () => {
 
   // Filtrar cursos basado en la búsqueda y categoría
   const filteredCourses = courseList.filter(course => {
-    // Primero verificar el filtro de categoría
     if (selectedCategory && course.category !== selectedCategory) {
       return false;
     }
     
-    if (!searchQuery.trim()) return true; // Si no hay búsqueda, mostrar todos los cursos de la categoría seleccionada
+    if (!searchQuery.trim()) return true;
     
     const searchLower = searchQuery.toLowerCase().trim();
     
-    // Verificar cada campo que queremos buscar
     const titleMatch = course.courseOutput?.course?.name?.toLowerCase().includes(searchLower);
     const descriptionMatch = course.courseOutput?.course?.description?.toLowerCase().includes(searchLower);
     const categoryMatch = course.category?.toLowerCase().includes(searchLower);
 
-    console.log('Búsqueda para curso:', {
-      id: course.courseId,
-      name: course.courseOutput?.course?.name,
-      category: course.category,
-      searchTerm: searchLower,
-      matches: {
-        title: titleMatch,
-        description: descriptionMatch,
-        category: categoryMatch
-      }
-    });
-
     return titleMatch || descriptionMatch || categoryMatch;
   });
 
-  console.log('Resultados filtrados:', filteredCourses.length); // Log para depuración
+  // Calcular el número total de páginas
+  const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
+
+  // Obtener los cursos para la página actual
+  const indexOfLastCourse = currentPage * coursesPerPage;
+  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+  const currentCourses = filteredCourses.slice(indexOfFirstCourse, indexOfLastCourse);
+
+  // Función para cambiar de página
+  const paginate = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className='min-h-screen bg-gradient-to-b from-orange-50 to-white'>
@@ -88,15 +92,22 @@ const ExploreCourse = () => {
             </div>
           ) : filteredCourses.length === 0 ? (
             <div className="text-center py-10">
-              {searchQuery ? (
+              {searchQuery || selectedCategory ? (
                 <>
-                  <h3 className="text-xl font-medium text-gray-600">No se encontraron cursos para "{searchQuery}"</h3>
+                  <h3 className="text-xl font-medium text-gray-600">
+                    No se encontraron cursos
+                    {searchQuery && ` para "${searchQuery}"`}
+                    {selectedCategory && ` en la categoría "${selectedCategory}"`}
+                  </h3>
                   <p className="text-gray-500 mt-2">Intenta con otros términos de búsqueda</p>
                   <button 
-                    onClick={() => setSearchQuery('')}
+                    onClick={() => {
+                      setSearchQuery('');
+                      setSelectedCategory(null);
+                    }}
                     className="mt-4 px-4 py-2 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition-colors duration-200"
                   >
-                    Limpiar búsqueda
+                    Limpiar filtros
                   </button>
                 </>
               ) : (
@@ -108,16 +119,89 @@ const ExploreCourse = () => {
             </div>
           ) : (
             <>
-              {searchQuery && (
+              {(searchQuery || selectedCategory) && (
                 <div className="mb-6 text-gray-600">
-                  Se encontraron {filteredCourses.length} resultados para "{searchQuery}"
+                  Se encontraron {filteredCourses.length} resultados
+                  {searchQuery && ` para "${searchQuery}"`}
+                  {selectedCategory && ` en la categoría "${selectedCategory}"`}
                 </div>
               )}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredCourses.map((course, index) => (
-                  <Card key={course.courseId || index} course={course} />
-                ))}
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <AnimatePresence mode="wait">
+                  {currentCourses.map((course, index) => (
+                    <motion.div
+                      key={course.courseId}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                    >
+                      <Card course={course} />
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
               </div>
+
+              {/* Paginación */}
+              {totalPages > 1 && (
+                <div className="mt-8 flex justify-center items-center gap-2">
+                  <button
+                    onClick={() => paginate(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className={`p-2 rounded-lg ${
+                      currentPage === 1
+                        ? 'text-gray-400 cursor-not-allowed'
+                        : 'text-orange-500 hover:bg-orange-100'
+                    }`}
+                  >
+                    <HiChevronLeft className="w-6 h-6" />
+                  </button>
+                  
+                  <div className="flex gap-2">
+                    {[...Array(totalPages)].map((_, index) => {
+                      const pageNumber = index + 1;
+                      const isCurrentPage = pageNumber === currentPage;
+                      const isNearCurrent = Math.abs(pageNumber - currentPage) <= 1;
+                      const isFirstOrLast = pageNumber === 1 || pageNumber === totalPages;
+                      
+                      if (isNearCurrent || isFirstOrLast) {
+                        return (
+                          <button
+                            key={pageNumber}
+                            onClick={() => paginate(pageNumber)}
+                            className={`w-10 h-10 rounded-lg transition-all duration-200 ${
+                              isCurrentPage
+                                ? 'bg-orange-500 text-white'
+                                : 'hover:bg-orange-100 text-gray-600'
+                            }`}
+                          >
+                            {pageNumber}
+                          </button>
+                        );
+                      } else if (
+                        (pageNumber === currentPage - 2 && currentPage > 3) ||
+                        (pageNumber === currentPage + 2 && currentPage < totalPages - 2)
+                      ) {
+                        return <span key={pageNumber} className="px-1">...</span>;
+                      }
+                      return null;
+                    })}
+                  </div>
+
+                  <button
+                    onClick={() => paginate(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className={`p-2 rounded-lg ${
+                      currentPage === totalPages
+                        ? 'text-gray-400 cursor-not-allowed'
+                        : 'text-orange-500 hover:bg-orange-100'
+                    }`}
+                  >
+                    <HiChevronRight className="w-6 h-6" />
+                  </button>
+                </div>
+              )}
             </>
           )}
         </div>

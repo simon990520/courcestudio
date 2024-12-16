@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { improveNote } from "@/services/gemini";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
@@ -21,11 +21,7 @@ const formSchema = z.object({
 });
 
 const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" }) => {
-  console.log('DEBUG - NoteModal render:', { isOpen, mode, noteId: note?.id });
-  
   const [isImproving, setIsImproving] = useState(false);
-  const [improvedContent, setImprovedContent] = useState("");
-  const [showImprovedContent, setShowImprovedContent] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -36,23 +32,9 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
     },
   });
 
-  useEffect(() => {
-    console.log('DEBUG - NoteModal useEffect - note changed:', note);
-    if (note) {
-      form.reset({
-        title: note.title || "",
-        content: note.content || "",
-        subjectId: note.subjectId || "",
-      });
-    }
-  }, [note, form]);
-
   const handleImproveContent = async () => {
-    console.log('NoteModal - Improving content');
     const content = form.getValues("content");
     const subjectId = form.getValues("subjectId");
-    
-    console.log('NoteModal - Current form values:', { content, subjectId });
     
     if (!content || !subjectId) {
       toast.error("Por favor, ingresa el contenido y selecciona una materia antes de mejorar");
@@ -68,8 +50,6 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
     setIsImproving(true);
     try {
       const improvedText = await improveNote(content, subject.name);
-      setImprovedContent(improvedText);
-      setShowImprovedContent(true);
       form.setValue("content", improvedText);
       toast.success("¡Contenido mejorado con éxito!");
     } catch (error) {
@@ -79,18 +59,16 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
     }
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = form.handleSubmit(async (data) => {
     try {
       await onSave(data);
       form.reset();
-      setImprovedContent("");
-      setShowImprovedContent(false);
       onClose();
     } catch (error) {
       console.error("DEBUG - NoteModal save error:", error);
       toast.error("Error al guardar la nota");
     }
-  };
+  });
 
   return (
     <Dialog 
@@ -98,8 +76,6 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
       onOpenChange={(open) => {
         if (!open) {
           form.reset();
-          setImprovedContent("");
-          setShowImprovedContent(false);
           onClose();
         }
       }}
@@ -112,7 +88,7 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={onSubmit} className="space-y-4">
             <FormField
               control={form.control}
               name="title"

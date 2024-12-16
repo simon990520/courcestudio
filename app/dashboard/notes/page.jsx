@@ -40,6 +40,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import NoteModal from "./_components/NoteModal";
 import NoteViewer from "./_components/NoteViewer";
+import NotesWelcome from "./_components/NotesWelcome";
 
 export default function NotesPage() {
   const { user } = useUser();
@@ -66,9 +67,6 @@ export default function NotesPage() {
 
         // Fetch courses
         const userEmail = user.primaryEmailAddress.emailAddress;
-        console.log('=== DEBUG INFO ===');
-        console.log('User object:', user);
-        console.log('User Email:', userEmail);
         const coursesRef = ref(realtimeDb, "courses");
         const coursesSnapshot = await get(coursesRef);
         if (coursesSnapshot.exists()) {
@@ -148,30 +146,23 @@ export default function NotesPage() {
         userId: user?.id,
         updatedAt: now,
         createdAt: editingNote ? editingNote.createdAt : now,
-        createdBy: user?.id,
+        createdBy: user?.id
       };
 
-
       if (editingNote) {
-        // Actualizar nota existente
         const noteRef = ref(realtimeDb, `subjects/${formData.subjectId}/notes/${editingNote.id}`);
-        console.log('DEBUG - Updating existing note at path:', `subjects/${formData.subjectId}/notes/${editingNote.id}`);
         await update(noteRef, noteData);
         toast.success("Nota actualizada exitosamente");
       } else {
-        // Crear nueva nota
         const notesRef = ref(realtimeDb, `subjects/${formData.subjectId}/notes`);
-        console.log('DEBUG - Creating new note under subject:', formData.subjectId);
         const newNoteRef = push(notesRef);
         await set(newNoteRef, noteData);
         toast.success("Nota creada exitosamente");
       }
 
-      // Primero limpiamos el estado de edición
       setEditingNote(null);
-      // Luego cerramos el modal
       setIsNoteModalOpen(false);
-      loadSubjectsAndNotes(); // Cargar notas actualizadas
+      loadSubjectsAndNotes();
     } catch (error) {
       console.error("NotesPage - Error saving note:", error);
       toast.error("Error al guardar el apunte");
@@ -248,7 +239,11 @@ export default function NotesPage() {
   };
 
   const handleOpenNoteModal = (note = null) => {
-    setEditingNote(note);
+    if (note) {
+      setEditingNote(note);
+    } else {
+      setEditingNote(null);
+    }
     setIsNoteModalOpen(true);
   };
 
@@ -264,14 +259,9 @@ export default function NotesPage() {
       ? chapter.content 
       : Object.values(chapter.content || {});
     
-    console.log('Chapter content:', content); // Debug log
-    
     return content
       .filter(item => {
         const userEmail = user.primaryEmailAddress.emailAddress;
-        console.log('Checking item:', item); // Debug log
-        console.log('User email:', userEmail); // Debug log
-        console.log('Course creator:', selectedCourse?.createdBy); // Debug log
         
         // Verificar si el curso fue creado por el usuario actual
         return selectedCourse?.createdBy === userEmail;
@@ -308,57 +298,12 @@ export default function NotesPage() {
   return (
     <div className="p-6 space-y-6">
       {/* Welcome Card */}
-      <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-6 mb-8 shadow-lg border border-orange-200">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <div className="space-y-4 flex-1">
-            <div className="flex items-center gap-2">
-              <HiOutlineDocumentText className="text-orange-500 text-2xl" />
-              <h2 className="text-2xl font-semibold text-gray-800">
-                Tus <span className="text-orange-600">apuntes</span>
-              </h2>
-            </div>
-            
-            <div className="flex items-start gap-3 bg-white/60 p-4 rounded-xl">
-              <HiOutlineClipboardList className="text-orange-500 text-xl mt-1" />
-              <div>
-                <p className="text-gray-600 leading-relaxed">
-                  Gestiona tus apuntes de manera eficiente. 
-                  Crea, edita y organiza tus notas por materias y cursos.
-                </p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700">
-                    <HiOutlineDocumentText className="text-orange-500" />
-                    <span>{userNotes.length} Apuntes</span>
-                  </div>
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700">
-                    <HiOutlineBookOpen className="text-orange-500" />
-                    <span>{subjects.length} Materias con notas</span>
-                  </div>
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700">
-                    <HiOutlineChartBar className="text-orange-500" />
-                    <span>{userNotes.filter(note => new Date(note.updatedAt) > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)).length} Esta semana</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {activeTab === "personal" && (
-            <div className="flex-shrink-0">
-              <Button
-                onClick={() => {
-                  setEditingNote(null);
-                  setIsNoteModalOpen(true);
-                }}
-                className="bg-orange-500 hover:bg-orange-600 text-white flex items-center gap-2"
-                disabled={isNoteModalOpen}
-              >
-                <HiPlus className="w-5 h-5" />
-                Crear Apunte
-              </Button>
-            </div>
-          )}
-        </div>
-      </div>
+      <NotesWelcome 
+        setIsNoteModalOpen={setIsNoteModalOpen}
+        setEditingNote={setEditingNote}
+        currentSubject={selectedSubject}
+        activeTab={activeTab}
+      />
 
       {/* Main Content */}
       <div className="space-y-4">
