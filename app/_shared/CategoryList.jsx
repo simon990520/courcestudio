@@ -1,62 +1,75 @@
+import { 
+    HiOutlineCommandLine, 
+    HiOutlineLanguage, 
+    HiOutlineUserGroup, 
+    HiOutlineHeart, 
+    HiOutlineAcademicCap,
+    HiOutlineBeaker,
+    HiOutlineBriefcase,
+    HiOutlinePaintBrush,
+    HiOutlineMusicalNote,
+    HiOutlineCube
+} from "react-icons/hi2";
+
 export default [
     {
         id: 1,
         name: 'Programación',
-        icon: 'programming.png',
+        icon: HiOutlineCommandLine,
         prompt: ''
     },
     {
         id: 2,
         name: 'Idiomas',
-        icon: 'languages.png',
+        icon: HiOutlineLanguage,
         prompt: ''
     },
     {
         id: 3,
         name: 'Personal',
-        icon: 'personal_development.png',
+        icon: HiOutlineUserGroup,
         prompt: ''
     },
     {
         id: 4,
         name: 'Hobbies',
-        icon: 'hobbies.png',
+        icon: HiOutlineHeart,
         prompt: ''
     },
     {
         id: 5,
         name: 'Educación',
-        icon: 'education.png',
+        icon: HiOutlineAcademicCap,
         prompt: ''
     },
     {
         id: 6,
-        name: 'Negocios',
-        icon: 'business.png',
+        name: 'Ciencia',
+        icon: HiOutlineBeaker,
         prompt: ''
     },
     {
         id: 7,
-        name: 'Salud',
-        icon: 'health.png',
+        name: 'Negocios',
+        icon: HiOutlineBriefcase,
         prompt: ''
     },
     {
         id: 8,
-        name: 'Fitness',
-        icon: 'fitness.png',
+        name: 'Arte',
+        icon: HiOutlinePaintBrush,
         prompt: ''
     },
     {
         id: 9,
-        name: 'Arte',
-        icon: 'art.png',
+        name: 'Música',
+        icon: HiOutlineMusicalNote,
         prompt: ''
     },
     {
         id: 10,
-        name: 'Cultura',
-        icon: 'art.png',
+        name: 'Tecnología',
+        icon: HiOutlineCube,
         prompt: ''
     }
 ];

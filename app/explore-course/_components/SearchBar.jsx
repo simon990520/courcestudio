@@ -1,56 +1,93 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { HiMagnifyingGlass, HiXMark } from "react-icons/hi2"
+import { motion, AnimatePresence } from "framer-motion"
+import CategoryList from '@/app/_shared/CategoryList'
 
 const SearchBar = ({ searchQuery, setSearchQuery }) => {
-  const quickFilters = [
-    'Programación',
-    'Idiomas',
-    'Personal',
-    'Hobbies',
-    'Educación'
-  ];
+  const [isFocused, setIsFocused] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category.name === selectedCategory?.name ? null : category);
+    setSearchQuery(category.name === selectedCategory?.name ? '' : category.name);
+  };
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto mb-8">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="relative w-full max-w-3xl mx-auto -mt-8 space-y-4 px-6 sm:px-8"
+    >
       <div className="relative">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Buscar por nombre, tema o nivel..."
-          className="w-full px-4 py-3 pl-12 pr-10 bg-white rounded-xl shadow-sm border border-orange-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-200 transition-all duration-200 outline-none"
-        />
-        <HiMagnifyingGlass className="absolute left-4 top-1/2 transform -translate-y-1/2 text-orange-500 text-xl" />
-        
-        {/* Botón de limpiar búsqueda */}
-        {searchQuery && (
-          <button
-            onClick={() => setSearchQuery('')}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+        <motion.div
+          animate={{
+            scale: isFocused ? 1.02 : 1,
+            boxShadow: isFocused 
+              ? "0 8px 32px rgba(234, 88, 12, 0.2)" 
+              : "0 4px 20px rgba(0, 0, 0, 0.1)"
+          }}
+          transition={{ duration: 0.2 }}
+          className="relative rounded-xl overflow-hidden bg-white backdrop-blur-lg bg-opacity-80"
+        >
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            placeholder="Buscar por nombre, tema o nivel..."
+            className="w-full px-4 py-4 pl-12 pr-10 bg-transparent rounded-xl border border-white/20 focus:border-orange-400 focus:ring-2 focus:ring-orange-200 transition-all duration-200 outline-none"
+          />
+          <motion.div
+            animate={{ scale: isFocused ? 1.1 : 1 }}
+            transition={{ duration: 0.2 }}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2"
           >
-            <HiXMark className="text-xl" />
-          </button>
-        )}
+            <HiMagnifyingGlass className="text-orange-500 text-xl" />
+          </motion.div>
+          
+          <AnimatePresence>
+            {searchQuery && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+              >
+                <HiXMark className="text-xl" />
+              </motion.button>
+            )}
+          </AnimatePresence>
+        </motion.div>
       </div>
       
-      {/* Filtros rápidos */}
-      <div className="flex gap-2 mt-3 flex-wrap">
-        {quickFilters.map((filter) => (
-          <button
-            key={filter}
-            onClick={() => setSearchQuery(filter)}
-            className={`px-3 py-1 text-sm rounded-full transition-colors duration-200 ${
-              searchQuery === filter
-                ? 'bg-orange-500 text-white'
-                : 'bg-orange-50 text-orange-700 hover:bg-orange-100'
-            }`}
-          >
-            {filter}
-          </button>
-        ))}
-      </div>
-    </div>
+      <motion.div 
+        layout
+        className="flex gap-2 flex-wrap"
+      >
+        {CategoryList.map((category) => {
+          const Icon = category.icon;
+          return (
+            <motion.button
+              key={category.id}
+              onClick={() => handleCategoryClick(category)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`px-4 py-2.5 rounded-xl transition-all duration-200 flex items-center gap-2 ${
+                selectedCategory?.name === category.name
+                  ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/30'
+                  : 'bg-white/80 backdrop-blur-lg text-orange-700 hover:bg-orange-50 shadow-md'
+              }`}
+            >
+              <Icon className="w-5 h-5" />
+              <span className="text-sm font-medium">{category.name}</span>
+            </motion.button>
+          );
+        })}
+      </motion.div>
+    </motion.div>
   )
 }
 
