@@ -1,112 +1,130 @@
-"use client"
-import { Button } from '@/components/ui/button';
-import { useUser } from '@clerk/nextjs'
-import Link from 'next/link';
-import React, { useState, useEffect } from 'react'
-import { HiMagnifyingGlass, HiSparkles, HiLightBulb, HiAcademicCap } from "react-icons/hi2";
+'use client'
 
-const ExploreHeader = () => {
-  const {user} = useUser();
-  const [stats, setStats] = useState({
-    courses: 0,
-    categories: 0,
-    creators: 0
-  });
-    
-  useEffect(() => {
-    // Generar números aleatorios solo del lado del cliente
-    setStats({
-      courses: Math.floor(Math.random() * 100) + 50,
-      categories: Math.floor(Math.random() * 10) + 5,
-      creators: Math.floor(Math.random() * 50) + 20
-    });
-  }, []);
+import { useUser } from "@clerk/nextjs";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { 
+  HiSparkles, 
+  HiOutlineChartBar, 
+  HiOutlineBookOpen, 
+  HiOutlineLightBulb, 
+  HiOutlineTrendingUp,
+  HiOutlinePlusCircle,
+  HiOutlineAcademicCap
+} from "react-icons/hi2";
+import { useEffect, useState } from "react";
+import { ref, get } from "firebase/database";
+import { realtimeDb } from "@/configs/firebaseConfig";
 
+const StatCard = ({ icon: Icon, title, value, isLoading }) => {
   return (
-    <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-6 mb-8 shadow-lg border border-orange-200">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        {/* Contenido izquierdo */}
-        <div className="space-y-4 flex-1">
-          <div className="flex items-center gap-2">
-            <HiMagnifyingGlass className="text-orange-500 text-2xl" />
-            <h2 className="text-2xl font-semibold text-gray-800">
-              Explora cursos <span className="text-orange-600">creados por la comunidad</span>
-            </h2>
-          </div>
-          
-          <div className="flex items-start gap-3 bg-white/60 p-4 rounded-xl">
-            <HiAcademicCap className="text-orange-500 text-xl mt-1" />
-            <div>
-              <p className="text-gray-600 leading-relaxed">
-                Descubre una amplia variedad de cursos generados con IA, desde programación hasta marketing. 
-                Aprende de otros creadores y encuentra inspiración para tus propios cursos.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700">
-                  <HiSparkles className="text-orange-500" />
-                  <span>{stats.courses}+ Cursos disponibles</span>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700">
-                  <HiLightBulb className="text-orange-500" />
-                  <span>Múltiples categorías</span>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700">
-                  <HiAcademicCap className="text-orange-500" />
-                  <span>Contenido actualizado</span>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="bg-white/50 backdrop-blur-sm p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex-1 min-w-[200px]">
+      <div className="flex items-center gap-3">
+        <div className="p-2 bg-orange-100 rounded-lg group-hover:bg-orange-200 transition-colors duration-300">
+          {Icon && <Icon className="text-orange-600 text-xl group-hover:scale-110 transition-transform duration-300" />}
         </div>
-
-        {/* Botón de crear curso */}
-        <div className="w-full md:w-auto">
-          <Link href="/create-course">
-            <Button 
-              variant="startButton"
-              className="w-full md:w-auto bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-200 flex items-center gap-2"
-            >
-              <HiSparkles className="text-xl" />
-              Crear tu propio curso
-            </Button>
-          </Link>
-        </div>
-      </div>
-
-      {/* Estadísticas */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-        <div className="bg-white/80 rounded-xl p-4 flex items-center gap-3">
-          <div className="bg-orange-100 p-2 rounded-lg">
-            <HiSparkles className="text-orange-500 text-xl" />
-          </div>
-          <div>
-            <h3 className="text-sm font-medium text-gray-600">Cursos Totales</h3>
-            <p className="text-2xl font-semibold text-orange-600">{stats.courses}</p>
-          </div>
-        </div>
-        
-        <div className="bg-white/80 rounded-xl p-4 flex items-center gap-3">
-          <div className="bg-orange-100 p-2 rounded-lg">
-            <HiLightBulb className="text-orange-500 text-xl" />
-          </div>
-          <div>
-            <h3 className="text-sm font-medium text-gray-600">Categorías</h3>
-            <p className="text-2xl font-semibold text-orange-600">{stats.categories}</p>
-          </div>
-        </div>
-        
-        <div className="bg-white/80 rounded-xl p-4 flex items-center gap-3">
-          <div className="bg-orange-100 p-2 rounded-lg">
-            <HiAcademicCap className="text-orange-500 text-xl" />
-          </div>
-          <div>
-            <h3 className="text-sm font-medium text-gray-600">Creadores</h3>
-            <p className="text-2xl font-semibold text-orange-600">{stats.creators}</p>
+        <div>
+          <div className="text-sm text-gray-500">{title}</div>
+          <div className="text-xl font-semibold text-gray-900">
+            {isLoading ? (
+              <div className="h-6 w-16 bg-gray-200 animate-pulse rounded" />
+            ) : (
+              value
+            )}
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ExploreHeader
+const ExploreHeader = () => {
+  const { user } = useUser();
+  const [stats, setStats] = useState({
+    totalCourses: 0,
+    totalChapters: 0,
+    categories: {},
+    totalContent: 0,
+    lastActivity: null
+  });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        setLoading(true);
+        const coursesRef = ref(realtimeDb, 'courses');
+        const snapshot = await get(coursesRef);
+        
+        if (snapshot.exists()) {
+          const courses = Object.values(snapshot.val());
+          
+          const newStats = courses.reduce((acc, course) => {
+            const chaptersCount = course.chapters?.length || 0;
+            acc.totalChapters += chaptersCount;
+            
+            course.chapters?.forEach(chapter => {
+              acc.totalContent += chapter.content?.length || 0;
+            });
+            
+            if (course.category) {
+              acc.categories[course.category] = (acc.categories[course.category] || 0) + 1;
+            }
+
+            const courseDate = new Date(course.createdAt || 0);
+            if (!acc.lastActivity || courseDate > acc.lastActivity) {
+              acc.lastActivity = courseDate;
+            }
+            
+            return acc;
+          }, {
+            totalCourses: courses.length,
+            totalChapters: 0,
+            totalContent: 0,
+            categories: {},
+            lastActivity: null
+          });
+          
+          setStats(newStats);
+        }
+      } catch (error) {
+        console.error('Error al obtener estadísticas:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStats();
+  }, []);
+
+  return (
+    <div className="mt-0">
+      {/* Tarjeta de bienvenida */}
+      <div className="relative overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-6 sm:p-8 text-white">
+        <div className="absolute top-0 right-0 w-64 h-64 transform translate-x-1/3 -translate-y-1/3">
+          <div className="absolute inset-0 bg-white/10 backdrop-blur-3xl rounded-full animate-pulse" />
+        </div>
+        
+        <div className="relative z-10 max-w-xl">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">
+            ¡Bienvenido{user?.firstName ? `, ${user.firstName}` : ''}! 👋
+          </h1>
+          <div className="text-white/90 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
+            Explora nuestra colección de cursos creados por la comunidad.
+            Encuentra el conocimiento que buscas y aprende a tu propio ritmo.
+          </div>
+          <Link href="/create-course">
+            <Button 
+              className="bg-white text-orange-600 hover:bg-orange-50 transition-colors duration-300 text-sm sm:text-base px-6 py-2 sm:px-8 sm:py-3 rounded-xl flex items-center gap-2 font-medium"
+            >
+              <HiOutlinePlusCircle className="text-xl" />
+              <span>Crear Nuevo Curso</span>
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ExploreHeader;
