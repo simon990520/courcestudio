@@ -9,6 +9,7 @@ import { useUser } from "@clerk/nextjs";
 import { toast } from "sonner";
 import SubjectCard from "./_components/SubjectCard";
 import SubjectModal from "./_components/SubjectModal";
+import Wellcome from "./_components/Wellcome"; // Actualizar la importación
 import NoteModal from "./_components/NoteModal";
 import { Input } from "@/components/ui/input";
 import { HiMagnifyingGlass, HiPlus } from "react-icons/hi2";
@@ -212,57 +213,10 @@ const SubjectsPage = () => {
 
   return (
     <div className="p-6 space-y-6">
-      {/* Welcome Card */}
-      <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-6 mb-8 shadow-lg border border-orange-200">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <div className="space-y-4 flex-1">
-            <div className="flex items-center gap-2">
-              <HiOutlineBookOpen className="text-orange-500 text-2xl" />
-              <h2 className="text-2xl font-semibold text-gray-800">
-                Tus <span className="text-orange-600">materias</span>
-              </h2>
-            </div>
-            
-            <div className="flex items-start gap-3 bg-white/60 p-4 rounded-xl">
-              <HiOutlineClipboardList className="text-orange-500 text-xl mt-1" />
-              <div>
-                <p className="text-gray-600 leading-relaxed">
-                  Organiza tus materias y notas en un solo lugar. 
-                  Crea, edita y gestiona el contenido de tus materias fácilmente.
-                </p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700">
-                    <HiOutlineBookOpen className="text-orange-500" />
-                    <span>{subjects.length} Materias</span>
-                  </div>
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700">
-                    <HiOutlineDocumentText className="text-orange-500" />
-                    <span>{subjects.reduce((total, subject) => total + (subject.notes ? Object.keys(subject.notes).length : 0), 0)} Notas</span>
-                  </div>
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700">
-                    <HiOutlineChartBar className="text-orange-500" />
-                    <span>{subjects.filter(subject => new Date(subject.updatedAt) > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)).length} Esta semana</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex-shrink-0">
-            <Button
-              onClick={() => {
-                setEditingSubject(null);
-                setIsSubjectModalOpen(true);
-              }}
-              className="bg-orange-500 hover:bg-orange-600 text-white flex items-center gap-2"
-              disabled={isSubjectModalOpen}
-            >
-              <HiPlus className="w-5 h-5" />
-              Crear Materia
-            </Button>
-          </div>
-        </div>
-      </div>
-
+      <Wellcome 
+        setIsSubjectModalOpen={setIsSubjectModalOpen}
+        setEditingSubject={setEditingSubject}
+      />
       {/* Search Bar */}
       <div className="relative">
         <HiMagnifyingGlass className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
