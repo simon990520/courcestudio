@@ -67,11 +67,6 @@ const NotesWelcome = ({ setIsNoteModalOpen, setEditingNote, currentSubject, acti
   }, [user]);
 
   const handleCreateNote = () => {
-    // Solo validamos la materia si estamos en la pestaña personal
-    if (activeTab === 'personal' && !currentSubject) {
-      toast.error('Por favor selecciona una materia primero');
-      return;
-    }
     setEditingNote(null);
     setIsNoteModalOpen(true);
   };
@@ -100,7 +95,6 @@ const NotesWelcome = ({ setIsNoteModalOpen, setEditingNote, currentSubject, acti
               <Button 
                 onClick={handleCreateNote}
                 className="bg-white text-orange-600 hover:bg-orange-50 transition-colors duration-300 text-sm sm:text-base px-6 py-2 sm:px-8 sm:py-3 rounded-xl flex items-center gap-2 font-medium shadow-lg hover:shadow-xl"
-                disabled={activeTab === 'personal' && !currentSubject}
               >
                 <HiOutlinePlusCircle className="text-xl" />
                 <span>Nuevo Apunte</span>
