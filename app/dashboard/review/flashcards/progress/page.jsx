@@ -155,7 +155,7 @@ const FlashcardsProgressPage = () => {
           transition={{ delay: 0.1 }}
         >
           <Card className="p-6">
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-4">
               <div className="p-3 bg-green-100 rounded-lg">
                 <HiOutlineTrendingUp className="h-6 w-6 text-green-600" />
               </div>
@@ -164,7 +164,6 @@ const FlashcardsProgressPage = () => {
                 <p className="text-2xl font-bold">{stats.averageCompletionRate.toFixed(1)}%</p>
               </div>
             </div>
-            <Progress value={stats.averageCompletionRate} className="h-2" />
           </Card>
         </motion.div>
 

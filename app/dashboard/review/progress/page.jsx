@@ -12,9 +12,12 @@ import {
   HiOutlineClock,
   HiOutlineChartBar,
   HiOutlineCheck,
-  HiOutlineX
+  HiOutlineX,
+  HiOutlineChevronLeft,
+  HiOutlineChevronRight
 } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const QuizProgressPage = () => {
   const [progress, setProgress] = useState(null);
@@ -81,10 +84,11 @@ const QuizProgressPage = () => {
 
   if (loading) {
     return (
-      <div className="p-6">
-        <h1 className="text-2xl font-bold mb-6">Progreso de Quiz</h1>
-        <div className="flex justify-center items-center h-64">
-          <div className="w-16 h-16 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin"></div>
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-[#300219] to-[#0c0c0c]">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex justify-center items-center h-64">
+            <div className="w-16 h-16 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin"></div>
+          </div>
         </div>
       </div>
     );
@@ -103,112 +107,164 @@ const QuizProgressPage = () => {
   const stats = calculateStats();
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Progreso de Quiz</h1>
-      
-      {/* Estadísticas Generales */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-        >
-          <Card className="p-6">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="p-3 bg-green-100 rounded-lg">
-                <HiOutlineTrendingUp className="h-6 w-6 text-green-600" />
-              </div>
-              <div>
-                <h3 className="text-sm text-gray-500">Promedio General</h3>
-                <p className="text-2xl font-bold">{stats.averageScore.toFixed(1)}%</p>
-              </div>
-            </div>
-            <Progress value={stats.averageScore} className="h-2" />
-          </Card>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          <Card className="p-6">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-blue-100 rounded-lg">
-                <HiOutlineAcademicCap className="h-6 w-6 text-blue-600" />
-              </div>
-              <div>
-                <h3 className="text-sm text-gray-500">Quizzes Completados</h3>
-                <p className="text-2xl font-bold">{stats.totalQuizzes}</p>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <Card className="p-6">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-purple-100 rounded-lg">
-                <HiOutlineChartBar className="h-6 w-6 text-purple-600" />
-              </div>
-              <div>
-                <h3 className="text-sm text-gray-500">Total de Preguntas</h3>
-                <p className="text-2xl font-bold">{stats.totalQuestions}</p>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
-      </div>
-
-      {/* Historial de Quizzes */}
-      <h2 className="text-xl font-semibold mb-4">Historial de Quizzes</h2>
-      <div className="space-y-4">
-        {quizHistory.map((quiz) => (
+    <div className="min-h-screen bg-gradient-to-b from-white to-orange-50/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Header Section */}
           <motion.div
-            key={quiz.id}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="group"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-8"
           >
-            <Card className="p-6 hover:shadow-lg transition-all">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <HiOutlineClock className="text-gray-400" />
-                    <span className="text-sm text-gray-500">{quiz.displayDate}</span>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center text-green-600">
-                      <HiOutlineCheck className="mr-1" />
-                      {quiz.correctAnswers}
-                    </div>
-                    <div className="flex items-center text-red-600">
-                      <HiOutlineX className="mr-1" />
-                      {quiz.incorrectAnswers}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="text-right">
-                    <div className="text-sm text-gray-500">Puntuación</div>
-                    <div className="text-xl font-bold">{quiz.score.toFixed(1)}%</div>
-                  </div>
-                  <Progress value={quiz.score} className="w-32 h-2" />
-                </div>
-              </div>
-            </Card>
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">Tu Progreso</h1>
+            <p className="text-gray-500">Visualiza tu rendimiento en quizzes y evaluaciones</p>
           </motion.div>
-        ))}
 
-        {quizHistory.length === 0 && (
-          <Card className="p-6 text-center text-gray-500">
-            No has completado ningún quiz todavía
-          </Card>
-        )}
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="group"
+            >
+              <Card className="relative overflow-hidden bg-white p-6 transition-all duration-300 hover:shadow-lg">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-orange-50 rounded-xl">
+                    <HiOutlineTrendingUp className="h-6 w-6 text-orange-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-medium text-gray-500">Promedio General</h3>
+                    <p className="text-2xl font-bold text-gray-800">{stats.averageScore.toFixed(1)}%</p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="group"
+            >
+              <Card className="relative overflow-hidden bg-white p-6 transition-all duration-300 hover:shadow-lg">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-orange-50 rounded-xl">
+                    <HiOutlineAcademicCap className="h-6 w-6 text-orange-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-medium text-gray-500">Quizzes Completados</h3>
+                    <div className="flex items-center gap-2">
+                      <p className="text-2xl font-bold text-gray-800">{stats.totalQuizzes}</p>
+                      <span className="text-sm text-gray-500">evaluaciones</span>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="group"
+            >
+              <Card className="relative overflow-hidden bg-white p-6 transition-all duration-300 hover:shadow-lg">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-orange-50 rounded-xl">
+                    <HiOutlineChartBar className="h-6 w-6 text-orange-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-medium text-gray-500">Total de Preguntas</h3>
+                    <div className="flex items-center gap-2">
+                      <p className="text-2xl font-bold text-gray-800">{stats.totalQuestions}</p>
+                      <span className="text-sm text-gray-500">preguntas</span>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Quiz History */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-gray-800">Historial de Quizzes</h2>
+              {quizHistory.length > 0 && (
+                <div className="flex items-center gap-2">
+                  <Button 
+                    variant="outline"
+                    size="sm"
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    <HiOutlineChevronLeft className="h-4 w-4" />
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    size="sm"
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    <HiOutlineChevronRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              )}
+            </div>
+
+            <div className="grid gap-4">
+              {quizHistory.map((quiz, index) => (
+                <motion.div
+                  key={quiz.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group"
+                >
+                  <Card className="bg-white p-6 transition-all duration-300 hover:shadow-lg">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-3">
+                          <HiOutlineClock className="h-5 w-5 text-orange-500" />
+                          <span className="text-sm text-gray-500">{quiz.displayDate}</span>
+                        </div>
+                        <div className="flex items-center gap-6">
+                          <div className="flex items-center text-green-600">
+                            <HiOutlineCheck className="mr-2 h-5 w-5" />
+                            <span className="text-lg font-medium">{quiz.correctAnswers} correctas</span>
+                          </div>
+                          <div className="flex items-center text-red-500">
+                            <HiOutlineX className="mr-2 h-5 w-5" />
+                            <span className="text-lg font-medium">{quiz.incorrectAnswers} incorrectas</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-6">
+                        <div className="text-right">
+                          <div className="text-sm text-gray-500">Puntuación</div>
+                          <div className="text-2xl font-bold text-gray-800">{quiz.score.toFixed(1)}%</div>
+                        </div>
+                        <Progress 
+                          value={quiz.score} 
+                          className="w-32 h-2 bg-orange-100" 
+                          indicatorClassName="bg-orange-500"
+                        />
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+
+              {quizHistory.length === 0 && (
+                <Card className="bg-white p-8 text-center">
+                  <div className="flex flex-col items-center gap-2">
+                    <HiOutlineAcademicCap className="h-12 w-12 text-orange-500" />
+                    <h3 className="text-lg font-semibold text-gray-800">No hay quizzes completados</h3>
+                    <p className="text-gray-500">Comienza a tomar quizzes para ver tu progreso aquí</p>
+                  </div>
+                </Card>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

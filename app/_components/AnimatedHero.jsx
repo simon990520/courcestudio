@@ -70,7 +70,7 @@ export default function AnimatedHero() {
             Explorar
           </motion.button>
         </Link>
-        <Link href="/download" className="w-full sm:w-auto">
+        {/* <Link href="/download" className="w-full sm:w-auto">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -78,7 +78,7 @@ export default function AnimatedHero() {
           >
             Descargar App
           </motion.button>
-        </Link>
+        </Link> */}
       </div>
     </motion.div>
   );

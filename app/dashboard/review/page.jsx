@@ -3,6 +3,8 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import ReviewWelcome from "./_components/ReviewWelcome";
+import { useState } from "react";
 import { 
   HiOutlineBookOpen, 
   HiOutlineDocumentText,
@@ -10,12 +12,18 @@ import {
   HiOutlineChevronRight,
   HiOutlineCollection,
   HiOutlineChartBar
-} from "react-icons/hi";
+} from "react-icons/hi"; 
 
 const ReviewPage = () => {
+  const [isQuizModalOpen, setIsQuizModalOpen] = useState(false);
+  const [editingQuiz, setEditingQuiz] = useState(null);
+
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Repasar</h1>
+    <div className="space-y-8">
+      <ReviewWelcome 
+        setIsQuizModalOpen={setIsQuizModalOpen} 
+        setEditingQuiz={setEditingQuiz} 
+      />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Quiz Card */}
