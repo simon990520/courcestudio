@@ -21,14 +21,13 @@ import { motion } from "framer-motion";
 
 const FlashcardsProgressPage = () => {
   const [sessions, setSessions] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const { user } = useUser();
+  const { user, isLoaded } = useUser();
 
   useEffect(() => {
-    if (user) {
+    if (isLoaded && user) {
       loadProgress();
     }
-  }, [user]);
+  }, [user, isLoaded]);
 
   const loadProgress = async () => {
     try {
@@ -69,8 +68,6 @@ const FlashcardsProgressPage = () => {
     } catch (error) {
       console.error("Error loading progress:", error);
       setSessions([]);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -121,17 +118,6 @@ const FlashcardsProgressPage = () => {
       streak
     };
   };
-
-  if (loading) {
-    return (
-      <div className="p-6">
-        <h1 className="text-2xl font-bold mb-6">Progreso de Flashcards</h1>
-        <div className="flex justify-center items-center h-64">
-          <div className="w-16 h-16 border-4 border-blue-200 border-t-blue-500 rounded-full animate-spin"></div>
-        </div>
-      </div>
-    );
-  }
 
   const stats = calculateStats();
 
