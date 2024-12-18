@@ -22,7 +22,6 @@ import { Button } from "@/components/ui/button";
 const QuizProgressPage = () => {
   const [progress, setProgress] = useState(null);
   const [quizHistory, setQuizHistory] = useState([]);
-  const [loading, setLoading] = useState(true);
   const { user } = useUser();
 
   useEffect(() => {
@@ -77,22 +76,8 @@ const QuizProgressPage = () => {
       }
     } catch (error) {
       console.error("Error loading progress:", error);
-    } finally {
-      setLoading(false);
     }
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-[#300219] to-[#0c0c0c]">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex justify-center items-center h-64">
-            <div className="w-16 h-16 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin"></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   const calculateStats = () => {
     if (!progress) return { averageScore: 0, totalQuizzes: 0, totalQuestions: 0 };
