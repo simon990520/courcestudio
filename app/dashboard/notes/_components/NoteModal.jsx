@@ -9,14 +9,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { improveNote } from "@/services/gemini";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   title: z.string().min(3, "El título debe tener al menos 3 caracteres").max(100, "El título no puede tener más de 100 caracteres"),
-  content: z.string().min(10, "El contenido debe tener al menos 10 caracteres").max(5000, "El contenido no puede tener más de 5000 caracteres"),
+  content: z.string().min(10, "El contenido debe tener al menos 10 caracteres"),
   subjectId: z.string().min(1, "Debes seleccionar una materia"),
 });
 
@@ -32,16 +32,26 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
     },
   });
 
+  // Reset form when modal opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      form.reset({
+        title: note?.title || "",
+        content: note?.content || "",
+        subjectId: note?.subjectId || "",
+      });
+    }
+  }, [isOpen, note, form]);
+
   const handleImproveContent = async () => {
-    const content = form.getValues("content");
-    const subjectId = form.getValues("subjectId");
+    const formValues = form.getValues();
     
-    if (!content || !subjectId) {
+    if (!formValues.content || !formValues.subjectId) {
       toast.error("Por favor, ingresa el contenido y selecciona una materia antes de mejorar");
       return;
     }
 
-    const subject = subjects.find(s => s.id === subjectId);
+    const subject = subjects.find(s => s.id === formValues.subjectId);
     if (!subject) {
       toast.error("Materia no encontrada");
       return;
@@ -49,35 +59,36 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
 
     setIsImproving(true);
     try {
-      const improvedText = await improveNote(content, subject.name);
-      form.setValue("content", improvedText);
-      toast.success("¡Contenido mejorado con éxito!");
+      const improvedText = await improveNote(formValues.content, subject.name);
+      // Mejorar el formato del contenido
+      const formattedText = improvedText
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line)
+        .join('\n\n');
+      
+      form.setValue("content", formattedText);
+      
+      // Guardar automáticamente
+      onSave({
+        title: formValues.title.trim(),
+        content: formattedText,
+        subjectId: formValues.subjectId
+      });
+      
+      toast.success("¡Contenido mejorado y guardado con éxito!");
     } catch (error) {
-      toast.error(error.message);
+      toast.error("Error al mejorar el contenido");
     } finally {
       setIsImproving(false);
     }
   };
 
-  const onSubmit = form.handleSubmit(async (data) => {
-    try {
-      await onSave(data);
-      form.reset();
-      onClose();
-    } catch (error) {
-      console.error("DEBUG - NoteModal save error:", error);
-      toast.error("Error al guardar la nota");
-    }
-  });
-
   return (
     <Dialog 
-      open={isOpen}
+      open={isOpen} 
       onOpenChange={(open) => {
-        if (!open) {
-          form.reset();
-          onClose();
-        }
+        if (!open) onClose();
       }}
     >
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
@@ -88,7 +99,16 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={onSubmit} className="space-y-4">
+          <form 
+            onSubmit={form.handleSubmit((data) => {
+              onSave({
+                title: data.title.trim(),
+                content: data.content.trim(),
+                subjectId: data.subjectId
+              });
+            })} 
+            className="space-y-4"
+          >
             <FormField
               control={form.control}
               name="title"
@@ -109,8 +129,9 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Materia</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
+                  <Select 
+                    onValueChange={field.onChange} 
+                    value={field.value}
                     defaultValue={field.value}
                   >
                     <FormControl>
@@ -119,7 +140,7 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {subjects.map((subject) => (
+                      {subjects?.map((subject) => (
                         <SelectItem key={subject.id} value={subject.id}>
                           {subject.name}
                         </SelectItem>
@@ -138,10 +159,10 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
                 <FormItem>
                   <FormLabel>Contenido</FormLabel>
                   <FormControl>
-                    <Textarea
-                      placeholder="Escribe tu apunte aquí"
-                      className="h-[200px]"
-                      {...field}
+                    <Textarea 
+                      placeholder="Escribe el contenido de tu apunte aquí..." 
+                      className="min-h-[200px]" 
+                      {...field} 
                     />
                   </FormControl>
                   <FormMessage />
@@ -149,36 +170,21 @@ const NoteModal = ({ isOpen, onClose, onSave, note, subjects, mode = "create" })
               )}
             />
 
-            <div className="flex gap-2 justify-end">
+            <div className="flex justify-end space-x-2">
               <Button
                 type="button"
-                variant="outline"
-                onClick={onClose}
-              >
-                Cancelar
-              </Button>
-              
-              <Button
-                type="button"
-                variant="secondary"
-                onClick={handleImproveContent}
+                variant="default"
                 disabled={isImproving}
+                onClick={handleImproveContent}
               >
                 {isImproving ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Mejorando...
+                    Generando...
                   </>
                 ) : (
-                  "Mejorar con IA"
+                  'Generar'
                 )}
-              </Button>
-
-              <Button 
-                type="submit"
-                className="bg-gradient-to-r from-[#FF5F13] to-[#FBB041] hover:from-[#FF5F13] hover:to-[#FBB041] text-white"
-              >
-                {mode === "create" ? "Crear" : "Guardar"}
               </Button>
             </div>
           </form>

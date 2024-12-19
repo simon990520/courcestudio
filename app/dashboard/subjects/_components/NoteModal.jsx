@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
+import { improveNote } from "@/services/gemini";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -37,6 +39,8 @@ const noteFormSchema = z.object({
 });
 
 const NoteModal = ({ isOpen, onClose, onSave, subject, note, mode = "create" }) => {
+  const [isImproving, setIsImproving] = useState(false);
+  
   const form = useForm({
     resolver: zodResolver(noteFormSchema),
     defaultValues: {
@@ -59,12 +63,37 @@ const NoteModal = ({ isOpen, onClose, onSave, subject, note, mode = "create" }) 
     }
   }, [note, form]);
 
-  const onSubmit = async (data) => {
+  const handleImproveContent = async () => {
+    const formValues = form.getValues();
+    
+    if (!formValues.content || !formValues.title) {
+      toast.error("Por favor, ingresa el título y contenido antes de generar");
+      return;
+    }
+
+    setIsImproving(true);
     try {
-      await onSave(data);
+      const improvedText = await improveNote(formValues.content, subject.name);
+      // Mejorar el formato del contenido
+      const formattedText = improvedText
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line)
+        .join('\n\n');
+      
+      // Guardar automáticamente
+      await onSave({
+        title: formValues.title.trim(),
+        content: formattedText,
+      });
+      
+      toast.success("¡Contenido mejorado y guardado con éxito!");
       form.reset();
+      onClose();
     } catch (error) {
-      console.error("Error al guardar el apunte:", error);
+      toast.error("Error al mejorar el contenido");
+    } finally {
+      setIsImproving(false);
     }
   };
 
@@ -88,7 +117,7 @@ const NoteModal = ({ isOpen, onClose, onSave, subject, note, mode = "create" }) 
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form className="space-y-6">
             <FormField
               control={form.control}
               name="title"
@@ -127,28 +156,23 @@ const NoteModal = ({ isOpen, onClose, onSave, subject, note, mode = "create" }) 
               )}
             />
 
-            <DialogFooter>
+            <div className="flex justify-end space-x-2">
               <Button
                 type="button"
-                variant="outline"
-                onClick={handleClose}
+                variant="default"
+                disabled={isImproving}
+                onClick={handleImproveContent}
               >
-                Cancelar
-              </Button>
-              <Button
-                type="submit"
-                className="bg-orange-500 hover:bg-orange-600"
-                disabled={form.formState.isSubmitting}
-              >
-                {form.formState.isSubmitting ? (
-                  <span>Guardando...</span>
-                ) : mode === "create" ? (
-                  "Crear Apunte"
+                {isImproving ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Generando...
+                  </>
                 ) : (
-                  "Guardar Cambios"
+                  'Generar'
                 )}
               </Button>
-            </DialogFooter>
+            </div>
           </form>
         </Form>
       </DialogContent>
