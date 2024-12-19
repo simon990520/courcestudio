@@ -1,29 +1,49 @@
 "use client";
 import axios from "axios";
 
-const YOUTUBE_BASE_URL = "https://www.googleapis.com/youtube/v3";
+// Cache para almacenar resultados y evitar peticiones repetidas
+const cache = new Map();
 
 const getVideos = async (query) => {
   try {
-    const params = {
-      part: "snippet",
-      q: query,
-      maxResults: 1,
-      type: "video",
-      key: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY, // Asegúrate de que la clave esté configurada en el entorno
-    };
+    // Verificar el cache primero
+    const cacheKey = query.toLowerCase().trim();
+    if (cache.has(cacheKey)) {
+      return cache.get(cacheKey);
+    }
 
-    const response = await axios.get(`${YOUTUBE_BASE_URL}/search`, { params });
-    return response.data.items;
+    // Hacer la petición a nuestro endpoint
+    const response = await axios.get(`/api/youtube?q=${encodeURIComponent(query)}`);
+    const results = response.data.items;
+
+    // Guardar en cache
+    cache.set(cacheKey, results);
+    
+    return results;
   } catch (error) {
-    console.error("Error al obtener videos de YouTube:", {
-      status: error.response?.status,
-      data: error.response?.data,
+    console.error("Error al buscar videos:", {
       message: error.message,
+      query,
     });
-    throw error;
+    
+    // En caso de error, retornar un resultado vacío pero válido
+    return [{
+      id: { videoId: "" },
+      snippet: {
+        title: "",
+        thumbnails: {
+          default: { url: "" }
+        }
+      }
+    }];
   }
 };
+
+// Limpiar el cache cada hora
+const clearCacheInterval = 3600000;
+setInterval(() => {
+  cache.clear();
+}, clearCacheInterval);
 
 export default {
   getVideos,
