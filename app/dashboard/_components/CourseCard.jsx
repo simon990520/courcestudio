@@ -77,7 +77,7 @@ const CourseCard = ({ course, refreshData, displayUser = false }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link href={`/course/${course?.courseId}`}>
+      <Link href={`/course/${course?.courseId}`} onClick={(e) => e.stopPropagation()}>
         <div className="relative">
           <Image
             src={course?.courseBanner || defaultImage}
@@ -97,39 +97,54 @@ const CourseCard = ({ course, refreshData, displayUser = false }) => {
           <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700">
             {getLevel()}
           </div>
+
+          {/* Botones de acciones */}
+          <div 
+            className="absolute bottom-4 right-4 flex items-center gap-2 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {!displayUser && (
+              <div className="relative">
+                <DropdownOption handleOnDelete={handleOnDelete}>
+                  <button 
+                    className="p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-red-50 transition-all duration-300 group/delete"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                  >
+                    <HiMiniEllipsisVertical className="text-xl text-red-500 group-hover/delete:text-red-600" />
+                  </button>
+                </DropdownOption>
+              </div>
+            )}
+            {navigator.share && (
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigator
+                    .share({
+                      title: course?.courseOutput?.course?.name || course?.name,
+                      url: `${process.env.NEXT_PUBLIC_HOST_NAME}/course/${course?.courseId}`,
+                    })
+                    .then(() => console.log("Successfully shared"))
+                    .catch((error) => console.log("Error sharing", error));
+                }}
+                className="p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-orange-50 transition-all duration-300 group/share"
+              >
+                <HiOutlineShare className="text-xl text-orange-500 group-hover/share:text-orange-600" />
+              </button>
+            )}
+          </div>
         </div>
 
         <div className="p-4">
-          {/* Título y Opciones */}
-          <div className="flex items-start justify-between mb-3">
+          {/* Título */}
+          <div className="mb-3">
             <h2 className="font-semibold text-lg text-gray-900 group-hover:text-orange-600 transition-colors duration-300 line-clamp-2">
               {course?.courseOutput?.course?.name || course?.name}
             </h2>
-            <div className="flex items-center gap-2">
-              {!displayUser && (
-                <DropdownOption handleOnDelete={handleOnDelete}>
-                  <HiMiniEllipsisVertical className="text-gray-500 hover:text-orange-600 transition-colors duration-300" />
-                </DropdownOption>
-              )}
-              {navigator.share && (
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    navigator
-                      .share({
-                        title: course?.courseOutput?.course?.name || course?.name,
-                        url: `${process.env.NEXT_PUBLIC_HOST_NAME}/course/${course?.courseId}`,
-                      })
-                      .then(() => console.log("Successfully shared"))
-                      .catch((error) => console.log("Error sharing", error));
-                  }}
-                  className="p-2 hover:bg-orange-50 rounded-full transition-colors duration-300"
-                >
-                  <HiOutlineShare className="text-xl text-gray-500 hover:text-orange-600" />
-                </button>
-              )}
-            </div>
           </div>
 
           {/* Descripción */}
