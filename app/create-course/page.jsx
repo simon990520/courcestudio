@@ -41,9 +41,14 @@ const CreateCourse = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const { userCourseInput, setUserCourseInput } = useContext(UserInputContext);
   const { user } = useUser();
   const router = useRouter();
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   useEffect(() => {
     //  console.log(userCourseInput);
   }, [userCourseInput]);
@@ -242,31 +247,35 @@ const CreateCourse = () => {
           </div>
 
           <div className="flex justify-between mt-4 pt-4 border-t">
-            <Button
-              disabled={activeIndex === 0}
-              onClick={() => setActiveIndex(activeIndex - 1)}
-              variant="outline"
-              className="transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
-            >
-              Previous
-            </Button>
-            {activeIndex < 2 && (
-              <Button
-                disabled={checkStaus()}
-                onClick={() => setActiveIndex(activeIndex + 1)}
-                className="bg-gradient-to-r from-orange-500 to-yellow-400 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
-              >
-                Next
-              </Button>
-            )}
-            {activeIndex === 2 && (
-              <Button
-                disabled={checkStaus()}
-                onClick={() => GenerateCourseLayout()}
-                className="bg-gradient-to-r from-orange-500 to-yellow-400 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
-              >
-                Generar curso
-              </Button>
+            {isClient && (
+              <>
+                <Button
+                  disabled={activeIndex === 0}
+                  onClick={() => setActiveIndex(activeIndex - 1)}
+                  variant="outline"
+                  className="transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+                >
+                  Previous
+                </Button>
+                {activeIndex < 2 && (
+                  <Button
+                    disabled={checkStaus()}
+                    onClick={() => setActiveIndex(activeIndex + 1)}
+                    className="bg-gradient-to-r from-orange-500 to-yellow-400 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+                  >
+                    Next
+                  </Button>
+                )}
+                {activeIndex === 2 && (
+                  <Button
+                    disabled={checkStaus()}
+                    onClick={() => GenerateCourseLayout()}
+                    className="bg-gradient-to-r from-orange-500 to-yellow-400 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+                  >
+                    Generar curso
+                  </Button>
+                )}
+              </>
             )}
           </div>
         </div>
