@@ -3,6 +3,7 @@ import { realtimeDb } from "@/configs/firebaseConfig";
 import React, { useEffect, useState } from "react";
 import ChapterListCard from "./_components/ChapterListCard";
 import ChapterContent from "./_components/ChapterContent";
+import AIAssistant from "./_components/AIAssistant";
 import { ref, get } from "firebase/database";
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 
@@ -119,6 +120,9 @@ const CourseStart = ({ params }) => {
           </div>
         )}
       </div>
+
+      {/* AI Assistant */}
+      {course && <AIAssistant course={course} />}
     </div>
   );
 };
