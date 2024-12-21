@@ -2,13 +2,37 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ref, get, set } from 'firebase/database';
+import { realtimeDb } from '@/configs/firebaseConfig';
+import { LearningMetrics } from './LearningMetrics';
+import { useUser } from "@clerk/nextjs";
+import { generateCourseResponse } from '@/services/gemini';
+import { 
+  StructuredResponse,
+  InfoBox,
+  WarningBox,
+  ExampleBox,
+  StepsList,
+  ProgressSection,
+  CodeBlock
+} from './MessageComponents';
 
 const AIAssistant = ({ course }) => {
+  const { user } = useUser();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [metrics, setMetrics] = useState(null);
   const chatContainerRef = useRef(null);
+  const sessionStartTime = useRef(null);
+
+  useEffect(() => {
+    if (user?.id && isOpen) {
+      loadUserMetrics();
+      sessionStartTime.current = new Date();
+    }
+  }, [user?.id, isOpen]);
 
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -16,57 +40,55 @@ const AIAssistant = ({ course }) => {
     }
   }, [messages]);
 
-  // Función para procesar la pregunta y generar una respuesta contextual
-  const processQuestion = (question, courseContext) => {
-    // Normalizar la pregunta
-    const normalizedQuestion = question.toLowerCase();
+  const loadUserMetrics = async () => {
+    try {
+      const metricsRef = ref(realtimeDb, `userMetrics/${user.id}`);
+      const snapshot = await get(metricsRef);
+      let userMetrics;
+      
+      if (snapshot.exists()) {
+        // Convertir los datos de Firebase a una instancia de LearningMetrics
+        const data = snapshot.val();
+        userMetrics = LearningMetrics.fromJSON(data);
+      } else {
+        userMetrics = new LearningMetrics(user.id);
+      }
+
+      setMetrics(userMetrics);
+      
+      // Iniciar nueva sesión
+      userMetrics.startSession({
+        device: navigator.platform,
+        browser: navigator.userAgent
+      });
+      
+      // Guardar métricas actualizadas
+      await set(metricsRef, userMetrics.toJSON());
+    } catch (error) {
+      console.error('Error al cargar métricas:', error);
+    }
+  };
+
+  const saveMetrics = async () => {
+    if (!metrics || !user?.id) return;
     
-    // Extraer información relevante del curso
-    const courseName = courseContext.courseOutput?.course?.name || '';
-    const courseDescription = courseContext.courseOutput?.course?.description || '';
-    const chapters = courseContext.chapters || [];
-
-    // Buscar capítulos relevantes basados en la pregunta
-    const relevantChapters = chapters.filter(chapter => {
-      const chapterContent = JSON.stringify(chapter).toLowerCase();
-      return chapterContent.includes(normalizedQuestion);
-    });
-
-    // Si la pregunta es sobre el curso en general
-    if (normalizedQuestion.includes('curso') || normalizedQuestion.includes('sobre que') || normalizedQuestion.includes('de que') || normalizedQuestion.includes('trata')) {
-      return `Este curso trata sobre ${courseName}. ${courseDescription}`;
+    try {
+      const metricsRef = ref(realtimeDb, `userMetrics/${user.id}`);
+      await set(metricsRef, metrics.toJSON());
+    } catch (error) {
+      console.error('Error al guardar métricas:', error);
     }
+  };
 
-    // Si la pregunta es sobre capítulos específicos
-    if (normalizedQuestion.includes('capitulo') || normalizedQuestion.includes('capítulo') || normalizedQuestion.includes('tema') || normalizedQuestion.includes('parte')) {
-      if (relevantChapters.length > 0) {
-        const chapterInfo = relevantChapters.map(chapter => {
-          return `En el capítulo "${chapter.name}", aprenderás: ${chapter.content?.content?.map(item => item.title).join(', ')}`;
-        }).join('\\n\\n');
-        return chapterInfo;
-      }
-    }
-
-    // Si la pregunta es sobre un tema específico
-    if (relevantChapters.length > 0) {
-      const relevantContent = relevantChapters.map(chapter => {
-        const matchingContent = chapter.content?.content?.filter(item => 
-          item.title.toLowerCase().includes(normalizedQuestion) || 
-          item.description.toLowerCase().includes(normalizedQuestion)
-        );
-        if (matchingContent?.length > 0) {
-          return matchingContent.map(content => content.description).join('\\n');
-        }
-        return null;
-      }).filter(Boolean);
-
-      if (relevantContent.length > 0) {
-        return relevantContent.join('\\n\\n');
-      }
-    }
-
-    // Si no encontramos información específica, dar una respuesta general
-    return `En este curso de ${courseName}, tenemos ${chapters.length} capítulos que cubren diferentes aspectos. ¿Te gustaría que te explique algún tema específico o que te muestre el contenido de algún capítulo en particular?`;
+  // Función para evaluar la dificultad de una pregunta
+  const assessQuestionDifficulty = (question) => {
+    const length = question.length;
+    const complexityMarkers = ['por qué', 'cómo', 'explica', 'compara', 'analiza'];
+    const hasComplexity = complexityMarkers.some(marker => question.toLowerCase().includes(marker));
+    
+    if (length > 100 || hasComplexity) return 'hard';
+    if (length > 50) return 'medium';
+    return 'easy';
   };
 
   const handleSendMessage = async (e) => {
@@ -75,32 +97,63 @@ const AIAssistant = ({ course }) => {
 
     const userMessage = inputMessage.trim();
     setInputMessage('');
-    
-    // Agregar mensaje del usuario
     setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
     setIsLoading(true);
 
     try {
-      // Procesar la pregunta y obtener una respuesta contextual
-      const response = processQuestion(userMessage, course);
+      const startTime = new Date();
+      
+      // Generar respuesta usando Gemini
+      const response = await generateCourseResponse(userMessage, course, metrics);
+      
+      // Actualizar métricas
+      if (metrics) {
+        const endTime = new Date();
+        const responseTime = (endTime - startTime) / 1000;
+        const difficulty = assessQuestionDifficulty(userMessage);
+        
+        // Determinar si la respuesta fue relevante basado en su longitud y contenido
+        const isRelevant = response.length > 100 && !response.includes("no tengo suficiente información");
+        
+        // Obtener el tema más relevante del curso basado en la pregunta
+        const topic = course.chapters?.find(chapter => 
+          userMessage.toLowerCase().includes(chapter.name.toLowerCase())
+        )?.name || 'general';
+        
+        metrics.recordAnswer(
+          isRelevant,
+          topic,
+          difficulty,
+          responseTime,
+          isRelevant ? 4 : 3 // Confianza simulada
+        );
+        
+        await saveMetrics();
+      }
 
-      // Simular un pequeño retraso para la experiencia de usuario
-      setTimeout(() => {
-        setMessages(prev => [...prev, {
-          role: 'assistant',
-          content: response
-        }]);
-        setIsLoading(false);
-      }, 500);
-
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: response
+      }]);
     } catch (error) {
       console.error('Error al procesar mensaje:', error);
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: 'Lo siento, hubo un error al procesar tu pregunta. ¿Podrías reformularla?'
+        content: `Lo siento ${user?.firstName || ''}, hubo un error al procesar tu pregunta. ¿Podrías reformularla?`
       }]);
+    } finally {
       setIsLoading(false);
     }
+  };
+
+  // Guardar métricas al cerrar el chat
+  const handleClose = async () => {
+    if (metrics && sessionStartTime.current) {
+      const sessionDuration = (new Date() - sessionStartTime.current) / 60000; // en minutos
+      metrics.usage.totalTimeSpent += sessionDuration;
+      await saveMetrics();
+    }
+    setIsOpen(false);
   };
 
   return (
@@ -113,10 +166,12 @@ const AIAssistant = ({ course }) => {
         onClick={() => {
           setIsOpen(true);
           if (messages.length === 0) {
-            // Mensaje de bienvenida
             setMessages([{
               role: 'assistant',
-              content: `¡Hola! Soy tu asistente para el curso "${course.courseOutput?.course?.name}". Puedo ayudarte a entender mejor el contenido, responder preguntas específicas sobre los temas o guiarte a través de los capítulos. ¿En qué puedo ayudarte?`
+              content: `¡Hola ${user?.firstName || ''}! Soy tu asistente para el curso "${course.courseOutput?.course?.name}". 
+                       Puedo ayudarte a entender mejor el contenido, responder preguntas específicas sobre los temas o guiarte a través de los capítulos.
+                       También puedo mostrarte tu progreso y estadísticas de aprendizaje, solo pregúntame "¿cómo voy?" o "muestra mi progreso".
+                       ¿En qué puedo ayudarte hoy?`
             }]);
           }
         }}
@@ -134,7 +189,7 @@ const AIAssistant = ({ course }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-            onClick={(e) => e.target === e.currentTarget && setIsOpen(false)}
+            onClick={(e) => e.target === e.currentTarget && handleClose()}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -144,9 +199,9 @@ const AIAssistant = ({ course }) => {
             >
               {/* Header */}
               <div className="p-4 border-b bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white rounded-t-xl flex justify-between items-center">
-                <h3 className="text-lg font-medium">Kunno AI - Asistente del Curso</h3>
+                <h3 className="text-lg font-medium">Kunno AI - Asistente Personal</h3>
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleClose}
                   className="text-white hover:text-gray-200"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,20 +224,24 @@ const AIAssistant = ({ course }) => {
                       className={`max-w-[80%] p-3 rounded-lg ${
                         message.role === 'user'
                           ? 'bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white'
-                          : 'bg-gray-100 text-gray-800'
+                          : 'bg-white shadow-md'
                       }`}
                     >
-                      {message.content}
+                      {message.role === 'user' ? (
+                        message.content
+                      ) : (
+                        <StructuredResponse content={message.content} />
+                      )}
                     </div>
                   </div>
                 ))}
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className="bg-gray-100 p-3 rounded-lg">
+                    <div className="bg-white shadow-md p-3 rounded-lg">
                       <div className="flex space-x-2">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                        <div className="w-2 h-2 bg-[#FF5F13] rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-[#FF5F13] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                        <div className="w-2 h-2 bg-[#FF5F13] rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
                       </div>
                     </div>
                   </div>
@@ -196,7 +255,7 @@ const AIAssistant = ({ course }) => {
                     type="text"
                     value={inputMessage}
                     onChange={(e) => setInputMessage(e.target.value)}
-                    placeholder="Escribe tu pregunta aquí..."
+                    placeholder={`Escribe tu pregunta aquí, ${user?.firstName || 'estudiante'}...`}
                     className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   />
                   <button
