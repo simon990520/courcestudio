@@ -1,5 +1,6 @@
 "use client";
 import { ref, get, set, update } from "firebase/database";
+import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useUser } from "@clerk/nextjs";
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -9,6 +10,7 @@ import service from "@/configs/service";
 import Loading from "../_components/Loading";
 import { useRouter } from "next/navigation";
 import { realtimeDb } from "@/configs/firebaseConfig";
+import { storage } from "@/configs/firebaseConfig";
 import { HiOutlineClock, HiOutlineAcademicCap, HiOutlineBookOpen, HiOutlineSparkles } from "react-icons/hi2";
 
 const CourseLayout = ({ params }) => {
@@ -70,25 +72,29 @@ const CourseLayout = ({ params }) => {
   };
 
   const handleImageUpload = async (file) => {
-    if (!file) return;
-
     try {
-      const formData = new FormData();
-      formData.append('image', file);
+      const imageRef = storageRef(storage, `ai-course/${Date.now()}.jpg`);
+      await uploadBytes(imageRef, file);
+      const downloadUrl = await getDownloadURL(imageRef);
+      
+      // Actualizar la referencia del curso en la base de datos
+      const courseRef = ref(realtimeDb, `courses/${params.courseId}`);
+      await update(courseRef, {
+        courseBanner: downloadUrl
+      });
 
-      // Aquí deberías implementar la lógica para subir la imagen a tu servicio de almacenamiento
-      // const response = await uploadImage(formData);
-      // const imageUrl = response.url;
+      // Actualizar el estado local
+      setCourse(prev => ({
+        ...prev,
+        courseBanner: downloadUrl
+      }));
 
-      // Actualizar la URL de la imagen en la base de datos
-      const courseRef = ref(realtimeDb, `courses/${course.courseId}`);
-      // await update(courseRef, { courseBanner: imageUrl });
-
-      toast.success('Imagen actualizada correctamente');
-      getCourseData(); // Recargar los datos del curso
+      toast.success('¡Imagen actualizada con éxito!');
     } catch (error) {
       console.error('Error al subir la imagen:', error);
-      toast.error('Error al actualizar la imagen');
+      toast.error('Error al subir la imagen. Por favor intenta de nuevo.');
+    } finally {
+      setLoading(false);
     }
   };
 
