@@ -1,38 +1,134 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { useUser } from '@clerk/nextjs';
 import { ref, get, set } from 'firebase/database';
 import { realtimeDb } from '@/configs/firebaseConfig';
 import { LearningMetrics } from './LearningMetrics';
-import { useUser } from "@clerk/nextjs";
-import { generateCourseResponse } from '@/services/gemini';
-import { 
-  StructuredResponse,
-  InfoBox,
-  WarningBox,
-  ExampleBox,
-  StepsList,
-  ProgressSection,
-  CodeBlock
-} from './MessageComponents';
+import { generateCourseResponse, evaluateAnswer } from '@/services/gemini';
+import { StructuredResponse } from './MessageComponents';
 
 const AIAssistant = ({ course }) => {
-  const { user } = useUser();
-  const [isOpen, setIsOpen] = useState(false);
+  const { userId, user: clerkUser } = useUser();
   const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [metrics, setMetrics] = useState(null);
+  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const chatContainerRef = useRef(null);
-  const sessionStartTime = useRef(null);
+  const [userMetrics, setUserMetrics] = useState(null);
 
   useEffect(() => {
-    if (user?.id && isOpen) {
+    if (userId) {
       loadUserMetrics();
-      sessionStartTime.current = new Date();
+      if (messages.length === 0) {
+        setMessages([{
+          role: 'assistant',
+          content: {
+            type: 'welcome',
+            title: `¡Bienvenido${clerkUser?.firstName ? `, ${clerkUser.firstName}` : ''}! 👋`,
+            explanation: `Soy tu asistente personal para el curso "${course.courseOutput?.course?.name}". 
+                         Estoy aquí para ayudarte a entender mejor el contenido, responder tus preguntas 
+                         y guiarte en tu aprendizaje. ¿En qué puedo ayudarte hoy?`
+          }
+        }]);
+      }
     }
-  }, [user?.id, isOpen]);
+  }, [userId, course.courseOutput?.course?.name, clerkUser?.firstName]);
+
+  const loadUserMetrics = async () => {
+    if (!userId) return;
+
+    try {
+      const metricsRef = ref(realtimeDb, `users/${userId}/metrics`);
+      const snapshot = await get(metricsRef);
+      const data = snapshot.val();
+      
+      if (data) {
+        const metrics = LearningMetrics.fromJSON(data);
+        setUserMetrics(metrics);
+      } else {
+        const newMetrics = new LearningMetrics();
+        setUserMetrics(newMetrics);
+        await saveMetrics(newMetrics);
+      }
+    } catch (error) {
+      console.error('Error al cargar métricas:', error);
+    }
+  };
+
+  const saveMetrics = async (metrics) => {
+    if (!userId) return;
+
+    try {
+      const metricsRef = ref(realtimeDb, `users/${userId}/metrics`);
+      await set(metricsRef, metrics.toJSON());
+    } catch (error) {
+      console.error('Error al guardar métricas:', error);
+    }
+  };
+
+  const handleSendMessage = async (message) => {
+    if (!message.trim()) return;
+
+    try {
+      setIsLoading(true);
+      const newMessages = [...messages, { role: 'user', content: message }];
+      setMessages(newMessages);
+
+      if (currentQuestion) {
+        const evaluation = await evaluateAnswer(
+          currentQuestion.question,
+          message,
+          currentQuestion.correctAnswer,
+          clerkUser?.firstName
+        );
+
+        if (userMetrics) {
+          userMetrics.recordAnswer(evaluation.isCorrect);
+          if (evaluation.accuracy >= 80) {
+            userMetrics.addMasteredTopic(currentQuestion.topic);
+          } else {
+            userMetrics.addImprovementNeeded(currentQuestion.topic);
+          }
+          await saveMetrics(userMetrics);
+        }
+
+        setMessages([
+          ...newMessages,
+          { role: 'assistant', content: evaluation }
+        ]);
+        setCurrentQuestion(null);
+      } else {
+        const response = await generateCourseResponse(
+          message,
+          course,
+          userMetrics,
+          clerkUser?.firstName
+        );
+
+        if (response.type === 'exam_request') {
+          setCurrentQuestion(response.exam);
+        }
+
+        setMessages([...newMessages, { role: 'assistant', content: response }]);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setMessages([
+        ...messages,
+        {
+          role: 'assistant',
+          content: {
+            type: 'error',
+            title: 'Error',
+            explanation: 'Lo siento, hubo un error al procesar tu mensaje. Por favor, inténtalo de nuevo.'
+          }
+        }
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -40,238 +136,100 @@ const AIAssistant = ({ course }) => {
     }
   }, [messages]);
 
-  const loadUserMetrics = async () => {
-    try {
-      const metricsRef = ref(realtimeDb, `userMetrics/${user.id}`);
-      const snapshot = await get(metricsRef);
-      let userMetrics;
-      
-      if (snapshot.exists()) {
-        // Convertir los datos de Firebase a una instancia de LearningMetrics
-        const data = snapshot.val();
-        userMetrics = LearningMetrics.fromJSON(data);
-      } else {
-        userMetrics = new LearningMetrics(user.id);
-      }
-
-      setMetrics(userMetrics);
-      
-      // Iniciar nueva sesión
-      userMetrics.startSession({
-        device: navigator.platform,
-        browser: navigator.userAgent
-      });
-      
-      // Guardar métricas actualizadas
-      await set(metricsRef, userMetrics.toJSON());
-    } catch (error) {
-      console.error('Error al cargar métricas:', error);
-    }
-  };
-
-  const saveMetrics = async () => {
-    if (!metrics || !user?.id) return;
-    
-    try {
-      const metricsRef = ref(realtimeDb, `userMetrics/${user.id}`);
-      await set(metricsRef, metrics.toJSON());
-    } catch (error) {
-      console.error('Error al guardar métricas:', error);
-    }
-  };
-
-  // Función para evaluar la dificultad de una pregunta
-  const assessQuestionDifficulty = (question) => {
-    const length = question.length;
-    const complexityMarkers = ['por qué', 'cómo', 'explica', 'compara', 'analiza'];
-    const hasComplexity = complexityMarkers.some(marker => question.toLowerCase().includes(marker));
-    
-    if (length > 100 || hasComplexity) return 'hard';
-    if (length > 50) return 'medium';
-    return 'easy';
-  };
-
-  const handleSendMessage = async (e) => {
-    e.preventDefault();
-    if (!inputMessage.trim()) return;
-
-    const userMessage = inputMessage.trim();
-    setInputMessage('');
-    setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
-    setIsLoading(true);
-
-    try {
-      const startTime = new Date();
-      
-      // Generar respuesta usando Gemini
-      const response = await generateCourseResponse(userMessage, course, metrics);
-      
-      // Actualizar métricas
-      if (metrics) {
-        const endTime = new Date();
-        const responseTime = (endTime - startTime) / 1000;
-        const difficulty = assessQuestionDifficulty(userMessage);
-        
-        // Determinar si la respuesta fue relevante basado en su longitud y contenido
-        const isRelevant = response.length > 100 && !response.includes("no tengo suficiente información");
-        
-        // Obtener el tema más relevante del curso basado en la pregunta
-        const topic = course.chapters?.find(chapter => 
-          userMessage.toLowerCase().includes(chapter.name.toLowerCase())
-        )?.name || 'general';
-        
-        metrics.recordAnswer(
-          isRelevant,
-          topic,
-          difficulty,
-          responseTime,
-          isRelevant ? 4 : 3 // Confianza simulada
-        );
-        
-        await saveMetrics();
-      }
-
-      setMessages(prev => [...prev, {
-        role: 'assistant',
-        content: response
-      }]);
-    } catch (error) {
-      console.error('Error al procesar mensaje:', error);
-      setMessages(prev => [...prev, {
-        role: 'assistant',
-        content: `Lo siento ${user?.firstName || ''}, hubo un error al procesar tu pregunta. ¿Podrías reformularla?`
-      }]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  // Guardar métricas al cerrar el chat
-  const handleClose = async () => {
-    if (metrics && sessionStartTime.current) {
-      const sessionDuration = (new Date() - sessionStartTime.current) / 60000; // en minutos
-      metrics.usage.totalTimeSpent += sessionDuration;
-      await saveMetrics();
-    }
-    setIsOpen(false);
-  };
-
-  return (
-    <>
-      {/* Botón flotante */}
-      <motion.button
-        className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white shadow-lg flex items-center justify-center hover:shadow-xl z-50"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={() => {
-          setIsOpen(true);
-          if (messages.length === 0) {
-            setMessages([{
-              role: 'assistant',
-              content: `¡Hola ${user?.firstName || ''}! Soy tu asistente para el curso "${course.courseOutput?.course?.name}". 
-                       Puedo ayudarte a entender mejor el contenido, responder preguntas específicas sobre los temas o guiarte a través de los capítulos.
-                       También puedo mostrarte tu progreso y estadísticas de aprendizaje, solo pregúntame "¿cómo voy?" o "muestra mi progreso".
-                       ¿En qué puedo ayudarte hoy?`
-            }]);
-          }
-        }}
+  if (!isOpen) {
+    return (
+      <button
+        onClick={() => setIsOpen(true)}
+        className="fixed bottom-6 right-6 p-4 bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white rounded-full shadow-lg hover:opacity-90 transition-opacity z-50"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
         </svg>
-      </motion.button>
+      </button>
+    );
+  }
 
-      {/* Modal del chat */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-            onClick={(e) => e.target === e.currentTarget && handleClose()}
+  return (
+    <div className="fixed bottom-6 right-6 w-[400px] h-[600px] bg-gray-50 rounded-lg shadow-lg z-50">
+      <div className="absolute top-2 right-2">
+        <button
+          onClick={() => setIsOpen(false)}
+          className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div className="p-4 bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white rounded-t-lg">
+        <h2 className="text-xl font-semibold">Asistente AI</h2>
+        <p className="text-sm opacity-90">
+          {clerkUser?.firstName ? `Hola, ${clerkUser.firstName}! ` : ''}
+          Estoy aquí para ayudarte a aprender
+        </p>
+      </div>
+
+      <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 h-[calc(100%-160px)]">
+        {messages.map((message, index) => (
+          <div
+            key={index}
+            className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-xl shadow-xl w-full max-w-lg h-[600px] flex flex-col"
+            <div
+              className={`max-w-[80%] p-3 rounded-lg ${
+                message.role === 'user'
+                  ? 'bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white'
+                  : 'bg-white shadow-md'
+              }`}
             >
-              {/* Header */}
-              <div className="p-4 border-b bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white rounded-t-xl flex justify-between items-center">
-                <h3 className="text-lg font-medium">Kunno AI - Asistente Personal</h3>
-                <button
-                  onClick={handleClose}
-                  className="text-white hover:text-gray-200"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
+              {message.role === 'user' ? (
+                message.content
+              ) : (
+                <StructuredResponse content={message.content} />
+              )}
+            </div>
+          </div>
+        ))}
+        {isLoading && (
+          <div className="flex justify-start">
+            <div className="bg-white shadow-md p-3 rounded-lg">
+              <div className="flex space-x-2">
+                <div className="w-2 h-2 bg-[#FF5F13] rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-[#FF5F13] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-2 h-2 bg-[#FF5F13] rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
               </div>
-
-              {/* Chat messages */}
-              <div
-                ref={chatContainerRef}
-                className="flex-1 overflow-y-auto p-4 space-y-4"
-              >
-                {messages.map((message, index) => (
-                  <div
-                    key={index}
-                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                  >
-                    <div
-                      className={`max-w-[80%] p-3 rounded-lg ${
-                        message.role === 'user'
-                          ? 'bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white'
-                          : 'bg-white shadow-md'
-                      }`}
-                    >
-                      {message.role === 'user' ? (
-                        message.content
-                      ) : (
-                        <StructuredResponse content={message.content} />
-                      )}
-                    </div>
-                  </div>
-                ))}
-                {isLoading && (
-                  <div className="flex justify-start">
-                    <div className="bg-white shadow-md p-3 rounded-lg">
-                      <div className="flex space-x-2">
-                        <div className="w-2 h-2 bg-[#FF5F13] rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-[#FF5F13] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                        <div className="w-2 h-2 bg-[#FF5F13] rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Input form */}
-              <form onSubmit={handleSendMessage} className="p-4 border-t">
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    value={inputMessage}
-                    onChange={(e) => setInputMessage(e.target.value)}
-                    placeholder={`Escribe tu pregunta aquí, ${user?.firstName || 'estudiante'}...`}
-                    className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  />
-                  <button
-                    type="submit"
-                    disabled={!inputMessage.trim() || isLoading}
-                    className="px-4 py-2 bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white rounded-lg hover:opacity-90 disabled:opacity-50 transition-opacity"
-                  >
-                    Enviar
-                  </button>
-                </div>
-              </form>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         )}
-      </AnimatePresence>
-    </>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 p-4 border-t bg-white">
+        <div className="flex space-x-2">
+          <input
+            type="text"
+            placeholder={currentQuestion ? "Escribe tu respuesta..." : "Hazme una pregunta..."}
+            className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF5F13]"
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') {
+                handleSendMessage(e.target.value);
+                e.target.value = '';
+              }
+            }}
+          />
+          <button
+            className="px-4 py-2 bg-gradient-to-r from-[#FF5F13] to-[#FBB041] text-white rounded-lg hover:opacity-90 transition-opacity"
+            onClick={(e) => {
+              const input = e.target.previousElementSibling;
+              handleSendMessage(input.value);
+              input.value = '';
+            }}
+          >
+            Enviar
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 

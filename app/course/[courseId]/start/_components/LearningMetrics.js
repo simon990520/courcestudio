@@ -17,7 +17,9 @@ export class LearningMetrics {
     this.progress = {
       masteredTopics: [],
       improvementNeeded: [],
-      timeline: [] // [{date, score, topic}]
+      timeline: [], // [{date, score, topic}]
+      totalQuestions: 0,
+      correctAnswers: 0
     };
     this.usage = {
       totalSessions: 0,
@@ -79,7 +81,16 @@ export class LearningMetrics {
       throw new Error('Datos inválidos para crear LearningMetrics');
     }
     const metrics = new LearningMetrics(data.userId);
-    Object.assign(metrics, data);
+    if (data) {
+      metrics.progress = {
+        masteredTopics: data.progress?.masteredTopics || [],
+        improvementNeeded: data.progress?.improvementNeeded || [],
+        timeline: data.progress?.timeline || [],
+        totalQuestions: data.progress?.totalQuestions || 0,
+        correctAnswers: data.progress?.correctAnswers || 0
+      };
+      Object.assign(metrics, data);
+    }
     return metrics;
   }
 
@@ -143,6 +154,12 @@ export class LearningMetrics {
         topic,
         score: isCorrect ? 1 : 0
       });
+    }
+
+    // Actualizar total de preguntas y respuestas correctas
+    this.progress.totalQuestions++;
+    if (isCorrect) {
+      this.progress.correctAnswers++;
     }
 
     this.lastUpdated = new Date().toISOString();
@@ -238,7 +255,13 @@ export class LearningMetrics {
       userId: this.userId,
       lastUpdated: this.lastUpdated,
       performance: this.performance,
-      progress: this.progress,
+      progress: {
+        masteredTopics: this.progress.masteredTopics,
+        improvementNeeded: this.progress.improvementNeeded,
+        timeline: this.progress.timeline,
+        totalQuestions: this.progress.totalQuestions,
+        correctAnswers: this.progress.correctAnswers
+      },
       usage: this.usage,
       preferences: this.preferences,
       feedback: this.feedback,
